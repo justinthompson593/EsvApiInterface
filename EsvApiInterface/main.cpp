@@ -36,9 +36,13 @@ int main(int argc, const char * argv[]) {
 	system(scriptOut);
 	
 	// curl it from online, save as .html, open it from here
-	sprintf(scriptOut, "echo \"$(curl %spassageQuery?key=IP\\&passage=%s+%s\\&include-headings=false\\&output-format=crossway-xml-1.0)\" > scripture.html && open scripture.html", httpAddress.c_str(), book.c_str(), chapter.c_str());
+	sprintf(scriptOut, "echo \"$(curl %spassageQuery?key=IP\\&passage=%s+%s)\" > scripture2.html && open scripture2.html", httpAddress.c_str(), book.c_str(), chapter.c_str());
 	system(scriptOut);
 	
+	// trying stuff
+	//	sprintf(scriptOut, "echo \"$(curl %spassageQuery?key=IP\\&passage=%s+%s\\&include-headings=false\\&output-format=crossway-xml-1.0)\" > scripture.html && open scripture.html", httpAddress.c_str(), book.c_str(), chapter.c_str());
+	//	system(scriptOut);
+
 	
 	return 0;
 }
