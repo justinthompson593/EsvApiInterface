@@ -36,7 +36,16 @@ int main(int argc, const char * argv[]) {
 	system(scriptOut);
 	
 	// curl it from online, save as .html, open it from here
-	sprintf(scriptOut, "echo \"$(curl %spassageQuery?key=IP\\&passage=%s+%s)\" > scripture2.html && open scripture2.html", httpAddress.c_str(), book.c_str(), chapter.c_str());
+	sprintf(scriptOut, "echo \"$(curl %spassageQuery?key=IP\\&passage=%s+%s)\" > scripture1.html && open scripture1.html", httpAddress.c_str(), book.c_str(), chapter.c_str());
+	system(scriptOut);
+	
+	// OUTPUT FORMATS
+	//
+	// mp3
+	sprintf(scriptOut, "open http://www.esvapi.org/v2/rest/passageQuery?key=IP\\&passage=1cor3:16\\&output-format=mp3");
+	system(scriptOut);
+	// plain-text			(Copied to Clipboard!)
+	sprintf(scriptOut, "echo \"$(curl http://www.esvapi.org/v2/rest/passageQuery?key=IP\\&passage=1cor3\\&output-format=plain-text)\" | pbcopy");
 	system(scriptOut);
 	
 	// trying stuff

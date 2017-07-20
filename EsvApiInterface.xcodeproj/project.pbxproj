@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6C1385991F1F1551002F837B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1385981F1F1551002F837B /* main.cpp */; };
+		6CC4F61F1F202CCB00D68D72 /* EsvApiInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC4F61D1F202CCB00D68D72 /* EsvApiInterface.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		6C1385951F1F1551002F837B /* EsvApiInterface */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EsvApiInterface; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C1385981F1F1551002F837B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6CC4F61D1F202CCB00D68D72 /* EsvApiInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EsvApiInterface.cpp; sourceTree = "<group>"; };
+		6CC4F61E1F202CCB00D68D72 /* EsvApiInterface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EsvApiInterface.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				6C1385981F1F1551002F837B /* main.cpp */,
+				6CC4F61D1F202CCB00D68D72 /* EsvApiInterface.cpp */,
+				6CC4F61E1F202CCB00D68D72 /* EsvApiInterface.hpp */,
 			);
 			path = EsvApiInterface;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C1385991F1F1551002F837B /* main.cpp in Sources */,
+				6CC4F61F1F202CCB00D68D72 /* EsvApiInterface.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +257,7 @@
 				6C13859E1F1F1551002F837B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
