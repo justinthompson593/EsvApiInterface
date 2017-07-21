@@ -12,6 +12,7 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
+#include "EsvApiInterface.hpp"
 
 using namespace std;
 
@@ -23,7 +24,26 @@ string scripture = "";
 //system(buff);
 //#endif
 
+
+EsvApiInterface ESVinterface;
+
+
+
 int main(int argc, const char * argv[]) {
+	
+	cout << "Debugging EsvApiInterface" << endl;
+	ESVinterface.debug();
+	cout << endl;
+	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_PASSAGE_REFS, 0);
+	ESVinterface.debug();
+	cout << endl;
+	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_VERSE_NUMS, 0);
+	ESVinterface.debug();
+	
+//	ESVinterface.openMp3("John3:16");
+	
+	return 111;
+	
 	
 	char scriptOut[32768];
 	
@@ -36,7 +56,7 @@ int main(int argc, const char * argv[]) {
 	system(scriptOut);
 	
 	// curl it from online, save as .html, open it from here
-	sprintf(scriptOut, "echo \"$(curl %spassageQuery?key=IP\\&passage=%s+%s)\" > scripture1.html && open scripture1.html", httpAddress.c_str(), book.c_str(), chapter.c_str());
+	sprintf(scriptOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > scripture1.html && echo \"$(curl %spassageQuery?key=IP\\&passage=%s+%s)\" >> scripture1.html && open scripture1.html", httpAddress.c_str(), book.c_str(), chapter.c_str());
 	system(scriptOut);
 	
 	// OUTPUT FORMATS
@@ -44,9 +64,20 @@ int main(int argc, const char * argv[]) {
 	// mp3
 	sprintf(scriptOut, "open http://www.esvapi.org/v2/rest/passageQuery?key=IP\\&passage=1cor3:16\\&output-format=mp3");
 	system(scriptOut);
-	// plain-text			(Copied to Clipboard!)
+	
+	// mp3 and save file
+	sprintf(scriptOut, "echo \"$(curl http://www.esvapi.org/v2/rest/passageQuery?key=IP\\&passage=1cor3:16\\&output-format=mp3)\" > 1cor3_16.mp3");
+	system(scriptOut);
+
+	// plain-text
+	
+	
+	// plain-text copied to clipboard
 	sprintf(scriptOut, "echo \"$(curl http://www.esvapi.org/v2/rest/passageQuery?key=IP\\&passage=1cor3\\&output-format=plain-text)\" | pbcopy");
 	system(scriptOut);
+	
+	
+	
 	
 	// trying stuff
 	//	sprintf(scriptOut, "echo \"$(curl %spassageQuery?key=IP\\&passage=%s+%s\\&include-headings=false\\&output-format=crossway-xml-1.0)\" > scripture.html && open scripture.html", httpAddress.c_str(), book.c_str(), chapter.c_str());
