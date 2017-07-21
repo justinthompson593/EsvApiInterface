@@ -47,7 +47,8 @@ int main(int argc, const char * argv[]) {
 //	
 //	ESVinterface.openPassage("John2");
 
-	ESVinterface.savePassage("Eph5");
+//	ESVinterface.savePassage("Eph5");
+	ESVinterface.openPassage("John2");
 	
 	return 111;
 	

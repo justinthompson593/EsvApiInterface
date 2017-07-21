@@ -101,7 +101,8 @@ void EsvApiInterface::saveMp3(string passage){
 void EsvApiInterface::openPassage(string passage){
 	char bashOut[2048];
 	if(includeCssInHtml){
-		
+		savePassage(passage);
+		sprintf(bashOut, "open %s.html && sleep 1 && rm %s.html", passage.c_str(), passage.c_str());
 	}
 	else{
 		sprintf(bashOut, "open %spassageQuery%s\\&passage=%s%s%s%s%s%s%s", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str());
