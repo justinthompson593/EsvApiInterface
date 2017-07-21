@@ -97,7 +97,7 @@ void EsvApiInterface::saveMp3(string passage){
 	sprintf(bashOut, "echo \"$(curl %spassageQuery%s\\&passage=%s\\&output-format=mp3)\" > %s.mp3", url.c_str(), key.c_str(), passage.c_str(), passage.c_str());
 	system(bashOut);
 }
-//sprintf(scriptOut, "open %spassageQuery?key=IP\\&passage=%s+%s\\&include-headings=false", httpAddress.c_str(), book.c_str(), chapter.c_str());
+
 void EsvApiInterface::openPassage(string passage){
 	char bashOut[2048];
 	if(includeCssInHtml){
@@ -105,7 +105,7 @@ void EsvApiInterface::openPassage(string passage){
 		sprintf(bashOut, "open %s.html && sleep 1 && rm %s.html", passage.c_str(), passage.c_str());
 	}
 	else{
-		sprintf(bashOut, "open %spassageQuery%s\\&passage=%s%s%s%s%s%s%s", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str());
+		sprintf(bashOut, "open %spassageQuery%s\\&passage=%s%s%s%s%s%s%s%s", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
 	}
 	
 	system(bashOut);
@@ -113,10 +113,25 @@ void EsvApiInterface::openPassage(string passage){
 
 void EsvApiInterface::savePassage(string passage){
 	char bashOut[2048] = "";
-	if(includeCssInHtml)
-		sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
-	
-	sprintf(bashOut, "%secho \"$(curl %spassageQuery%s\\&passage=%s%s%s%s%s%s%s)\" >> %s.html", bashOut, url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), passage.c_str());
+	if(includeCssInHtml){
+		
+		switch (cssType) {
+			case ESV_HTML_OPTIONS_CSS_TYPE_DEFAULT:
+			{
+				sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
+			}
+    break;
+				
+			default:
+			{
+				sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
+			}
+    break;
+		}
+		
+		
+	}
+	sprintf(bashOut, "%secho \"$(curl %spassageQuery%s\\&passage=%s%s%s%s%s%s%s%s)\" >> %s.html", bashOut, url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str(), passage.c_str());
 	
 	system(bashOut);
 }

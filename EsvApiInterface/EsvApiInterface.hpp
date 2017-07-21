@@ -16,14 +16,14 @@
 
 using namespace std;
 
-#define ESV_HTML_OPTIONS_PASSAGE_REFS	0
-#define ESV_HTML_OPTIONS_VERSE_NUMS		1
-#define ESV_HTML_OPTIONS_FOOTNOTES		2
-#define ESV_HTML_OPTIONS_FOOTNOTE_LINKS	3
-#define ESV_HTML_OPTIONS_HEADINGS		4
-#define ESV_HTML_OPTIONS_SUBHEADINGS	5
+#define ESV_HTML_OPTIONS_PASSAGE_REFS		0
+#define ESV_HTML_OPTIONS_VERSE_NUMS			1
+#define ESV_HTML_OPTIONS_FOOTNOTES			2
+#define ESV_HTML_OPTIONS_FOOTNOTE_LINKS		3
+#define ESV_HTML_OPTIONS_HEADINGS			4
+#define ESV_HTML_OPTIONS_SUBHEADINGS		5
 
-
+#define ESV_HTML_OPTIONS_CSS_TYPE_DEFAULT	6
 
 class EsvApiInterface {
 	
@@ -34,9 +34,11 @@ class EsvApiInterface {
 	
 	
 	// Options
-	bool includeCssInHtml = true;
+	
 	
 	// HTML output Options
+	bool includeCssInHtml = true;
+	int cssType = ESV_HTML_OPTIONS_CSS_TYPE_DEFAULT;
 	//				   add \ for bash formatting	   (1=true   0=false)
 	string passageRefs = "\\&include-passage-references=1";
 	string verseNums = "\\&include-verse-numbers=1";
@@ -45,8 +47,8 @@ class EsvApiInterface {
 	string headings = "\\&include-headings=1";
 	string subHeadings = "\\&include-subheadings=1";
 	
-	// audio output 
-	string audioFormat = "audio-format=mp3";
+	// Audio output Options 
+	string audioFormat = "\\&audio-format=mp3";
 	
 	
 	
