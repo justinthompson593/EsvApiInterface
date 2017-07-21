@@ -85,7 +85,7 @@ void EsvApiInterface::setHTMLOutputOptions(int ESV_HTML_OPTIONS_ENUM, bool value
 			break;
 	}
 }
-//sprintf(scriptOut, "open http://www.esvapi.org/v2/rest/passageQuery?key=IP\\&passage=1cor3:16\\&output-format=mp3");
+
 void EsvApiInterface::openMp3(string passage){
 	char bashOut[2048];
 	sprintf(bashOut, "open %spassageQuery%s\\&passage=%s\\&output-format=mp3", url.c_str(), key.c_str(), passage.c_str());
@@ -97,9 +97,11 @@ void EsvApiInterface::saveMp3(string passage){
 	sprintf(bashOut, "echo \"$(curl %spassageQuery%s\\&passage=%s\\&output-format=mp3)\" > %s.mp3", url.c_str(), key.c_str(), passage.c_str(), passage.c_str());
 	system(bashOut);
 }
-
+//sprintf(scriptOut, "open %spassageQuery?key=IP\\&passage=%s+%s\\&include-headings=false", httpAddress.c_str(), book.c_str(), chapter.c_str());
 void EsvApiInterface::openPassage(string passage){
-	
+	char bashOut[2048];
+	sprintf(bashOut, "open %spassageQuery%s\\&passage=%s%s%s%s%s%s%s", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str());
+	system(bashOut);
 }
 
 void EsvApiInterface::savePassage(string passage){
