@@ -44,10 +44,11 @@ int main(int argc, const char * argv[]) {
 //	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, 1);
 //	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, 1);
 //	ESVinterface.debug();
-//	
-//	ESVinterface.openPassage("John2");
+//
+	ESVinterface.includeCss(0);
+	ESVinterface.openPassage("John2");
 
-	ESVinterface.savePassage("Exo1");
+//	ESVinterface.savePassage("Exo1");
 //	ESVinterface.openPassage("John2");
 	
 	return 111;

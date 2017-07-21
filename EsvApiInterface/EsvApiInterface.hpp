@@ -57,7 +57,7 @@ public:
 	
 	void setKey(string newKey);
 	void setHTMLOutputOptions(int ESV_HTML_OPTIONS_ENUM, bool value);
-	
+	void includeCss(bool True_False);
 	
 	
 	// FUNCTION: passageQuery (with 3 output types)
