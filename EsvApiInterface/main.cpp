@@ -41,7 +41,7 @@ int main(int argc, const char * argv[]) {
 	ESVinterface.debug();
 	
 //	ESVinterface.openMp3("John3:16");
-	
+	ESVinterface.saveMp3("Eph5:11");
 	return 111;
 	
 	

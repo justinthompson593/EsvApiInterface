@@ -87,13 +87,15 @@ void EsvApiInterface::setHTMLOutputOptions(int ESV_HTML_OPTIONS_ENUM, bool value
 }
 //sprintf(scriptOut, "open http://www.esvapi.org/v2/rest/passageQuery?key=IP\\&passage=1cor3:16\\&output-format=mp3");
 void EsvApiInterface::openMp3(string passage){
-	char bashOut[512];
+	char bashOut[2048];
 	sprintf(bashOut, "open %spassageQuery%s\\&passage=%s\\&output-format=mp3", url.c_str(), key.c_str(), passage.c_str());
 	system(bashOut);
 }
 
 void EsvApiInterface::saveMp3(string passage){
-	
+	char bashOut[2048];
+	sprintf(bashOut, "echo \"$(curl %spassageQuery%s\\&passage=%s\\&output-format=mp3)\" > %s.mp3", url.c_str(), key.c_str(), passage.c_str(), passage.c_str());
+	system(bashOut);
 }
 
 void EsvApiInterface::openPassage(string passage){
