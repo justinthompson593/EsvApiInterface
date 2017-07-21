@@ -32,20 +32,22 @@ EsvApiInterface ESVinterface;
 int main(int argc, const char * argv[]) {
 	
 	cout << "Debugging EsvApiInterface" << endl;
-	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_PASSAGE_REFS, 0);
-	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_VERSE_NUMS, 0);
-	ESVinterface.debug();
-	
-//	ESVinterface.openMp3("John3:16");
-//	ESVinterface.saveMp3("Eph5:11");
-	
-	ESVinterface.openPassage("John2");
-	
-	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_PASSAGE_REFS, 1);
-	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_VERSE_NUMS, 1);
-	ESVinterface.debug();
-	
-	ESVinterface.openPassage("John2");
+//	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, 0);
+//	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, 0);
+//	ESVinterface.debug();
+//	
+////	ESVinterface.openMp3("John3:16");
+////	ESVinterface.saveMp3("Eph5:11");
+//	
+//	ESVinterface.openPassage("John2");
+//	
+//	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, 1);
+//	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, 1);
+//	ESVinterface.debug();
+//	
+//	ESVinterface.openPassage("John2");
+
+	ESVinterface.savePassage("Eph5");
 	
 	return 111;
 	

@@ -100,12 +100,24 @@ void EsvApiInterface::saveMp3(string passage){
 //sprintf(scriptOut, "open %spassageQuery?key=IP\\&passage=%s+%s\\&include-headings=false", httpAddress.c_str(), book.c_str(), chapter.c_str());
 void EsvApiInterface::openPassage(string passage){
 	char bashOut[2048];
-	sprintf(bashOut, "open %spassageQuery%s\\&passage=%s%s%s%s%s%s%s", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str());
+	if(includeCssInHtml){
+		
+	}
+	else{
+		sprintf(bashOut, "open %spassageQuery%s\\&passage=%s%s%s%s%s%s%s", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str());
+	}
+	
 	system(bashOut);
 }
 
 void EsvApiInterface::savePassage(string passage){
+	char bashOut[2048] = "";
+	if(includeCssInHtml)
+		sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
 	
+	sprintf(bashOut, "%secho \"$(curl %spassageQuery%s\\&passage=%s%s%s%s%s%s%s)\" >> %s.html", bashOut, url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), passage.c_str());
+	
+	system(bashOut);
 }
 
 void EsvApiInterface::openText(string passage){
