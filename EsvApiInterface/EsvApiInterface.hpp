@@ -23,7 +23,8 @@ using namespace std;
 #define ESV_HTML_OPTIONS_HEADINGS			4
 #define ESV_HTML_OPTIONS_SUBHEADINGS		5
 
-#define ESV_HTML_OPTIONS_CSS_TYPE_DEFAULT	6
+#define ESV_CSS_OPTIONS_TYPE_DEFAULT		6
+#define ESV_CSS_OPTIONS_TYPE_DARK			7
 
 class EsvApiInterface {
 	
@@ -38,7 +39,7 @@ class EsvApiInterface {
 	
 	// HTML output Options
 	bool includeCssInHtml = true;
-	int cssType = ESV_HTML_OPTIONS_CSS_TYPE_DEFAULT;
+	int cssType = ESV_CSS_OPTIONS_TYPE_DEFAULT;
 	//				   add \ for bash formatting	   (1=true   0=false)
 	string passageRefs = "\\&include-passage-references=1";
 	string verseNums = "\\&include-verse-numbers=1";
@@ -58,6 +59,7 @@ public:
 	void setKey(string newKey);
 	void setHTMLOutputOptions(int ESV_HTML_OPTIONS_ENUM, bool value);
 	void includeCss(bool True_False);
+	void setCssType(int ESV_CSS_OPTIONS_ENUM);
 	
 	
 	// FUNCTION: passageQuery (with 3 output types)

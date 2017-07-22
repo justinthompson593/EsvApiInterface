@@ -90,6 +90,10 @@ void EsvApiInterface::includeCss(bool True_False){
 	includeCssInHtml = True_False;
 }
 
+void EsvApiInterface::setCssType(int ESV_CSS_OPTIONS_ENUM){
+	cssType = ESV_CSS_OPTIONS_ENUM;
+}
+
 void EsvApiInterface::openMp3(string passage){
 	char bashOut[2048];
 	sprintf(bashOut, "open %spassageQuery%s\\&passage=%s\\&output-format=mp3", url.c_str(), key.c_str(), passage.c_str());
@@ -120,12 +124,20 @@ void EsvApiInterface::savePassage(string passage){
 	if(includeCssInHtml){
 		
 		switch (cssType) {
-			case ESV_HTML_OPTIONS_CSS_TYPE_DEFAULT:
+			case ESV_CSS_OPTIONS_TYPE_DEFAULT:
 			{
 				sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
 			}
     break;
-				
+			case ESV_CSS_OPTIONS_TYPE_DARK:
+			{
+				sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
+//				sprintf(bashOut, "%secho \"<body bgcolor=\"#101010\">\" >> %s.html && ", bashOut, passage.c_str());
+//				sprintf(bashOut, "%secho \"<body text=\"#AAAAAA\">\" >> %s.html && ", bashOut, passage.c_str());
+//				sprintf(bashOut, "%secho \"<body link=\"#6F6F6F\">\" >> %s.html && ", bashOut, passage.c_str());
+//				sprintf(bashOut, "%secho \"<body vlink=\"#505050\">\" >> %s.html && ", bashOut, passage.c_str());
+			}
+    break;
 			default:
 			{
 				sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());

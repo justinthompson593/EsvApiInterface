@@ -26,6 +26,7 @@
 /* Begin PBXFileReference section */
 		6C1385951F1F1551002F837B /* EsvApiInterface */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EsvApiInterface; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C1385981F1F1551002F837B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6C8EBDA71F22D1E7003146B1 /* dark.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = dark.css; sourceTree = "<group>"; };
 		6CC4F61D1F202CCB00D68D72 /* EsvApiInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EsvApiInterface.cpp; sourceTree = "<group>"; };
 		6CC4F61E1F202CCB00D68D72 /* EsvApiInterface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EsvApiInterface.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +63,7 @@
 			children = (
 				6C1385981F1F1551002F837B /* main.cpp */,
 				6CC4F61D1F202CCB00D68D72 /* EsvApiInterface.cpp */,
+				6C8EBDA71F22D1E7003146B1 /* dark.css */,
 				6CC4F61E1F202CCB00D68D72 /* EsvApiInterface.hpp */,
 			);
 			path = EsvApiInterface;
