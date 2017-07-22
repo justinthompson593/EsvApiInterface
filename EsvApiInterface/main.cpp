@@ -46,8 +46,8 @@ int main(int argc, const char * argv[]) {
 //	ESVinterface.debug();
 //
 //	ESVinterface.includeCss(0);
-	ESVinterface.setCssType(ESV_CSS_OPTIONS_TYPE_DARK);
-	ESVinterface.openPassage("Luke2");
+//	ESVinterface.setCssType(ESV_CSS_OPTIONS_TYPE_DARK);
+	ESVinterface.savePassage("Luke2");
 
 //	ESVinterface.savePassage("Exo1");
 //	ESVinterface.openPassage("John2");
