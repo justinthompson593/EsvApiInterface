@@ -131,11 +131,7 @@ void EsvApiInterface::savePassage(string passage){
     break;
 			case ESV_CSS_OPTIONS_TYPE_DARK:
 			{
-				sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
-//				sprintf(bashOut, "%secho \"<body bgcolor=\"#101010\">\" >> %s.html && ", bashOut, passage.c_str());
-//				sprintf(bashOut, "%secho \"<body text=\"#AAAAAA\">\" >> %s.html && ", bashOut, passage.c_str());
-//				sprintf(bashOut, "%secho \"<body link=\"#6F6F6F\">\" >> %s.html && ", bashOut, passage.c_str());
-//				sprintf(bashOut, "%secho \"<body vlink=\"#505050\">\" >> %s.html && ", bashOut, passage.c_str());
+				sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=dark.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
 			}
     break;
 			default:

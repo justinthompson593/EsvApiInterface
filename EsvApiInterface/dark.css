@@ -10,11 +10,11 @@ a:visited {
 }
 h3 {
 	text-align: left;
-	color: rgb(100,100,100);
+	color: rgb(150,150,150);
 }
 span.verse-num {
 	color: rgb(125,125,125);
-	font-size: 100%;
+	font-size: 70%;
 	font-weight: bold;
 	padding-right: .15em;
 	padding-left: .25em;
