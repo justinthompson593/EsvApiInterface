@@ -71,8 +71,9 @@ public:
 	void openPassage(string passage);				// output type HTML
 	void savePassage(string passage);
 	
-	void openText(string passage);					// output type plain text
-	void saveText(string passage);
+	void copyText(string passage);					// output type plain text
+	void openText(string passage, bool copyToClipboard=0);
+	void saveText(string passage, bool copyToClipboard=0);
 	
 	
 	void debug();

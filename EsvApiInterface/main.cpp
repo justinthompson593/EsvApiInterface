@@ -50,7 +50,11 @@ int main(int argc, const char * argv[]) {
 //	ESVinterface.savePassage("Luke2");
 
 //	ESVinterface.savePassage("Exo1");
-	ESVinterface.openPassage("Mat5");
+//	ESVinterface.openPassage("Mat5");
+	
+//	ESVinterface.saveText("Mat5");
+	ESVinterface.saveText("luke8:3",true);
+	ESVinterface.openText("luke8");
 	
 	return 111;
 	

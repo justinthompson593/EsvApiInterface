@@ -156,13 +156,40 @@ void EsvApiInterface::savePassage(string passage){
 	system(bashOut);
 }
 
-void EsvApiInterface::openText(string passage){
-	
+
+void EsvApiInterface::copyText(string passage){
+#if defined(__APPLE__) && defined(__MACH__)
+	char buff[2048];
+	sprintf(buff, "echo \"$(curl %spassageQuery%s\\&passage=%s%s%s%s%s%s%s%s\\&output-format=plain-text)\" | pbcopy", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
+	//		sprintf(buff, "echo \"$(<%s.txt)\" | pbcopy", passage.c_str());
+	system(buff);
+#else
+	cout << "Sorry. Only have copy & paste functions for OSX right now." << endl;
+#endif
 }
 
-void EsvApiInterface::saveText(string passage){
+void EsvApiInterface::saveText(string passage, bool cpyToClip){
+	char bashOut[2048] = "";
+	sprintf(bashOut, "echo \"$(curl %spassageQuery%s\\&passage=%s%s%s%s%s%s%s%s\\&output-format=plain-text)\" > %s.txt", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str(), passage.c_str());
 	
+	
+	if(cpyToClip){
+		copyText(passage);
+	}
+	
+	system(bashOut);
 }
+
+
+void EsvApiInterface::openText(string passage, bool cpyToClip){
+	saveText(passage, cpyToClip);
+	char bashOut[2048] = "";
+	
+	sprintf(bashOut, "open %s.txt && sleep 1 && rm %s.txt", passage.c_str(), passage.c_str());
+	
+	system(bashOut);
+}
+
 
 
 void EsvApiInterface::debug(){
