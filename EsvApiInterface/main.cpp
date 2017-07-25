@@ -30,73 +30,87 @@ EsvApiInterface ESVinterface;
 
 
 int main(int argc, const char * argv[]) {
+
+	// Command Line Use
+
+	int numFlags = 0;
+	// check for flags
+	for(int i=1; i<argc; i++){
+		if( strncmp(argv[i], "-r", 2) == 0  ||  strncmp(argv[i], "-ref", 4) == 0){
+			i++;
+			numFlags++;
+			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_PASSAGE_REFS, stoi(argv[i]));
+		}
+		if( strncmp(argv[i], "-h", 2) == 0  ||  strncmp(argv[i], "-hed", 4) == 0){
+			i++;
+			numFlags++;
+			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, stoi(argv[i]));
+		}
+		if( strncmp(argv[i], "-s", 2) == 0  ||  strncmp(argv[i], "-sh", 3) == 0  ||  strncmp(argv[i], "-sub", 4) == 0){
+			i++;
+			numFlags++;
+			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, stoi(argv[i]));
+		}
+		if( strncmp(argv[i], "-f", 2) == 0  ||  strncmp(argv[i], "-fn", 3) == 0  ||  strncmp(argv[i], "-foot", 5) == 0){
+			i++;
+			numFlags++;
+			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_FOOTNOTES, stoi(argv[i]));
+		}
+		if( strncmp(argv[i], "-fl", 3) == 0  ||  strncmp(argv[i], "-fnl", 4) == 0  ||  strncmp(argv[i], "-ftlnk", 6) == 0){
+			i++;
+			numFlags++;
+			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_FOOTNOTE_LINKS, stoi(argv[i]));
+		}
+		if( strncmp(argv[i], "-n", 2) == 0  ||  strncmp(argv[i], "-vn", 3) == 0  ||  strncmp(argv[i], "-num", 4) == 0){
+			i++;
+			numFlags++;
+			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_VERSE_NUMS, stoi(argv[i]));
+		}
+		
+		
+		
+		
+	}
 	
-	cout << "Debugging EsvApiInterface" << endl;
-//	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, 0);
-//	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, 0);
-//	ESVinterface.debug();
-//	
-////	ESVinterface.openMp3("John3:16");
-////	ESVinterface.saveMp3("Eph5:11");
-//	
-//	ESVinterface.openPassage("John2");
-//	
-//	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, 1);
-//	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, 1);
-//	ESVinterface.debug();
+	
+	int numArgs = argc - 2*numFlags - 1;
+	
+	string passageInput(argv[1]);
+	cout << "Your passage is " << passageInput << endl;
+	cout << "Settings:" << endl;
+	ESVinterface.printSettings();
+	
+	if(numArgs == 1){
+		ESVinterface.openPassage(passageInput);
+	}
+	
+	
+	
+//	cout << "Debugging EsvApiInterface" << endl;
+////	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, 0);
+////	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, 0);
+////	ESVinterface.debug();
+////	
+//////	ESVinterface.openMp3("John3:16");
+//////	ESVinterface.saveMp3("Eph5:11");
+////	
+////	ESVinterface.openPassage("John2");
+////	
+////	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, 1);
+////	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, 1);
+////	ESVinterface.debug();
+////
+////	ESVinterface.includeCss(0);
+//	ESVinterface.setCssType(ESV_CSS_OPTIONS_TYPE_DARK);
+////	ESVinterface.savePassage("Luke2");
 //
-//	ESVinterface.includeCss(0);
-	ESVinterface.setCssType(ESV_CSS_OPTIONS_TYPE_DARK);
-//	ESVinterface.savePassage("Luke2");
-
-//	ESVinterface.savePassage("Exo1");
-//	ESVinterface.openPassage("Mat5");
-	
-//	ESVinterface.saveText("Mat5");
-	ESVinterface.saveText("luke8:3",true);
-	ESVinterface.openText("luke8");
-	
-	return 111;
-	
-	
-	char scriptOut[32768];
-	
-	string httpAddress = "http://www.esvapi.org/v2/rest/";
-	string book = "Gen";
-	string chapter = "5";
-	
-	// just open it from online
-	sprintf(scriptOut, "open %spassageQuery?key=IP\\&passage=%s+%s\\&include-headings=false", httpAddress.c_str(), book.c_str(), chapter.c_str());
-	system(scriptOut);
-	
-	// curl it from online, save as .html, open it from here
-	sprintf(scriptOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > scripture1.html && echo \"$(curl %spassageQuery?key=IP\\&passage=%s+%s)\" >> scripture1.html && open scripture1.html", httpAddress.c_str(), book.c_str(), chapter.c_str());
-	system(scriptOut);
-	
-	// OUTPUT FORMATS
-	//
-	// mp3
-	sprintf(scriptOut, "open http://www.esvapi.org/v2/rest/passageQuery?key=IP\\&passage=1cor3:16\\&output-format=mp3");
-	system(scriptOut);
-	
-	// mp3 and save file
-	sprintf(scriptOut, "echo \"$(curl http://www.esvapi.org/v2/rest/passageQuery?key=IP\\&passage=1cor3:16\\&output-format=mp3)\" > 1cor3_16.mp3");
-	system(scriptOut);
-
-	// plain-text
-	
-	
-	// plain-text copied to clipboard
-	sprintf(scriptOut, "echo \"$(curl http://www.esvapi.org/v2/rest/passageQuery?key=IP\\&passage=1cor3\\&output-format=plain-text)\" | pbcopy");
-	system(scriptOut);
-	
-	
-	
-	
-	// trying stuff
-	//	sprintf(scriptOut, "echo \"$(curl %spassageQuery?key=IP\\&passage=%s+%s\\&include-headings=false\\&output-format=crossway-xml-1.0)\" > scripture.html && open scripture.html", httpAddress.c_str(), book.c_str(), chapter.c_str());
-	//	system(scriptOut);
-
+////	ESVinterface.savePassage("Exo1");
+////	ESVinterface.openPassage("Mat5");
+//	
+////	ESVinterface.saveText("Mat5");
+//	ESVinterface.saveText("luke8:50-9:2",true);
+//	ESVinterface.openText("luke8");
+//	
 	
 	return 0;
 }

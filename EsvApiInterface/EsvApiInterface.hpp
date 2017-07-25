@@ -76,7 +76,7 @@ public:
 	void saveText(string passage, bool copyToClipboard=0);
 	
 	
-	void debug();
+	void printSettings();
 };
 
 

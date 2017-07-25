@@ -192,7 +192,7 @@ void EsvApiInterface::openText(string passage, bool cpyToClip){
 
 
 
-void EsvApiInterface::debug(){
+void EsvApiInterface::printSettings(){
 	
 	cout << "passageRefs: " << passageRefs << endl;
 	cout << "verseNums  : " << verseNums << endl;
