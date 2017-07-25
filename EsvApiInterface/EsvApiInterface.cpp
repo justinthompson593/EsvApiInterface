@@ -94,6 +94,10 @@ void EsvApiInterface::setCssType(int ESV_CSS_OPTIONS_ENUM){
 	cssType = ESV_CSS_OPTIONS_ENUM;
 }
 
+void EsvApiInterface::setRedLetter(bool true_false){
+	redLetter = true_false;
+}
+
 void EsvApiInterface::openMp3(string passage){
 	char bashOut[2048];
 	sprintf(bashOut, "open %spassageQuery%s\\&passage=%s\\&output-format=mp3", url.c_str(), key.c_str(), passage.c_str());

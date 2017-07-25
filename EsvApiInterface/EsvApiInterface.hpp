@@ -35,6 +35,7 @@ class EsvApiInterface {
 	
 	
 	// Options
+	bool redLetter = true;
 	
 	
 	// HTML output Options
@@ -60,6 +61,7 @@ public:
 	void setHTMLOutputOptions(int ESV_HTML_OPTIONS_ENUM, bool value);
 	void includeCss(bool True_False);
 	void setCssType(int ESV_CSS_OPTIONS_ENUM);
+	void setRedLetter(bool true_false);
 	
 	
 	// FUNCTION: passageQuery (with 3 output types)
