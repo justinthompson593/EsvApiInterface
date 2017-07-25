@@ -62,11 +62,11 @@
 		6C1385971F1F1551002F837B /* EsvApiInterface */ = {
 			isa = PBXGroup;
 			children = (
-				6CD329521F27BCD800332DF1 /* dark_redLetter.css */,
 				6C1385981F1F1551002F837B /* main.cpp */,
 				6CC4F61D1F202CCB00D68D72 /* EsvApiInterface.cpp */,
-				6C8EBDA71F22D1E7003146B1 /* dark.css */,
 				6CC4F61E1F202CCB00D68D72 /* EsvApiInterface.hpp */,
+				6C8EBDA71F22D1E7003146B1 /* dark.css */,
+				6CD329521F27BCD800332DF1 /* dark_redLetter.css */,
 			);
 			path = EsvApiInterface;
 			sourceTree = "<group>";

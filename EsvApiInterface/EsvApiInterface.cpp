@@ -135,7 +135,11 @@ void EsvApiInterface::savePassage(string passage){
     break;
 			case ESV_CSS_OPTIONS_TYPE_DARK:
 			{
-				sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=dark.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
+				if(redLetter)
+					sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=dark_redLetter.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
+				else
+					sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=dark.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
+				
 			}
     break;
 			default:
