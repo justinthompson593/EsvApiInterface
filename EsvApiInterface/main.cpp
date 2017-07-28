@@ -30,6 +30,16 @@ EsvApiInterface ESVinterface;
 
 
 int main(int argc, const char * argv[]) {
+	cout << "Debugging search" << endl;
+	
+//	ESVinterface.search("brought the king word", "1 Kings");
+//	
+//	ESVinterface.search("brought the king word");
+
+	
+	ESVinterface.search("then he", "1Sam");
+	
+	return 111;
 
 	// Command Line Use
 

@@ -123,6 +123,230 @@ void EsvApiInterface::openPassage(string passage){
 	system(bashOut);
 }
 
+string EsvApiInterface::processScope(string bookName){
+	string out = "";
+	
+	if( bookName == "Acts" || bookName == "ACT" || bookName == "Act"){
+		out = "Acts";
+	}
+	else if( bookName == "Amos" || bookName == "AMO" || bookName == "Amo"){
+		out = "Amos";
+	}
+	else if( bookName == "Chronicles1" || bookName == "CH1" || bookName == "Ch1" || bookName == "1Chr" || bookName == "1 Chr"){
+		out = "1 Chronicles";
+	}
+	else if( bookName == "Chronicles2" || bookName == "CH2" || bookName == "Ch2" || bookName == "2Chr" || bookName == "2 Chr"){
+		out = "2 Chronicles";
+	}
+	else if( bookName == "Colossians" || bookName == "COL" || bookName == "Col"){
+		out = "Colossians";
+	}
+	else if( bookName == "Corinthians1" || bookName == "CO1" || bookName == "1Corinthians" || bookName == "1COR" || bookName == "Co1" || bookName == "1Cor" || bookName == "1 Cor"){
+		out = "1 Corinthians";
+	}
+	else if( bookName == "Corinthians2" || bookName == "CO2" || bookName == "2Corinthians" || bookName == "2COR" || bookName == "Co2" || bookName == "2Cor" || bookName == "2 Cor"){
+		out = "2 Corinthians";
+	}
+	else if( bookName == "Daniel" || bookName == "DAN" || bookName == "Dan"){
+		out = "Daniel";
+	}
+	else if( bookName == "Deuteronomy" || bookName == "DEU" || bookName == "Deu"){
+		out = "Deuteronomy";
+	}
+	else if( bookName == "Ecclesiastes" || bookName == "ECC" || bookName == "Ecc"){
+		out = "Ecclesiastes";
+	}
+	else if( bookName == "Ephesians" || bookName == "EPH" || bookName == "Eph"){
+		out = "Ephesians";
+	}
+	else if( bookName == "Esther" || bookName == "EST" || bookName == "Est"){
+		out = "Esther";
+	}
+	else if( bookName == "Exodus" || bookName == "EXO" || bookName == "Exo"){
+		out = "Exodus";
+	}
+	else if( bookName == "Ezekiel" || bookName == "EZE" || bookName == "Eze"){
+		out = "Ezekiel";
+	}
+	else if( bookName == "Ezra" || bookName == "EZR" || bookName == "Ezr"){
+		out = "Ezra";
+	}
+	else if( bookName == "Galatians" || bookName == "GAL" || bookName == "Gal"){
+		out = "Galatians";
+	}
+	else if( bookName == "Genesis" || bookName == "GEN" || bookName == "Gen"){
+		out = "Genesis";
+	}
+	else if( bookName == "Habakkuk" || bookName == "HAB" || bookName == "Hab"){
+		out = "Habakkuk";
+	}
+	else if( bookName == "Haggai" || bookName == "HAG" || bookName == "Hag"){
+		out = "Haggai";
+	}
+	else if( bookName == "Hebrews" || bookName == "HEB" || bookName == "Heb"){
+		out = "Hebrews";
+	}
+	else if( bookName == "Hosea" || bookName == "HOS" || bookName == "Hos"){
+		out = "Hosea";
+	}
+	else if( bookName == "Isaiah" || bookName == "ISA" || bookName == "Isa"){
+		out = "Isaiah";
+	}
+	else if( bookName == "James" || bookName == "JAM" || bookName == "Jam"){
+		out = "James";
+	}
+	else if( bookName == "Jeremiah" || bookName == "JER" || bookName == "Jer"){
+		out = "Jeremiah";
+	}
+	else if( bookName == "Job" || bookName == "JOB" ){
+		out = "Job";
+	}
+	else if( bookName == "Joel" || bookName == "JOE" || bookName == "Joe"){
+		out = "Joel";
+	}
+	else if( bookName == "John" || bookName == "JOH" || bookName == "Joh"){
+		out = "John";
+	}
+	else if( bookName == "1John" || bookName == "JO1" || bookName == "Jo1" || bookName == "1Joh" || bookName == "1 Joh"){
+		out = "1 John";
+	}
+	else if( bookName == "2John" || bookName == "JO2" || bookName == "Jo2" || bookName == "2Joh" || bookName == "2 Joh"){
+		out = "2 John";
+	}
+	else if( bookName == "3John" || bookName == "JO3" || bookName == "Jo3" || bookName == "3Joh" || bookName == "3 Joh"){
+		out = "3 John";
+	}
+	else if( bookName == "Jonah" || bookName == "JON" || bookName == "Jon"){
+		out = "Jonah";
+	}
+	else if( bookName == "Joshua" || bookName == "JOS" || bookName == "Jos"){
+		out = "Joshua";
+	}
+	else if( bookName == "Jude" || bookName == "JDE" || bookName == "Jde"){
+		out = "Jude";
+	}
+	else if( bookName == "Judges" || bookName == "JUD" || bookName == "JDG" || bookName == "Jdg"){
+		out = "Judges";
+	}
+	else if( bookName == "Kings1" || bookName == "KNG1" || bookName == "1Kings" || bookName == "1KNG" || bookName == "KG1" || bookName == "1KG" || bookName == "Kg1" || bookName == "1Kin" || bookName == "1 Kin"){
+		out = "1 Kings";
+	}
+	else if( bookName == "Kings2" || bookName == "KNG2" || bookName == "2Kings" || bookName == "2KNG" || bookName == "KG2" || bookName == "2KG" || bookName == "Kg2" || bookName == "2Kin" || bookName == "2 Kin"){
+		out = "2 Kings";
+	}
+	else if( bookName == "Lamentations" || bookName == "LAM" || bookName == "Lam"){
+		out = "Lamentations";
+	}
+	else if( bookName == "Leviticus" || bookName == "LEV" || bookName == "Lev"){
+		out = "Leviticus";
+	}
+	else if( bookName == "Luke" || bookName == "LUK" || bookName == "Luk"){
+		out = "Luke";
+	}
+	else if( bookName == "Malachi" || bookName == "MAL" || bookName == "Mal"){
+		out = "Malachi";
+	}
+	else if( bookName == "Mark" || bookName == "MAR" || bookName == "Mar"){
+		out = "Mark";
+	}
+	else if( bookName == "Matthew" || bookName == "MAT" || bookName == "Mat"){
+		out = "Matthew";
+	}
+	else if( bookName == "Micah" || bookName == "MIC" || bookName == "Mic"){
+		out = "Micah";
+	}
+	else if( bookName == "Nahum" || bookName == "NAH" || bookName == "Nah"){
+		out = "Nahum";
+	}
+	else if( bookName == "Nehemiah" || bookName == "NEH" || bookName == "Neh"){
+		out = "Nehemiah";
+	}
+	else if( bookName == "Numbers" || bookName == "NUM" || bookName == "Num"){
+		out = "Numbers";
+	}
+	else if( bookName == "Obadiah" || bookName == "OBA" || bookName == "Oba"){
+		out = "Obadiah";
+	}
+	else if( bookName == "Peter1" || bookName == "PE1" || bookName == "1Peter" || bookName == "1PET" || bookName == "Pe1" || bookName == "1Pet" || bookName == "1 Pet"){
+		out = "1 Peter";
+	}
+	else if( bookName == "Peter2" || bookName == "PE2" || bookName == "2Peter" || bookName == "2PET" || bookName == "Pe2" || bookName == "2Pet" || bookName == "2 Pet"){
+		out = "2 Peter";
+	}
+	else if( bookName == "Philemon" || bookName == "PLM" || bookName == "Plm"){
+		out = "Philemon";
+	}
+	else if( bookName == "Philippians" || bookName == "PHI" || bookName == "Phi"){
+		out = "Philippians";
+	}
+	else if( bookName == "Proverbs" || bookName == "PRO" || bookName == "Pro"){
+		out = "Proverbs";
+	}
+	else if( bookName == "Psalms" || bookName == "PSA" || bookName == "Psa"){
+		out = "Psalms";
+	}
+	else if( bookName == "Revelation" || bookName == "REV" || bookName == "Rev"){
+		out = "Revelation";
+	}
+	else if( bookName == "Romans" || bookName == "ROM" || bookName == "Rom"){
+		out = "Romans";
+	}
+	else if( bookName == "Ruth" || bookName == "RUT" || bookName == "Rut"){
+		out = "Ruth";
+	}
+	else if( bookName == "Samuel1" || bookName == "SA1" || bookName == "1Samuel" || bookName == "1SAM" || bookName == "Sa1" || bookName == "1Sam" || bookName == "1 Sam"){
+		out = "1 Samuel";
+	}
+	else if( bookName == "Samuel2" || bookName == "SA2" || bookName == "2Samuel" || bookName == "2SAM" || bookName == "Sa2" || bookName == "2Sam" || bookName == "2 Sam"){
+		out = "2 Samuel";
+	}
+	else if( bookName == "SongOfSolomon" || bookName == "SOL" || bookName == "Sol"){
+		out = "Song of Solomon";
+	}
+	else if( bookName == "Thessalonians1" || bookName == "TH1" || bookName == "1Thessalonians" || bookName == "1THE" || bookName == "Th1" || bookName == "1The" || bookName == "1 The"){
+		out = "1 Thessalonians";
+	}
+	else if( bookName == "Thessalonians2" || bookName == "TH2" || bookName == "2Thessalonians" || bookName == "2THE" || bookName == "Th2" || bookName == "2The" || bookName == "2 The"){
+		out = "2 Thessalonians";
+	}
+	else if( bookName == "Timothy1" || bookName == "TI1" || bookName == "1Timothy" || bookName == "1TIM" || bookName == "Ti1" || bookName == "1Tim" || bookName == "1 Tim"){
+		out = "1 Timothy";
+	}
+	else if( bookName == "Timothy2" || bookName == "TI2" || bookName == "2Timothy" || bookName == "2TIM" || bookName == "Ti2" || bookName == "2Tim" || bookName == "2 Tim"){
+		out = "2 Timothy";
+	}
+	else if( bookName == "Titus" || bookName == "TIT" || bookName == "Tit"){
+		out = "Titus";
+	}
+	else if( bookName == "Zechariah" || bookName == "ZEC" || bookName == "ZAC" || bookName == "Zac" || bookName == "Zec"){
+		out = "Zechariah";
+	}
+	else if( bookName == "Zephaniah" || bookName == "ZEP" || bookName == "Zep"){
+		out = "Zephaniah";
+	}
+	else{
+		out = bookName;
+	}
+	
+	return out;
+}
+
+void EsvApiInterface::search(string stringToFind, string scopeIn){
+	char bashOut[2048];
+	
+	string scope = processScope(scopeIn);
+	
+	if(scope == ""){
+		sprintf(bashOut, "open %squery%s\\&q=\"%s\"", url.c_str(), key.c_str(), stringToFind.c_str());
+	}
+	else{
+		sprintf(bashOut, "open %squery%s\\&q=\"%s\"\\&scope=\"%s\"", url.c_str(), key.c_str(), stringToFind.c_str(), scope.c_str());
+	}
+	
+	
+	system(bashOut);
+}
+
 void EsvApiInterface::savePassage(string passage){
 	char bashOut[2048] = "";
 	if(includeCssInHtml){
@@ -190,6 +414,20 @@ void EsvApiInterface::openText(string passage, bool cpyToClip){
 	system(bashOut);
 }
 
+
+//string EsvApiInterface::getScope(string userInputScope){
+////	if(userInputScope == "gen" || userInputScope == "Gen" ){
+////		return BookList[0];
+////	}
+////	else if(userInputScope == "1kin" || userInputScope == "1Kin" || userInputScope == "1 kin" || userInputScope == "1 Kin" ){
+////		return BookList[10];
+////	}
+////	else{
+////		return userInputScope;
+////	}
+//	
+//	return "";
+//}
 
 
 void EsvApiInterface::printSettings(){

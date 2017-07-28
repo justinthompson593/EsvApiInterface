@@ -75,6 +75,9 @@ public:
 	void openText(string passage, bool copyToClipboard=0);
 	void saveText(string passage, bool copyToClipboard=0);
 	
+	// FUNCTION: query
+	string processScope(string userInputBookToSearch);
+	void search(string stringToFind, string bookToSearch="");
 	
 	void printSettings();
 };
