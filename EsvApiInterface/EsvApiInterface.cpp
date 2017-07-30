@@ -110,14 +110,16 @@ void EsvApiInterface::saveMp3(string passage){
 	system(bashOut);
 }
 
-void EsvApiInterface::openPassage(string passage){
+void EsvApiInterface::openPassage(string passage, bool save){
 	char bashOut[2048];
-	if(includeCssInHtml){
-		savePassage(passage);
-		sprintf(bashOut, "open %s.html && sleep 1 && rm %s.html", passage.c_str(), passage.c_str());
+	
+	savePassage(passage);
+	
+	if(save){
+		sprintf(bashOut, "open %s.html", passage.c_str());
 	}
 	else{
-		sprintf(bashOut, "open %spassageQuery%s\\&passage=%s%s%s%s%s%s%s%s", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
+		sprintf(bashOut, "open %s.html && sleep 1 && rm %s.html", passage.c_str(), passage.c_str());
 	}
 	
 	system(bashOut);
@@ -331,18 +333,98 @@ string EsvApiInterface::processScope(string bookName){
 	return out;
 }
 
-void EsvApiInterface::search(string stringToFind, string scopeIn){
+void EsvApiInterface::search(string stringToFind, string scopeIn, bool save){
 	char bashOut[2048];
 	
-	string scope = processScope(scopeIn);
+	string fileName = processSearchName(stringToFind);
+	saveSearch(stringToFind);
+
+	if(save)
+		sprintf(bashOut, "open %s.html", fileName.c_str());
+	else
+		sprintf(bashOut, "open %s.html && sleep 1 && rm %s.html", fileName.c_str(), fileName.c_str());
+	
+	
+//	if(includeCssInHtml){
+//		savePassage(passage);
+//		sprintf(bashOut, "open %s.html && sleep 1 && rm %s.html", passage.c_str(), passage.c_str());
+//	}
+//	else{
+//		sprintf(bashOut, "open %spassageQuery%s\\&passage=%s%s%s%s%s%s%s%s", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
+//	}
+	
+	system(bashOut);
+	
+//	char bashOut[2048];
+//	
+//	string scope = processScope(scopeIn);
+//	
+//	if(scope == ""){
+//		sprintf(bashOut, "open %squery%s\\&q=\"%s\"", url.c_str(), key.c_str(), stringToFind.c_str());
+//	}
+//	else{
+//		sprintf(bashOut, "open %squery%s\\&q=\"%s\"\\&scope=\"%s\"", url.c_str(), key.c_str(), stringToFind.c_str(), scope.c_str());
+//	}
+//	
+//	
+//	system(bashOut);
+}
+
+string EsvApiInterface::processSearchName(string searchStr){
+	string out = "";
+	
+	for(int i=0; i<searchStr.length(); i++){
+		if( searchStr.at(i) != ' ' )
+			out += searchStr.at(i);
+		else
+			out += "+";
+	}
+	
+	return out;
+}
+
+void EsvApiInterface::saveSearch(string stringToFind, string scopeIn){
+	char bashOut[2048];
+	
+	string scope = processSearchName(processScope(scopeIn));
+	string str = processSearchName(stringToFind);
+	
+	
+	if(includeCssInHtml){
+		
+		switch (cssType) {
+			case ESV_CSS_OPTIONS_TYPE_DEFAULT:
+			{
+				sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", str.c_str());
+			}
+    break;
+			case ESV_CSS_OPTIONS_TYPE_DARK:
+			{
+				if(redLetter)
+					sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=dark_redLetter.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", str.c_str());
+				else
+					sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=dark.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", stringToFind.c_str());
+				
+			}
+    break;
+			default:
+			{
+				sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", str.c_str());
+			}
+    break;
+		}
+		
+		
+	}
+	
+	
 	
 	if(scope == ""){
-		sprintf(bashOut, "open %squery%s\\&q=\"%s\"", url.c_str(), key.c_str(), stringToFind.c_str());
+		sprintf(bashOut, "%secho \"$(curl %squery%s\\&q=%s)\" >> %s.html", bashOut, url.c_str(), key.c_str(), str.c_str(), str.c_str());
 	}
 	else{
-		sprintf(bashOut, "open %squery%s\\&q=\"%s\"\\&scope=\"%s\"", url.c_str(), key.c_str(), stringToFind.c_str(), scope.c_str());
+		sprintf(bashOut, "%secho \"$(curl %squery%s\\&q=%s\\&scope=%s)\" >> %s.html", bashOut, url.c_str(), key.c_str(), str.c_str(), scope.c_str(), str.c_str());
 	}
-	
 	
 	system(bashOut);
 }
@@ -405,11 +487,17 @@ void EsvApiInterface::saveText(string passage, bool cpyToClip){
 }
 
 
-void EsvApiInterface::openText(string passage, bool cpyToClip){
+void EsvApiInterface::openText(string passage, bool cpyToClip, bool save){
 	saveText(passage, cpyToClip);
 	char bashOut[2048] = "";
 	
-	sprintf(bashOut, "open %s.txt && sleep 1 && rm %s.txt", passage.c_str(), passage.c_str());
+	if(save){
+		sprintf(bashOut, "open %s.txt", passage.c_str());
+	}
+	else{
+		sprintf(bashOut, "open %s.txt && sleep 1 && rm %s.txt", passage.c_str(), passage.c_str());
+	}
+	
 	
 	system(bashOut);
 }

@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
 #include "EsvApiInterface.hpp"
@@ -27,25 +28,82 @@ string scripture = "";
 
 EsvApiInterface ESVinterface;
 
-
+void initDefaults(){
+	
+	ofstream outFile;
+	outFile.open("defaults.dat", ios::out);
+	
+	if(outFile.is_open()){
+		cout << "Choose CSS type\n\n1: Default\n2: Dark\n\nEnter a number: ";
+		string usrIn;
+		cin >> usrIn;
+		int in = stoi(usrIn);
+		outFile << "CSS=" << in << endl;
+		
+		
+		outFile.close();
+	}
+	else{
+		// ?
+	}
+	
+}
 
 int main(int argc, const char * argv[]) {
-	cout << "Debugging search" << endl;
-	
-//	ESVinterface.search("brought the king word", "1 Kings");
+//	cout << "Debugging search" << endl;
+//	
+//	ESVinterface.setCssType(ESV_CSS_OPTIONS_TYPE_DARK);
+//	
+////	ESVinterface.search("brought the king word", "1 Kings");
+////	ESVinterface.saveSearch("brought the king word", "1 Kings");
+////
+////	ESVinterface.search("brought the king word");
+//
+//	
+////	ESVinterface.search("then he", "1Sam");
+//	
+////	ESVinterface.saveSearch("then he", "1Sam");
 //	
 //	ESVinterface.search("brought the king word");
+//	
+//	return 111;
 
 	
-	ESVinterface.search("then he", "1Sam");
+	ifstream ifs("defaults.dat");
+	string line;
+	if(ifs.fail()){
+		cout << "defaults.dat does not exist" << endl;
+		initDefaults();
+	}
+	else{
+		cout << "Here are the contents of defaults.dat\n\n";
+		while( getline(ifs, line) ){
+			cout << "Line: " << line << endl;
+		}
+	}
 	
-	return 111;
-
+	
+	
+	
+	return 222;
+	
+	
 	// Command Line Use
 
 	int numFlags = 0;
-	// check for flags
+	bool searching = false;
+	bool saving = false;
+	
 	for(int i=1; i<argc; i++){
+		// check for search query
+		if( strncmp(argv[i], "-s", 2) == 0 || strncmp(argv[i], "-sr", 3) == 0){
+			searching = true;
+		}
+		// check to save html file
+		if( strncmp(argv[i], "-S", 2) == 0 || strncmp(argv[i], "-sv", 3) == 0){
+			saving = true;
+		}
+		// check for flags
 		if( strncmp(argv[i], "-r", 2) == 0  ||  strncmp(argv[i], "-ref", 4) == 0){
 			i++;
 			numFlags++;
@@ -56,7 +114,7 @@ int main(int argc, const char * argv[]) {
 			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, stoi(argv[i]));
 		}
-		if( strncmp(argv[i], "-s", 2) == 0  ||  strncmp(argv[i], "-sh", 3) == 0  ||  strncmp(argv[i], "-sub", 4) == 0){
+		if( strncmp(argv[i], "-sh", 3) == 0  ||  strncmp(argv[i], "-sub", 4) == 0){
 			i++;
 			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, stoi(argv[i]));

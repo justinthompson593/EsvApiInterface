@@ -23,8 +23,8 @@ using namespace std;
 #define ESV_HTML_OPTIONS_HEADINGS			4
 #define ESV_HTML_OPTIONS_SUBHEADINGS		5
 
-#define ESV_CSS_OPTIONS_TYPE_DEFAULT		6
-#define ESV_CSS_OPTIONS_TYPE_DARK			7
+#define ESV_CSS_OPTIONS_TYPE_DEFAULT		1
+#define ESV_CSS_OPTIONS_TYPE_DARK			2
 
 class EsvApiInterface {
 	
@@ -68,16 +68,19 @@ public:
 	void openMp3(string passage);					// output type mp3
 	void saveMp3(string passage);
 	
-	void openPassage(string passage);				// output type HTML
+	void openPassage(string passage, bool save=0);	// output type HTML
 	void savePassage(string passage);
 	
 	void copyText(string passage);					// output type plain text
-	void openText(string passage, bool copyToClipboard=0);
+	void openText(string passage, bool copyToClipboard=0, bool save=0);
 	void saveText(string passage, bool copyToClipboard=0);
 	
 	// FUNCTION: query
 	string processScope(string userInputBookToSearch);
-	void search(string stringToFind, string bookToSearch="");
+	string processSearchName(string searchStr);
+	void search(string stringToFind, string bookToSearch="", bool save=0);
+	void saveSearch(string stringToFind, string bookToSearch="");
+	
 	
 	void printSettings();
 };
