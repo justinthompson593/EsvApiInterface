@@ -526,4 +526,5 @@ void EsvApiInterface::printSettings(){
 	cout << "footntelnks: " << footnoteLinks << endl;
 	cout << "headings   : " << headings << endl;
 	cout << "subheadings: " << subHeadings << endl;
+	cout << "CSS type   : " << cssType << endl;
 }
