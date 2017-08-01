@@ -28,6 +28,8 @@ using namespace std;
 
 class EsvApiInterface {
 	
+	string directory = "";
+	
 	// REST interface
 	string url = "http://www.esvapi.org/v2/rest/";
 	string key = "?key=IP";
@@ -56,6 +58,10 @@ class EsvApiInterface {
 	
 public:
 	EsvApiInterface();
+	EsvApiInterface(string direc);
+	
+	void setDirectory(string direc);
+	string getDirectory();
 	
 	void setKey(string newKey);
 	void setHTMLOutputOptions(int ESV_HTML_OPTIONS_ENUM, bool value);

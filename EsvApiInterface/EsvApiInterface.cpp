@@ -13,6 +13,18 @@ EsvApiInterface::EsvApiInterface(){
 	
 }
 
+EsvApiInterface::EsvApiInterface(string direc){
+	setDirectory(direc);
+}
+
+void EsvApiInterface::setDirectory(string direc){
+	directory = direc;
+}
+
+string EsvApiInterface::getDirectory(){
+	return directory;
+}
+
 void EsvApiInterface::setKey(string newKey){
 	key = "?key=";
 	key += newKey;
@@ -341,7 +353,7 @@ void EsvApiInterface::search(string stringToFind, string scopeIn, bool save){
 	char bashOut[2048];
 	
 	string fileName = processSearchName(stringToFind);
-	saveSearch(stringToFind);
+	saveSearch(stringToFind, scopeIn);
 
 	if(save)
 		sprintf(bashOut, "open %s.html", fileName.c_str());
@@ -405,9 +417,9 @@ void EsvApiInterface::saveSearch(string stringToFind, string scopeIn){
 			case ESV_CSS_OPTIONS_TYPE_DARK:
 			{
 				if(redLetter)
-					sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=dark_redLetter.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", str.c_str());
+					sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=%sdark_redLetter.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ",directory.c_str(), str.c_str());
 				else
-					sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=dark.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", stringToFind.c_str());
+					sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=%sdark.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", directory.c_str(), str.c_str());
 				
 			}
     break;

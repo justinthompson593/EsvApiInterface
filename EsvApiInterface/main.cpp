@@ -17,7 +17,7 @@
 
 using namespace std;
 
-string scripture = "";
+string esvDefaultPath = "/Users/justinthompson/Cpp/EsvApi/";
 
 //#if defined(__APPLE__) && defined(__MACH__)
 //char buff[32768];
@@ -26,7 +26,7 @@ string scripture = "";
 //#endif
 
 
-EsvApiInterface ESVinterface;
+EsvApiInterface ESVinterface(esvDefaultPath);
 
 void processDefaultSettings(string line){
 	
@@ -63,7 +63,9 @@ void processDefaultSettings(string line){
 void initDefaults(){
 	
 	ofstream outFile;
-	outFile.open("defaults.dat", ios::out);
+	char fileName[2048];
+	sprintf(fileName, "%sdefaults.dat", ESVinterface.getDirectory().c_str());
+	outFile.open(fileName, ios::out);
 	
 	if(outFile.is_open()){
 		cout << "Choose CSS type\n\n1: Default\n2: Dark\n\nEnter a number: ";
@@ -111,29 +113,14 @@ void initDefaults(){
 }
 
 int main(int argc, const char * argv[]) {
-//	cout << "Debugging search" << endl;
-//	
-//	ESVinterface.setCssType(ESV_CSS_OPTIONS_TYPE_DARK);
-//	
-////	ESVinterface.search("brought the king word", "1 Kings");
-////	ESVinterface.saveSearch("brought the king word", "1 Kings");
-////
-////	ESVinterface.search("brought the king word");
-//
-//	
-////	ESVinterface.search("then he", "1Sam");
-//	
-////	ESVinterface.saveSearch("then he", "1Sam");
-//	
-//	ESVinterface.search("brought the king word");
-//	
-//	return 111;
+
 
 	
-	ifstream ifs("defaults.dat");
+	char fileName[2048];
+	sprintf(fileName, "%sdefaults.dat", ESVinterface.getDirectory().c_str());
+	ifstream ifs(fileName);
 	string line;
 	if(ifs.fail()){
-		cout << "defaults.dat does not exist" << endl;
 		initDefaults();
 	}
 	else{
@@ -176,6 +163,7 @@ int main(int argc, const char * argv[]) {
 			i++;
 			searchString = (string)argv[i];
 			if( i+1 < argc ){
+				cout << "adding " << argv[i+1] << " to search scope" << endl;
 				i++;
 				searchScope = (string)argv[i];
 			}
