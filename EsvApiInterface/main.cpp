@@ -159,11 +159,19 @@ int main(int argc, const char * argv[]) {
 	string searchString;
 	string searchScope = "";
 	bool saving = false;
+	bool psgQuery = true;
+	bool txtOut = false;
+	bool mp3Out = false;
 	
 	for(int i=1; i<argc; i++){
 		
+		// check for redefine defaults
+		if( strncmp(argv[i], "-def", 7) == 0){
+			initDefaults();
+		}
+		
 		// check for search query
-		if( strncmp(argv[i], "-s", 2) == 0 || strncmp(argv[i], "-sr", 3) == 0){
+		if( (strncmp(argv[i], "-s", 2) == 0 && strncmp(argv[i], "-sub", 4) != 0) || strncmp(argv[i], "-search", 7) == 0){
 			searching = true;
 			i++;
 			searchString = (string)argv[i];
@@ -172,39 +180,50 @@ int main(int argc, const char * argv[]) {
 				searchScope = (string)argv[i];
 			}
 		}
-		// check to save html file
-		if( strncmp(argv[i], "-S", 2) == 0 || strncmp(argv[i], "-sv", 3) == 0){
+		// check to save html / mp3 / txt file
+		if( strncmp(argv[i], "-S", 2) == 0 || strncmp(argv[i], "-Save", 5) == 0){
 			saving = true;
+		}
+		
+		// Formats
+		if( strncmp(argv[i], "-txt", 4) == 0 ){
+			txtOut = true;
+		}
+		if( strncmp(argv[i], "-mp3", 4) == 0 ){
+			mp3Out = true;
+		}
+		if( strncmp(argv[i],   "-q", 2) == 0 ){
+			psgQuery = false;
 		}
 		
 		
 		// check for flags to override default settings
-		if( strncmp(argv[i], "-r", 2) == 0  ||  strncmp(argv[i], "-ref", 4) == 0){
+		if( strncmp(argv[i], "-ref", 4) == 0){
 			i++;
 			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_PASSAGE_REFS, stoi(argv[i]));
 		}
-		if( strncmp(argv[i], "-h", 2) == 0  ||  strncmp(argv[i], "-hed", 4) == 0){
+		if( strncmp(argv[i], "-hed", 4) == 0){
 			i++;
 			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, stoi(argv[i]));
 		}
-		if( strncmp(argv[i], "-sh", 3) == 0  ||  strncmp(argv[i], "-sub", 4) == 0){
+		if( strncmp(argv[i], "-sub", 4) == 0){
 			i++;
 			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, stoi(argv[i]));
 		}
-		if( strncmp(argv[i], "-f", 2) == 0  ||  strncmp(argv[i], "-fn", 3) == 0  ||  strncmp(argv[i], "-foot", 5) == 0){
+		if( strncmp(argv[i], "-foot", 5) == 0){
 			i++;
 			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_FOOTNOTES, stoi(argv[i]));
 		}
-		if( strncmp(argv[i], "-fl", 3) == 0  ||  strncmp(argv[i], "-fnl", 4) == 0  ||  strncmp(argv[i], "-ftlnk", 6) == 0){
+		if( strncmp(argv[i], "-flnk", 5) == 0){
 			i++;
 			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_FOOTNOTE_LINKS, stoi(argv[i]));
 		}
-		if( strncmp(argv[i], "-n", 2) == 0  ||  strncmp(argv[i], "-vn", 3) == 0  ||  strncmp(argv[i], "-num", 4) == 0){
+		if( strncmp(argv[i], "-num", 4) == 0){
 			i++;
 			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_VERSE_NUMS, stoi(argv[i]));
@@ -216,10 +235,28 @@ int main(int argc, const char * argv[]) {
 	}
 	
 
+	
+	if(psgQuery){
+		// assume 1st arg is a passage query
+		string passage(argv[1]);
+		ESVinterface.openPassage(passage, saving);
+	}
+	
+	if(txtOut){
+		string passage(argv[1]);
+		ESVinterface.openText(passage, saving);
+	}
+	
+	if(mp3Out){
+		string passage(argv[1]);
+		ESVinterface.openMp3(passage, saving);
+	}
+	
 	if(searching){
-		cout << "Searching for " << endl;
 		ESVinterface.search(searchString, searchScope, saving);
 	}
+	
+	
 	
 //	int numArgs = argc - 2*numFlags - 1;
 //	
@@ -230,33 +267,6 @@ int main(int argc, const char * argv[]) {
 //		ESVinterface.openPassage(passageInput);
 //	}
 	
-	
-	
-//	cout << "Debugging EsvApiInterface" << endl;
-////	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, 0);
-////	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, 0);
-////	ESVinterface.debug();
-////	
-//////	ESVinterface.openMp3("John3:16");
-//////	ESVinterface.saveMp3("Eph5:11");
-////	
-////	ESVinterface.openPassage("John2");
-////	
-////	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, 1);
-////	ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, 1);
-////	ESVinterface.debug();
-////
-////	ESVinterface.includeCss(0);
-//	ESVinterface.setCssType(ESV_CSS_OPTIONS_TYPE_DARK);
-////	ESVinterface.savePassage("Luke2");
-//
-////	ESVinterface.savePassage("Exo1");
-////	ESVinterface.openPassage("Mat5");
-//	
-////	ESVinterface.saveText("Mat5");
-//	ESVinterface.saveText("luke8:50-9:2",true);
-//	ESVinterface.openText("luke8");
-//	
 	
 	return 0;
 }

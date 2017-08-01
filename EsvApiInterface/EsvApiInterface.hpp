@@ -65,7 +65,7 @@ public:
 	
 	
 	// FUNCTION: passageQuery (with 3 output types)
-	void openMp3(string passage);					// output type mp3
+	void openMp3(string passage, bool save=0);		// output type mp3
 	void saveMp3(string passage);
 	
 	void openPassage(string passage, bool save=0);	// output type HTML

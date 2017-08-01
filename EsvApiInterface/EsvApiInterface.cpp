@@ -98,10 +98,14 @@ void EsvApiInterface::setRedLetter(bool true_false){
 	redLetter = true_false;
 }
 
-void EsvApiInterface::openMp3(string passage){
+void EsvApiInterface::openMp3(string passage, bool save){
 	char bashOut[2048];
 	sprintf(bashOut, "open %spassageQuery%s\\&passage=%s\\&output-format=mp3", url.c_str(), key.c_str(), passage.c_str());
 	system(bashOut);
+	
+	if(save){
+		saveMp3(passage);
+	}
 }
 
 void EsvApiInterface::saveMp3(string passage){
