@@ -25,6 +25,12 @@ string EsvApiInterface::getDirectory(){
 	return directory;
 }
 
+string EsvApiInterface::getCSS(){
+	string out = "";
+	
+	return out;
+}
+
 void EsvApiInterface::setKey(string newKey){
 	key = "?key=";
 	key += newKey;
@@ -416,10 +422,16 @@ void EsvApiInterface::saveSearch(string stringToFind, string scopeIn){
     break;
 			case ESV_CSS_OPTIONS_TYPE_DARK:
 			{
-				if(redLetter)
-					sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=%sdark_redLetter.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ",directory.c_str(), str.c_str());
-				else
-					sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=%sdark.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", directory.c_str(), str.c_str());
+				if(redLetter){
+					sprintf(bashOut, "echo \"<head><style>\" > %s.html && ", str.c_str());
+					sprintf(bashOut, "%secho \"$(<%sdark_redLetter.css)\" >> %s.html && ", bashOut, directory.c_str(),str.c_str());
+					sprintf(bashOut, "%secho \"</style></head>\" >> %s.html && ", bashOut, str.c_str());
+				}
+				else{
+					sprintf(bashOut, "echo \"<head><style>\" > %s.html && ", str.c_str());
+					sprintf(bashOut, "%secho \"$(<%sdark.css)\" >> %s.html && ", bashOut, directory.c_str(),str.c_str());
+					sprintf(bashOut, "%secho \"</style></head>\" >> %s.html && ", bashOut, str.c_str());
+				}
 				
 			}
     break;
@@ -457,11 +469,16 @@ void EsvApiInterface::savePassage(string passage){
     break;
 			case ESV_CSS_OPTIONS_TYPE_DARK:
 			{
-				if(redLetter)
-					sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=dark_redLetter.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
-				else
-					sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=dark.css TYPE=\"text/css\" MEDIA=all>\" > %s.html && ", passage.c_str());
-				
+				if(redLetter){
+					sprintf(bashOut, "echo \"<head><style>\" > %s.html && ", passage.c_str());
+					sprintf(bashOut, "%secho \"$(<%sdark_redLetter.css)\" >> %s.html && ", bashOut, directory.c_str(),passage.c_str());
+					sprintf(bashOut, "%secho \"</style></head>\" >> %s.html && ", bashOut, passage.c_str());
+				}
+				else{
+					sprintf(bashOut, "echo \"<head><style>\" > %s.html && ", passage.c_str());
+					sprintf(bashOut, "%secho \"$(<%sdark.css)\" >> %s.html && ", bashOut, directory.c_str(),passage.c_str());
+					sprintf(bashOut, "%secho \"</style></head>\" >> %s.html && ", bashOut, passage.c_str());
+				}
 			}
     break;
 			default:

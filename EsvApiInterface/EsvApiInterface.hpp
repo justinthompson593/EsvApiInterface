@@ -88,6 +88,8 @@ public:
 	void saveSearch(string stringToFind, string bookToSearch="");
 	
 	
+	string getCSS();
+	
 	void printSettings();
 };
 

@@ -113,8 +113,7 @@ void initDefaults(){
 }
 
 int main(int argc, const char * argv[]) {
-
-
+	
 	
 	char fileName[2048];
 	sprintf(fileName, "%sdefaults.dat", ESVinterface.getDirectory().c_str());
