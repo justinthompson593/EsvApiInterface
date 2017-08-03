@@ -16,6 +16,8 @@
 
 using namespace std;
 
+#define ESV_BUFFER_SIZE 4096
+
 #define ESV_HTML_OPTIONS_PASSAGE_REFS		0
 #define ESV_HTML_OPTIONS_VERSE_NUMS			1
 #define ESV_HTML_OPTIONS_FOOTNOTES			2

@@ -117,7 +117,7 @@ void EsvApiInterface::setRedLetter(bool true_false){
 }
 
 void EsvApiInterface::openMp3(string passage, bool save){
-	char bashOut[2048];
+	char bashOut[ESV_BUFFER_SIZE];
 	sprintf(bashOut, "open %spassageQuery%s\\&passage=%s\\&output-format=mp3", url.c_str(), key.c_str(), passage.c_str());
 	system(bashOut);
 	
@@ -127,13 +127,13 @@ void EsvApiInterface::openMp3(string passage, bool save){
 }
 
 void EsvApiInterface::saveMp3(string passage){
-	char bashOut[2048];
+	char bashOut[ESV_BUFFER_SIZE];
 	sprintf(bashOut, "echo \"$(curl %spassageQuery%s\\&passage=%s\\&output-format=mp3)\" > %s.mp3", url.c_str(), key.c_str(), passage.c_str(), passage.c_str());
 	system(bashOut);
 }
 
 void EsvApiInterface::openPassage(string passage, bool save){
-	char bashOut[2048];
+	char bashOut[ESV_BUFFER_SIZE];
 	
 	savePassage(passage);
 	
@@ -356,7 +356,7 @@ string EsvApiInterface::processScope(string bookName){
 }
 
 void EsvApiInterface::search(string stringToFind, string scopeIn, bool save){
-	char bashOut[2048];
+	char bashOut[ESV_BUFFER_SIZE];
 	
 	string fileName = processSearchName(stringToFind);
 	saveSearch(stringToFind, scopeIn);
@@ -377,7 +377,7 @@ void EsvApiInterface::search(string stringToFind, string scopeIn, bool save){
 	
 	system(bashOut);
 	
-//	char bashOut[2048];
+//	char bashOut[ESV_BUFFER_SIZE];
 //	
 //	string scope = processScope(scopeIn);
 //	
@@ -406,7 +406,7 @@ string EsvApiInterface::processSearchName(string searchStr){
 }
 
 void EsvApiInterface::saveSearch(string stringToFind, string scopeIn){
-	char bashOut[2048];
+	char bashOut[ESV_BUFFER_SIZE];
 	
 	string scope = processSearchName(processScope(scopeIn));
 	string str = processSearchName(stringToFind);
@@ -458,7 +458,7 @@ void EsvApiInterface::saveSearch(string stringToFind, string scopeIn){
 }
 
 void EsvApiInterface::savePassage(string passage){
-	char bashOut[2048] = "";
+	char bashOut[ESV_BUFFER_SIZE] = "";
 	if(includeCssInHtml){
 		
 		switch (cssType) {
@@ -498,7 +498,7 @@ void EsvApiInterface::savePassage(string passage){
 
 void EsvApiInterface::copyText(string passage){
 #if defined(__APPLE__) && defined(__MACH__)
-	char buff[2048];
+	char buff[ESV_BUFFER_SIZE];
 	sprintf(buff, "echo \"$(curl %spassageQuery%s\\&passage=%s%s%s%s%s%s%s%s\\&output-format=plain-text)\" | pbcopy", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
 	//		sprintf(buff, "echo \"$(<%s.txt)\" | pbcopy", passage.c_str());
 	system(buff);
@@ -508,7 +508,7 @@ void EsvApiInterface::copyText(string passage){
 }
 
 void EsvApiInterface::saveText(string passage, bool cpyToClip){
-	char bashOut[2048] = "";
+	char bashOut[ESV_BUFFER_SIZE] = "";
 	sprintf(bashOut, "echo \"$(curl %spassageQuery%s\\&passage=%s%s%s%s%s%s%s%s\\&output-format=plain-text)\" > %s.txt", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str(), passage.c_str());
 	
 	
@@ -522,7 +522,7 @@ void EsvApiInterface::saveText(string passage, bool cpyToClip){
 
 void EsvApiInterface::openText(string passage, bool cpyToClip, bool save){
 	saveText(passage, cpyToClip);
-	char bashOut[2048] = "";
+	char bashOut[ESV_BUFFER_SIZE] = "";
 	
 	if(save){
 		sprintf(bashOut, "open %s.txt", passage.c_str());

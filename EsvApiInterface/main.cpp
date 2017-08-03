@@ -1,3 +1,5 @@
+#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
+
 //
 //  main.cpp
 //  EsvApiInterface
@@ -6,7 +8,6 @@
 //  Copyright © 2017 Justin Thompson. All rights reserved.
 //
 //  http://www.esvapi.org/api
-
 
 #include <iostream>
 #include <string>
@@ -17,7 +18,7 @@
 
 using namespace std;
 
-string esvDefaultPath = "/Users/justinthompson/Cpp/EsvApi/";
+//string ESV_PATH = "/Users/justinthompson/Cpp/EsvApi/";
 
 //#if defined(__APPLE__) && defined(__MACH__)
 //char buff[32768];
@@ -26,7 +27,7 @@ string esvDefaultPath = "/Users/justinthompson/Cpp/EsvApi/";
 //#endif
 
 
-EsvApiInterface ESVinterface(esvDefaultPath);
+EsvApiInterface ESVinterface(ESV_PATH);
 
 void processDefaultSettings(string line){
 	
@@ -130,8 +131,8 @@ int main(int argc, const char * argv[]) {
 	
 	
 	
-	cout << endl << "Settings: " << endl;
-	ESVinterface.printSettings();
+//	cout << endl << "Settings: " << endl;
+//	ESVinterface.printSettings();
 	
 	
 	
@@ -148,8 +149,14 @@ int main(int argc, const char * argv[]) {
 	bool psgQuery = true;
 	bool txtOut = false;
 	bool mp3Out = false;
+	bool cpyToClip = false;
 	
 	for(int i=1; i<argc; i++){
+		
+		// Copy text to clipboard
+		if( strncmp(argv[i], "-c", 2) == 0 ){
+			cpyToClip = true;
+		}
 		
 		// check for redefine defaults
 		if( strncmp(argv[i], "-def", 7) == 0){
@@ -162,7 +169,6 @@ int main(int argc, const char * argv[]) {
 			i++;
 			searchString = (string)argv[i];
 			if( i+1 < argc ){
-				cout << "adding " << argv[i+1] << " to search scope" << endl;
 				i++;
 				searchScope = (string)argv[i];
 			}
@@ -223,25 +229,25 @@ int main(int argc, const char * argv[]) {
 	
 
 	
-	if(psgQuery){
-		// assume 1st arg is a passage query
-		string passage(argv[1]);
-		ESVinterface.openPassage(passage, saving);
-	}
+	// First argument is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
+	if(psgQuery)
+		ESVinterface.openPassage(argv[1], saving);
 	
-	if(txtOut){
-		string passage(argv[1]);
-		ESVinterface.openText(passage, saving);
-	}
 	
-	if(mp3Out){
-		string passage(argv[1]);
-		ESVinterface.openMp3(passage, saving);
-	}
+	if(txtOut)
+		ESVinterface.openText(argv[1], cpyToClip, saving);
 	
-	if(searching){
+	
+	if(mp3Out)
+		ESVinterface.openMp3(argv[1], saving);
+	
+	
+	if(searching)
 		ESVinterface.search(searchString, searchScope, saving);
-	}
+	
+	
+	if(cpyToClip && !txtOut)
+		ESVinterface.copyText(argv[1]);
 	
 	
 	
