@@ -1,5 +1,4 @@
 #define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
-
 //
 //  main.cpp
 //  EsvApiInterface
@@ -18,13 +17,6 @@
 
 using namespace std;
 
-//string ESV_PATH = "/Users/justinthompson/Cpp/EsvApi/";
-
-//#if defined(__APPLE__) && defined(__MACH__)
-//char buff[32768];
-//sprintf(buff, "echo \"%s\" | pbcopy", scripture.c_str());
-//system(buff);
-//#endif
 
 
 EsvApiInterface ESVinterface(ESV_PATH);
