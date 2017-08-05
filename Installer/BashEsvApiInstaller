@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Get files needed to build executable
+curl -o main.cpp https://raw.githubusercontent.com/justinthompson593/EsvApiInterface/master/EsvApiInterface/main.cpp
+curl -o EsvApiInterface.cpp https://raw.githubusercontent.com/justinthompson593/EsvApiInterface/master/EsvApiInterface/EsvApiInterface.cpp
+curl -o EsvApiInterface.hpp https://raw.githubusercontent.com/justinthompson593/EsvApiInterface/master/EsvApiInterface/EsvApiInterface.hpp
+
+# Make new directory for settings & utility files
+mkdir EsvApi
+
+# Get utility files
+curl -o EsvApi/dark.css https://raw.githubusercontent.com/justinthompson593/EsvApiInterface/master/EsvApiInterface/dark.css
+curl -o EsvApi/dark_redLetter.css https://raw.githubusercontent.com/justinthompson593/EsvApiInterface/master/EsvApiInterface/dark_redLetter.css
+
+
+# Add path to directory to top of main.cpp
+echo "#define ESV_PATH \"$PWD/EsvApi/\"" | cat - main.cpp > temp && mv temp main.cpp
+
+# Build executable
+g++ main.cpp EsvApiInterface.cpp -o EsvApiInterface
+
+# Clean up
+rm main.cpp
+rm EsvApiInterface.cpp
+rm EsvApiInterface.hpp
+
+
+
