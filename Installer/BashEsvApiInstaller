@@ -32,3 +32,5 @@ rm EsvApiInterface.hpp
 # Add executable directory to path
 echo "export PATH=\"$PWD/EsvApi:$PATH\"" >> $HOME/.bash_profile
 
+# Exit
+exit
