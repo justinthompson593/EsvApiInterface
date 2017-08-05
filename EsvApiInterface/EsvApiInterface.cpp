@@ -515,7 +515,7 @@ void EsvApiInterface::openText(string passage, bool cpyToClip, bool save){
 	system(bashOut);
 }
 
-void EsvApiInterface::saveRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT_TYPE){
+void EsvApiInterface::saveRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT_TYPE, long seed){
 	
 	switch (ESV_RAND_OUTPUT_TYPE) {
   case ESV_RAND_OUTPUT_TYPE_HTML:{
@@ -539,11 +539,17 @@ void EsvApiInterface::saveRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT_TYPE){
   case ESV_RAND_OUTPUT_TYPE_TXT:{
 	  switch (ESV_RAND_TYPE) {
 		  case ESV_RAND_TYPE_DAILY:{
+			  char bashOut[ESV_BUFFER_SIZE] = "";
+			  sprintf(bashOut, "echo \"$(curl %sdailyVerse%s%s%s%s%s%s%s%s\\&output-format=plain-text)\" > dailyVerse.txt", url.c_str(), key.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
 			  
+			  system(bashOut);
 		  }
 			  break;
 		  case ESV_RAND_TYPE_RAND:{
+			  char bashOut[ESV_BUFFER_SIZE] = "";
+			  sprintf(bashOut, "echo \"$(curl %sverse%s\\&seed=%ld%s%s%s%s%s%s%s\\&output-format=plain-text)\" > randVerse.txt", url.c_str(), key.c_str(), seed, passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
 			  
+			  system(bashOut);
 		  }
 			  break;
 			  
@@ -556,7 +562,9 @@ void EsvApiInterface::saveRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT_TYPE){
   case ESV_RAND_OUTPUT_TYPE_MP3:{
 	  switch (ESV_RAND_TYPE) {
 		  case ESV_RAND_TYPE_DAILY:{
-			  
+			  char bashOut[ESV_BUFFER_SIZE];
+			  sprintf(bashOut, "echo \"$(curl %sdailyVerse%s\\&output-format=mp3)\" > dailyVerse.mp3", url.c_str(), key.c_str());
+			  system(bashOut);
 		  }
 			  break;
 		  case ESV_RAND_TYPE_RAND:{
