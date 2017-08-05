@@ -125,6 +125,11 @@ int main(int argc, const char * argv[]) {
 		}
 	}
 	
+	// Check first argument
+	if( strncmp(argv[1], "-init", 5) == 0 ){				// -init flag used in installer
+		return 1;
+	}
+	
 	// Command Line Use
 
 	int numFlags = 0;
@@ -214,11 +219,7 @@ int main(int argc, const char * argv[]) {
 	}
 	
 
-	// Check first argument
-	if( strncmp(argv[1], "-init", 5) == 0 ){
-		initDefaults();
-		return 1;
-	}
+	
 	
 	// First argument is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
 	if(psgQuery)

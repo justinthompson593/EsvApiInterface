@@ -515,7 +515,68 @@ void EsvApiInterface::openText(string passage, bool cpyToClip, bool save){
 	system(bashOut);
 }
 
-
+void EsvApiInterface::saveRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT_TYPE){
+	
+	switch (ESV_RAND_OUTPUT_TYPE) {
+  case ESV_RAND_OUTPUT_TYPE_HTML:{
+	  switch (ESV_RAND_TYPE) {
+		  case ESV_RAND_TYPE_DAILY:{
+			  
+		  }
+			  break;
+		  case ESV_RAND_TYPE_RAND:{
+			  
+		  }
+			  break;
+			  
+		  default:
+			  break;
+	  }
+	  
+  }
+			break;
+	
+  case ESV_RAND_OUTPUT_TYPE_TXT:{
+	  switch (ESV_RAND_TYPE) {
+		  case ESV_RAND_TYPE_DAILY:{
+			  
+		  }
+			  break;
+		  case ESV_RAND_TYPE_RAND:{
+			  
+		  }
+			  break;
+			  
+		  default:
+			  break;
+	  }
+  }
+			break;
+			
+  case ESV_RAND_OUTPUT_TYPE_MP3:{
+	  switch (ESV_RAND_TYPE) {
+		  case ESV_RAND_TYPE_DAILY:{
+			  
+		  }
+			  break;
+		  case ESV_RAND_TYPE_RAND:{
+			  
+		  }
+			  break;
+			  
+		  default:
+			  break;
+	  }
+  }
+			break;
+			
+  default:{
+	  
+  }
+			break;
+	}
+	
+}
 
 
 void EsvApiInterface::printSettings(){
