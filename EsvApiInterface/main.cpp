@@ -1,6 +1,6 @@
 
 // Uncomment below to debug
-#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/" // redefine for your system
+//#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/" // redefine for your system
 //
 //  main.cpp
 //  EsvApiInterface
@@ -18,7 +18,6 @@
 #include "EsvApiInterface.hpp"
 
 using namespace std;
-
 
 
 EsvApiInterface ESVinterface(ESV_PATH);
@@ -123,16 +122,6 @@ int main(int argc, const char * argv[]) {
 		}
 	}
 	
-	
-	
-//	cout << endl << "Settings: " << endl;
-//	ESVinterface.printSettings();
-	
-	
-	
-//	return 222;
-	
-	
 	// Command Line Use
 
 	int numFlags = 0;
@@ -222,7 +211,6 @@ int main(int argc, const char * argv[]) {
 	}
 	
 
-	
 	// First argument is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
 	if(psgQuery)
 		ESVinterface.openPassage(argv[1], saving);
@@ -243,16 +231,6 @@ int main(int argc, const char * argv[]) {
 	if(cpyToClip && !txtOut)
 		ESVinterface.copyText(argv[1]);
 	
-	
-	
-//	int numArgs = argc - 2*numFlags - 1;
-//	
-//	
-//	
-//	if(numArgs == 1){
-//		string passageInput(argv[1]);
-//		ESVinterface.openPassage(passageInput);
-//	}
 	
 	
 	return 0;
