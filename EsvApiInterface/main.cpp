@@ -1,4 +1,6 @@
-#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
+
+// 
+//#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
 //
 //  main.cpp
 //  EsvApiInterface
