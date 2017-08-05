@@ -56,6 +56,8 @@ void processDefaultSettings(string line){
 
 void initDefaults(){
 	
+	cout << "______________Esv Api Interface______________" << endl << endl;
+	
 	ofstream outFile;
 	char fileName[2048];
 	sprintf(fileName, "%sdefaults.dat", ESVinterface.getDirectory().c_str());
@@ -105,6 +107,7 @@ void initDefaults(){
 	}
 	
 }
+
 
 int main(int argc, const char * argv[]) {
 	
@@ -211,6 +214,12 @@ int main(int argc, const char * argv[]) {
 	}
 	
 
+	// Check first argument
+	if( strncmp(argv[1], "-init", 5) == 0 ){
+		initDefaults();
+		return 1;
+	}
+	
 	// First argument is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
 	if(psgQuery)
 		ESVinterface.openPassage(argv[1], saving);

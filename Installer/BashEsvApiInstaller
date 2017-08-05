@@ -23,6 +23,11 @@ echo "#define ESV_PATH \"$PWD/EsvApi/\"" | cat - main.cpp > temp && mv temp main
 # Build executable
 g++ main.cpp EsvApiInterface.cpp -o EsvApiInterface
 
+# Initialize & get user defaults
+./EsvApiInterface -init
+
+# Move to folder
+mv EsvApiInterface EsvApi
 
 # Clean up
 rm main.cpp
@@ -32,5 +37,3 @@ rm EsvApiInterface.hpp
 # Add executable directory to path
 echo "export PATH=\"$PWD/EsvApi:$PATH\"" >> $HOME/.bash_profile
 
-# Exit
-exit

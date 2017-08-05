@@ -37,11 +37,16 @@ int main(int argc, char* argv[]){
 	// Build executable & clean up
 	system("g++ main.cpp EsvApiInterface.cpp -o EsvApiInterface && rm -f main.cpp && rm -f EsvApiInterface.hpp && rm -f EsvApiInterface.cpp");
 	
+	// Initialize EsvApi & get user defaults
+	system("./EsvApiInterface -init");
+	
 	// Move to EsvApi/
 	system("mv EsvApiInterface EsvApi");
 	
 	// Add to path
-	system("echo \"export PATH=\\\"$PWD/EsvApi:$PATH\\\"\" >> $HOME/.bash_profile && exit");
+	system("echo \"export PATH=\\\"$PWD/EsvApi:$PATH\\\"\" >> $HOME/.bash_profile");
+	
+	
 	
 	return 0;
 }

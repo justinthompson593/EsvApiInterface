@@ -367,29 +367,9 @@ void EsvApiInterface::search(string stringToFind, string scopeIn, bool save){
 		sprintf(bashOut, "open %s.html && sleep 1 && rm %s.html", fileName.c_str(), fileName.c_str());
 	
 	
-//	if(includeCssInHtml){
-//		savePassage(passage);
-//		sprintf(bashOut, "open %s.html && sleep 1 && rm %s.html", passage.c_str(), passage.c_str());
-//	}
-//	else{
-//		sprintf(bashOut, "open %spassageQuery%s\\&passage=%s%s%s%s%s%s%s%s", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
-//	}
 	
 	system(bashOut);
 	
-//	char bashOut[ESV_BUFFER_SIZE];
-//	
-//	string scope = processScope(scopeIn);
-//	
-//	if(scope == ""){
-//		sprintf(bashOut, "open %squery%s\\&q=\"%s\"", url.c_str(), key.c_str(), stringToFind.c_str());
-//	}
-//	else{
-//		sprintf(bashOut, "open %squery%s\\&q=\"%s\"\\&scope=\"%s\"", url.c_str(), key.c_str(), stringToFind.c_str(), scope.c_str());
-//	}
-//	
-//	
-//	system(bashOut);
 }
 
 string EsvApiInterface::processSearchName(string searchStr){
@@ -536,19 +516,6 @@ void EsvApiInterface::openText(string passage, bool cpyToClip, bool save){
 }
 
 
-//string EsvApiInterface::getScope(string userInputScope){
-////	if(userInputScope == "gen" || userInputScope == "Gen" ){
-////		return BookList[0];
-////	}
-////	else if(userInputScope == "1kin" || userInputScope == "1Kin" || userInputScope == "1 kin" || userInputScope == "1 Kin" ){
-////		return BookList[10];
-////	}
-////	else{
-////		return userInputScope;
-////	}
-//	
-//	return "";
-//}
 
 
 void EsvApiInterface::printSettings(){
