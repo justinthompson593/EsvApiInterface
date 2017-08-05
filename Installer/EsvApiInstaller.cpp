@@ -41,7 +41,7 @@ int main(int argc, char* argv[]){
 	system("mv EsvApiInterface EsvApi");
 	
 	// Add to path
-	system("echo \"export PATH=\\\"$PWD/EsvApi:$PATH\\\"\" >> $HOME/.bash_profile");
+	system("echo \"export PATH=\\\"$PWD/EsvApi:$PATH\\\"\" >> $HOME/.bash_profile && exit");
 	
 	return 0;
 }
