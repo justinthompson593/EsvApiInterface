@@ -30,6 +30,7 @@
 		6CC4F61D1F202CCB00D68D72 /* EsvApiInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EsvApiInterface.cpp; sourceTree = "<group>"; };
 		6CC4F61E1F202CCB00D68D72 /* EsvApiInterface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EsvApiInterface.hpp; sourceTree = "<group>"; };
 		6CD329521F27BCD800332DF1 /* dark_redLetter.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = dark_redLetter.css; sourceTree = "<group>"; };
+		6CEC58781F35543300EE0000 /* Installer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Installer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +47,7 @@
 		6C13858C1F1F1551002F837B = {
 			isa = PBXGroup;
 			children = (
+				6CEC58781F35543300EE0000 /* Installer */,
 				6C1385971F1F1551002F837B /* EsvApiInterface */,
 				6C1385961F1F1551002F837B /* Products */,
 			);
