@@ -10,13 +10,24 @@ curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApi
 
 ### Flags
 
+* Saving and Output Options
 Flag | Function | Notes
 ---- | -------- | -----
 -q | Quiets default openPassage as HTML | Unnecessary to use if 1st arg is a flag
 -c | Copies passage to clipboard | Currently only available for OSX
--S | Saves all selected output formats | If multiple output types are specified, they will be saved 
--txt | Output text file | Without -S, this will open
--mp3 | Output mp3 file |
+-S | Saves all selected output formats |  
+-txt | Selects text  output | 
+-mp3 | Selects mp3  output|
+
+* Overriding Default Settings
+Flag | Setting | Notes
+---- | -------- | -----
+-hed | Headers | 0 = off / 1 = on
+-sub | Subheaders | 0 = off / 1 = on
+-foot | Footnotes | 0 = off / 1 = on  
+-flnk | Footnote Links | 0 = off / 1 = on
+
+
 
 ### Passage Query
 
