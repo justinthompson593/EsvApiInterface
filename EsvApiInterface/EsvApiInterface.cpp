@@ -515,74 +515,92 @@ void EsvApiInterface::openText(string passage, bool cpyToClip, bool save){
 	system(bashOut);
 }
 
-void EsvApiInterface::saveRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT_TYPE, long seed){
+void EsvApiInterface::openRand(int ESV_RAND_TYPE, bool saving, long seed){
+	char bashOut[ESV_BUFFER_SIZE];
+	saveRand(ESV_RAND_TYPE, seed);
+	if(saving){
+		if(ESV_RAND_TYPE == ESV_RAND_TYPE_RAND)
+			sprintf(bashOut, "open randVerse.html");
+		else if (ESV_RAND_TYPE == ESV_RAND_TYPE_DAILY)
+			sprintf(bashOut, "open dailyVerse.html");
+	}
+	else{
+		if(ESV_RAND_TYPE == ESV_RAND_TYPE_RAND)
+			sprintf(bashOut, "open randVerse.html && sleep 1 && rm randVerse.html");
+		else if (ESV_RAND_TYPE == ESV_RAND_TYPE_DAILY)
+			sprintf(bashOut, "open dailyVerse.html && sleep 1 && rm dailyVerse.html");
+	}
 	
-	switch (ESV_RAND_OUTPUT_TYPE) {
-  case ESV_RAND_OUTPUT_TYPE_HTML:{
-	  switch (ESV_RAND_TYPE) {
-		  case ESV_RAND_TYPE_DAILY:{
-			  
-		  }
-			  break;
-		  case ESV_RAND_TYPE_RAND:{
-			  
-		  }
-			  break;
-			  
-		  default:
-			  break;
-	  }
-	  
-  }
-			break;
+	system(bashOut);
+}
+
+void EsvApiInterface::saveRand(int ESV_RAND_TYPE, long seed){
+	char bashOut[ESV_BUFFER_SIZE] = "";
 	
-  case ESV_RAND_OUTPUT_TYPE_TXT:{
-	  switch (ESV_RAND_TYPE) {
-		  case ESV_RAND_TYPE_DAILY:{
-			  char bashOut[ESV_BUFFER_SIZE] = "";
-			  sprintf(bashOut, "echo \"$(curl %sdailyVerse%s%s%s%s%s%s%s%s\\&output-format=plain-text)\" > dailyVerse.txt", url.c_str(), key.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
-			  
-			  system(bashOut);
-		  }
-			  break;
-		  case ESV_RAND_TYPE_RAND:{
-			  char bashOut[ESV_BUFFER_SIZE] = "";
-			  sprintf(bashOut, "echo \"$(curl %sverse%s\\&seed=%ld%s%s%s%s%s%s%s\\&output-format=plain-text)\" > randVerse.txt", url.c_str(), key.c_str(), seed, passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
-			  
-			  system(bashOut);
-		  }
-			  break;
-			  
-		  default:
-			  break;
-	  }
-  }
-			break;
+	switch (ESV_RAND_TYPE) {
+		case ESV_RAND_TYPE_DAILY:{
+			if(includeCssInHtml){
+				switch (cssType) {
+					case ESV_CSS_OPTIONS_TYPE_DEFAULT:
+					{
+						sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > dailyVerse.html && ");
+					}
+						break;
+					case ESV_CSS_OPTIONS_TYPE_DARK:
+					{
+						if(redLetter){
+							sprintf(bashOut, "echo \"<head><style>\" > dailyVerse.html && ");
+							sprintf(bashOut, "%secho \"$(<%sdark_redLetter.css)\" >> dailyVerse.html && ", bashOut, directory.c_str());
+							sprintf(bashOut, "%secho \"</style></head>\" >> dailyVerse.html && ", bashOut);
+						}
+						else{
+							sprintf(bashOut, "echo \"<head><style>\" > dailyVerse.html && ");
+							sprintf(bashOut, "%secho \"$(<%sdark.css)\" >> dailyVerse.html && ", bashOut, directory.c_str());
+							sprintf(bashOut, "%secho \"</style></head>\" >> dailyVerse.html && ", bashOut);
+						}
+					}
+						break;
+					default:{sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > dailyVerse.html && ");}break;}
+			}
 			
-  case ESV_RAND_OUTPUT_TYPE_MP3:{
-	  switch (ESV_RAND_TYPE) {
-		  case ESV_RAND_TYPE_DAILY:{
-			  char bashOut[ESV_BUFFER_SIZE];
-			  sprintf(bashOut, "echo \"$(curl %sdailyVerse%s\\&output-format=mp3)\" > dailyVerse.mp3", url.c_str(), key.c_str());
-			  system(bashOut);
-		  }
-			  break;
-		  case ESV_RAND_TYPE_RAND:{
-			  
-		  }
-			  break;
-			  
-		  default:
-			  break;
-	  }
-  }
-			break;
+			sprintf(bashOut, "%secho \"$(curl %sdailyVerse%s%s%s%s%s%s%s%s)\" >> dailyVerse.html", bashOut, url.c_str(), key.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
+		}
+		break;
+		case ESV_RAND_TYPE_RAND:{
+			if(includeCssInHtml){
+				switch (cssType) {
+					case ESV_CSS_OPTIONS_TYPE_DEFAULT:
+					{
+						sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > randVerse.html && ");
+					}
+						break;
+					case ESV_CSS_OPTIONS_TYPE_DARK:
+					{
+						if(redLetter){
+							sprintf(bashOut, "echo \"<head><style>\" > randVerse.html && ");
+							sprintf(bashOut, "%secho \"$(<%sdark_redLetter.css)\" >> randVerse.html && ", bashOut, directory.c_str());
+							sprintf(bashOut, "%secho \"</style></head>\" >> randVerse.html && ", bashOut);
+						}
+						else{
+							sprintf(bashOut, "echo \"<head><style>\" > randVerse.html && ");
+							sprintf(bashOut, "%secho \"$(<%sdark.css)\" >> randVerse.html && ", bashOut, directory.c_str());
+							sprintf(bashOut, "%secho \"</style></head>\" >> randVerse.html && ", bashOut);
+						}
+					}
+						break;
+					default:{sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > randVerse.html && ");}break;}
+			}
 			
-  default:{
-	  
-  }
+			sprintf(bashOut, "%secho \"$(curl %sverse%s\\&seed=%ld%s%s%s%s%s%s%s)\" >> randVerse.html", bashOut, url.c_str(), key.c_str(), seed, passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
+		}
+		break;
+			
+		default:
 			break;
 	}
+	
+	
+	system(bashOut);
 	
 }
 

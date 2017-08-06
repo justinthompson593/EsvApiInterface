@@ -28,10 +28,6 @@ using namespace std;
 #define ESV_CSS_OPTIONS_TYPE_DEFAULT		1
 #define ESV_CSS_OPTIONS_TYPE_DARK			2
 
-#define ESV_RAND_OUTPUT_TYPE_HTML			0
-#define ESV_RAND_OUTPUT_TYPE_TXT			1
-#define ESV_RAND_OUTPUT_TYPE_MP3			2
-
 #define ESV_RAND_TYPE_RAND					0
 #define ESV_RAND_TYPE_DAILY					1
 
@@ -97,8 +93,8 @@ public:
 	void saveSearch(string stringToFind, string bookToSearch="");
 	
 	// FUNCTION: verse  (using &seed= instead of &passage= for random or daily verse)
-	void openRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT_TYPE, bool saving, long seed=0);
-	void saveRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT_TYPE, long seed=0);
+	void openRand(int ESV_RAND_TYPE, bool saving, long seed=0);
+	void saveRand(int ESV_RAND_TYPE, long seed=0);
 	
 	
 	string getCSS();
