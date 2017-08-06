@@ -10,10 +10,17 @@ curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApi
 
 ### Flags
 
+Flag | Function
+---- | --------
+-q | Quiets default openPassage 
+-S | Saves all selected output formats
+-txt | Output text file
+-mp3 | Output mp3 file
+
 ### Passage Query
 
 If your first argument is not a flag, then it is assumed to be a passage query. These are strings in the form 
 ```
 [bookNumber]BookNameChapterRange:verseRange
 ```
-For example, First Corinthians Chapter 1, verses 1 through 10 would be `1corinthians1:10`
+For example, 1st Corinthians Chapter 1, verses 1 through 10 would be `1corinthians1:10`. Book abbreviations are also acceptable, so `1cor1:10` will work too. 
