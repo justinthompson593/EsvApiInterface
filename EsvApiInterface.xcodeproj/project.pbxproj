@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6C1385991F1F1551002F837B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1385981F1F1551002F837B /* main.cpp */; };
+		6CBF83781F36B5A2009D4D30 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 6CBF83771F36B5A2009D4D30 /* README.md */; };
 		6CC4F61F1F202CCB00D68D72 /* EsvApiInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC4F61D1F202CCB00D68D72 /* EsvApiInterface.cpp */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		6C1385951F1F1551002F837B /* EsvApiInterface */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EsvApiInterface; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C1385981F1F1551002F837B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		6C8EBDA71F22D1E7003146B1 /* dark.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = dark.css; sourceTree = "<group>"; };
+		6CBF83771F36B5A2009D4D30 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6CC4F61D1F202CCB00D68D72 /* EsvApiInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EsvApiInterface.cpp; sourceTree = "<group>"; };
 		6CC4F61E1F202CCB00D68D72 /* EsvApiInterface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EsvApiInterface.hpp; sourceTree = "<group>"; };
 		6CD329521F27BCD800332DF1 /* dark_redLetter.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = dark_redLetter.css; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 		6C13858C1F1F1551002F837B = {
 			isa = PBXGroup;
 			children = (
+				6CBF83771F36B5A2009D4D30 /* README.md */,
 				6CEC58781F35543300EE0000 /* Installer */,
 				6C1385971F1F1551002F837B /* EsvApiInterface */,
 				6C1385961F1F1551002F837B /* Products */,
@@ -131,6 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CBF83781F36B5A2009D4D30 /* README.md in Sources */,
 				6C1385991F1F1551002F837B /* main.cpp in Sources */,
 				6CC4F61F1F202CCB00D68D72 /* EsvApiInterface.cpp in Sources */,
 			);

@@ -1,6 +1,6 @@
 
 // Uncomment below to debug
-//#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/" // redefine for your system
+#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/" // redefine for your system
 //
 //  main.cpp
 //  EsvApiInterface
@@ -21,6 +21,15 @@ using namespace std;
 
 
 EsvApiInterface ESVinterface(ESV_PATH);
+
+
+bool is_number(const std::string& s){
+	return !s.empty() && std::find_if(s.begin(),
+									  s.end(), [](char c) { return !std::isdigit(c); }) == s.end();
+	// From https://stackoverflow.com/questions/4654636/how-to-determine-if-a-string-is-a-number-with-c
+
+}
+
 
 void processDefaultSettings(string line){
 	
@@ -213,7 +222,20 @@ int main(int argc, const char * argv[]) {
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_VERSE_NUMS, stoi(argv[i]));
 		}
 		
-		
+		// randomVerse / dailyVerse
+		if( strncmp(argv[i], "-rnd", 4) == 0 || strncmp(argv[i], "-rand", 5) == 0 ){
+			if( i+1 < argc ){		// then next arg is a random seed
+				string nextArg(argv[i+1]);
+				if(is_number(nextArg))
+					ESVinterface.openRand(ESV_RAND_TYPE_RAND, saving, stol(argv[i+1]));
+				else
+					ESVinterface.openRand(ESV_RAND_TYPE_DAILY, saving);
+				
+			}
+			else{
+				ESVinterface.openRand(ESV_RAND_TYPE_DAILY, saving);
+			}
+		}
 		
 		
 	}
