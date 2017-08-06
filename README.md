@@ -10,18 +10,18 @@ curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApi
 
 ### Flags
 
-* **Saving and Output Options** 
+* **Saving and Output Options** These can be used in any order except if you want to save the HTML output of the `-rand` / `-rnd` flags, `-S` must come first. 
 
 Flag | Function | Notes
 ---- | -------- | -----
 -q | Quiets default openPassage as HTML | Unnecessary to use if 1st arg is a flag
 -c | Copies passage to clipboard | Currently only available for OSX
--rnd | Opens random verse as HTML | Returns the daily verse if not followed by a number. Otherwise, the following number is used as a random generator seed. 
+-rnd | Opens random verse as HTML | Returns the daily verse if not followed by a number. Otherwise, the following number is used as a random generator seed. -rand works too.
 -S | Saves all selected output formats |  
 -txt | Selects text  output | 
 -mp3 | Selects mp3  output|
 
-* **Overriding Default Settings** Must be followed by a 0 or a 1
+* **Overriding Default Settings** The flag must be followed by a 0 or a 1.
 
 Flag | Setting | Next Value
 ---- | -------- | -----
