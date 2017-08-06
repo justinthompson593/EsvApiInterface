@@ -11,7 +11,8 @@ curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApi
 ### Flags
 
 * **Saving and Output Options** 
-These can be used in any order except if you want to save the HTML output of the `-rand` or `-rnd` flags, then `-S` must come first. So `$ EsvApiInterface -S -rand` will open and save the daily verse. Reversing the order of the flags will open the 
+
+These can be used in any order except if you want to save the HTML output of the `-rand` or `-rnd` flags. Then `-S` must come first. So `$ EsvApiInterface -S -rand` will open and save the daily verse. Reversing the order of the flags will open the verse, but the .html file will not be saved. However, `$ EsvApiInterface John3 -rnd 24601 -S` will open and save John chapter 3, and it will open a randomly selected verse (seeded by the numerical input 24601) which will not be saved.   
 
 Flag | Function | Notes
 ---- | -------- | -----
@@ -23,6 +24,7 @@ Flag | Function | Notes
 -mp3 | Selects mp3  output|
 
 * **Overriding Default Settings** 
+
 The flag must be followed by a 0 or a 1. Running `$ EsvApiInterface 1Cor1-2 -sub 0 -foot 0 ` would open 1st Corinthians chapters 1 and 2 as an HTML file, and the formatting would not have subheaders or footnotes.
 
 Flag | Setting | Next Value
