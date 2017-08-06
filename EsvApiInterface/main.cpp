@@ -1,6 +1,6 @@
 
 // Uncomment below to debug
-#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/" // redefine for your system
+//#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/" // redefine for your system
 //
 //  main.cpp
 //  EsvApiInterface
