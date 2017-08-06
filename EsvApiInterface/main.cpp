@@ -249,27 +249,29 @@ int main(int argc, const char * argv[]) {
 	}
 	
 
-	
-	
-	// First argument is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
-	if(psgQuery)
-		ESVinterface.openPassage(argv[1], saving);
-	
-	
-	if(txtOut)
-		ESVinterface.openText(argv[1], cpyToClip, saving);
-	
-	
-	if(mp3Out)
-		ESVinterface.openMp3(argv[1], saving);
-	
-	
 	if(searching)
 		ESVinterface.search(searchString, searchScope, saving);
 	
+	if( strncmp(argv[1], "-", 1) != 0 ){
+		// then argument is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
+		if(psgQuery)
+			ESVinterface.openPassage(argv[1], saving);
+		
+		
+		if(txtOut)
+			ESVinterface.openText(argv[1], cpyToClip, saving);
+		
+		
+		if(mp3Out)
+			ESVinterface.openMp3(argv[1], saving);
+		
+		
+		if(cpyToClip && !txtOut)
+			ESVinterface.copyText(argv[1]);
+	}
 	
-	if(cpyToClip && !txtOut)
-		ESVinterface.copyText(argv[1]);
+	
+	
 	
 	
 	
