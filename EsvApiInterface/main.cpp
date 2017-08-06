@@ -27,13 +27,16 @@ using namespace std;
 
 EsvApiInterface ESVinterface(ESV_PATH);
 
-
 bool is_number(const std::string& s){
-	return !s.empty() && std::find_if(s.begin(),
-									  s.end(), [](char c) { return !std::isdigit(c); }) == s.end();
-	// From https://stackoverflow.com/questions/4654636/how-to-determine-if-a-string-is-a-number-with-c
+	std::string::const_iterator it = s.begin();
+	while (it != s.end() && std::isdigit(*it)) ++it;
 
+	return !s.empty() && it == s.end();
+	
+	// From https://stackoverflow.com/questions/4654636/how-to-determine-if-a-string-is-a-number-with-c
 }
+
+
 
 
 void processDefaultSettings(string line){
