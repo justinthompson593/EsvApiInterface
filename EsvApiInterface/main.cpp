@@ -186,14 +186,14 @@ int main(int argc, const char * argv[]) {
 			saving = true;
 		}
 		
-		// Formats
+		// Output Formats
 		if( strncmp(argv[i], "-txt", 4) == 0 ){
 			txtOut = true;
 		}
 		if( strncmp(argv[i], "-mp3", 4) == 0 ){
 			mp3Out = true;
 		}
-		if( strncmp(argv[i],   "-q", 2) == 0 ){
+		if( strncmp(argv[i],   "-q", 2) == 0 ){		// quiet default openPassage
 			psgQuery = false;
 		}
 		
@@ -257,14 +257,11 @@ int main(int argc, const char * argv[]) {
 		if(psgQuery)
 			ESVinterface.openPassage(argv[1], saving);
 		
-		
 		if(txtOut)
 			ESVinterface.openText(argv[1], cpyToClip, saving);
 		
-		
 		if(mp3Out)
 			ESVinterface.openMp3(argv[1], saving);
-		
 		
 		if(cpyToClip && !txtOut)
 			ESVinterface.copyText(argv[1]);
