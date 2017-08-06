@@ -11,6 +11,7 @@ curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApi
 ### Flags
 
 * Saving and Output Options
+
 Flag | Function | Notes
 ---- | -------- | -----
 -q | Quiets default openPassage as HTML | Unnecessary to use if 1st arg is a flag
@@ -20,13 +21,15 @@ Flag | Function | Notes
 -mp3 | Selects mp3  output|
 
 * Overriding Default Settings
+
 Flag | Setting | Notes
 ---- | -------- | -----
+-num | Verse Numbers | 0 = off / 1 = on
 -hed | Headers | 0 = off / 1 = on
 -sub | Subheaders | 0 = off / 1 = on
 -foot | Footnotes | 0 = off / 1 = on  
 -flnk | Footnote Links | 0 = off / 1 = on
-
+-ref | Passage References | 0 = off / 1 = on
 
 
 ### Passage Query
