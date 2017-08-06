@@ -8,11 +8,20 @@ curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApi
 
 ## Command Line Use
 
+### Passage Query
+
+If your first argument is not a flag, then it is assumed to be a passage query. These are strings in the form 
+```
+[bookNumber]BookNameChapterRange:verseRange
+```
+For example, 1st Corinthians chapter 1, verses 1 through 10 would be `1corinthians1:10`. Book abbreviations are also acceptable, so `1cor1:10` will work too. An acceptable passage query for Genesis chapters 1 through 3 is `Gen1-3`.  
+
+
 ### Flags
 
 * **Saving and Output Options** 
 
-These can be used in any order except if you want to save the HTML output of the `-rand` or `-rnd` flags. Then `-S` must come first. So `$ EsvApiInterface -S -rand` will open and save the daily verse. Reversing the order of the flags will open the verse, but the .html file will not be saved. However, `$ EsvApiInterface John3 -rnd 24601 -S` will open and save John chapter 3, and it will open a randomly selected verse (seeded by the numerical input 24601) which will not be saved.   
+These can be used in any order.   
 
 Flag | Function | Notes
 ---- | -------- | -----
@@ -37,10 +46,3 @@ Flag | Setting | Next Value
 -ref | Passage References | 0 = off / 1 = on
 
 
-### Passage Query
-
-If your first argument is not a flag, then it is assumed to be a passage query. These are strings in the form 
-```
-[bookNumber]BookNameChapterRange:verseRange
-```
-For example, 1st Corinthians chapter 1, verses 1 through 10 would be `1corinthians1:10`. Book abbreviations are also acceptable, so `1cor1:10` will work too. An acceptable passage query for Genesis chapters 1 through 3 is `Gen1-3`.  

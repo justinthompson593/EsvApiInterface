@@ -140,6 +140,7 @@ int main(int argc, const char * argv[]) {
 		while( getline(ifs, line) ){
 			processDefaultSettings(line);
 		}
+		ifs.close();
 	}
 	
 	// Check first argument
@@ -172,8 +173,19 @@ int main(int argc, const char * argv[]) {
 		}
 		
 		// check for redefine defaults
-		if( strncmp(argv[i], "-def", 7) == 0){
+		if( strncmp(argv[i], "-def", 4) == 0){
 			initDefaults();
+			ifstream ifs2(fileName);
+			if(ifs2.fail()){
+				// ?
+			}
+			else{
+				while( getline(ifs2, line) ){
+					processDefaultSettings(line);
+				}
+				ifs2.close();
+			}
+			
 		}
 		
 		// check for search query
@@ -248,14 +260,9 @@ int main(int argc, const char * argv[]) {
 				else{
 					randType = ESV_RAND_TYPE_DAILY;
 				}
-					
-//					ESVinterface.openRand(ESV_RAND_TYPE_RAND, saving, stol(argv[i+1]));
-//				else
-//					ESVinterface.openRand(ESV_RAND_TYPE_DAILY, saving);
 				
 			}
 			else{
-//				ESVinterface.openRand(ESV_RAND_TYPE_DAILY, saving);
 				randType = ESV_RAND_TYPE_DAILY;
 			}
 		}
