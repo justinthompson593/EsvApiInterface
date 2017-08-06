@@ -159,6 +159,11 @@ int main(int argc, const char * argv[]) {
 	bool mp3Out = false;
 	bool cpyToClip = false;
 	
+	bool randomIn = false;
+	int randType = 0;
+	long seedIn = 0;
+	
+	
 	for(int i=1; i<argc; i++){
 		
 		// Copy text to clipboard
@@ -232,16 +237,26 @@ int main(int argc, const char * argv[]) {
 		
 		// randomVerse / dailyVerse
 		if( strncmp(argv[i], "-rnd", 4) == 0 || strncmp(argv[i], "-rand", 5) == 0 ){
-			if( i+1 < argc ){		// then next arg is a random seed
+			randomIn = true;
+			
+			if( i+1 < argc ){						// check next arg
 				string nextArg(argv[i+1]);
-				if(is_number(nextArg))
-					ESVinterface.openRand(ESV_RAND_TYPE_RAND, saving, stol(argv[i+1]));
-				else
-					ESVinterface.openRand(ESV_RAND_TYPE_DAILY, saving);
+				if(is_number(nextArg)){				// then next arg is a random seed
+					randType = ESV_RAND_TYPE_RAND;
+					seedIn = stol(argv[i+1]);
+				}
+				else{
+					randType = ESV_RAND_TYPE_DAILY;
+				}
+					
+//					ESVinterface.openRand(ESV_RAND_TYPE_RAND, saving, stol(argv[i+1]));
+//				else
+//					ESVinterface.openRand(ESV_RAND_TYPE_DAILY, saving);
 				
 			}
 			else{
-				ESVinterface.openRand(ESV_RAND_TYPE_DAILY, saving);
+//				ESVinterface.openRand(ESV_RAND_TYPE_DAILY, saving);
+				randType = ESV_RAND_TYPE_DAILY;
 			}
 		}
 		
@@ -251,6 +266,14 @@ int main(int argc, const char * argv[]) {
 
 	if(searching)
 		ESVinterface.search(searchString, searchScope, saving);
+	
+	if(randomIn){
+		if(randType == ESV_RAND_TYPE_RAND)
+			ESVinterface.openRand(ESV_RAND_TYPE_RAND, saving, seedIn);
+		else
+			ESVinterface.openRand(ESV_RAND_TYPE_DAILY, saving);
+			
+	}
 	
 	if( strncmp(argv[1], "-", 1) != 0 ){
 		// then argument is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
