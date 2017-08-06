@@ -10,12 +10,13 @@ curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApi
 
 ### Flags
 
-Flag | Function
----- | --------
--q | Quiets default openPassage 
--S | Saves all selected output formats
--txt | Output text file
--mp3 | Output mp3 file
+Flag | Function | Notes
+---- | -------- | -----
+-q | Quiets default openPassage as HTML | Unnecessary to use if 1st arg is a flag
+-c | Copies passage to clipboard | Currently only available for OSX
+-S | Saves all selected output formats | If multiple output types are specified, they will be saved 
+-txt | Output text file | Without -S, this will open
+-mp3 | Output mp3 file |
 
 ### Passage Query
 
@@ -23,4 +24,4 @@ If your first argument is not a flag, then it is assumed to be a passage query. 
 ```
 [bookNumber]BookNameChapterRange:verseRange
 ```
-For example, 1st Corinthians Chapter 1, verses 1 through 10 would be `1corinthians1:10`. Book abbreviations are also acceptable, so `1cor1:10` will work too. 
+For example, 1st Corinthians chapter 1, verses 1 through 10 would be `1corinthians1:10`. Book abbreviations are also acceptable, so `1cor1:10` will work too. An acceptable passage query for Genesis chapters 1 through 3 is `Gen1-3`.  
