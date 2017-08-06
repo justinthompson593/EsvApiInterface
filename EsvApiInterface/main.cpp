@@ -87,15 +87,20 @@ void initDefaults(){
 		int in = stoi(usrIn);
 		outFile << "CS=" << in << endl;
 		
-		cout << "Passage References (0=off / 1=on): ";
-		cin >> usrIn;
-		in = stoi(usrIn);
-		outFile << "PR=" << in << endl;
-		
 		cout << "Verse Numbers      (0=off / 1=on): ";
 		cin >> usrIn;
 		in = stoi(usrIn);
 		outFile << "VN=" << in << endl;
+		
+		cout << "Headings           (0=off / 1=on): ";
+		cin >> usrIn;
+		in = stoi(usrIn);
+		outFile << "HD=" << in << endl;
+		
+		cout << "Subheadings        (0=off / 1=on): ";
+		cin >> usrIn;
+		in = stoi(usrIn);
+		outFile << "SH=" << in << endl;
 		
 		cout << "Footnotes          (0=off / 1=on): ";
 		cin >> usrIn;
@@ -107,15 +112,10 @@ void initDefaults(){
 		in = stoi(usrIn);
 		outFile << "FL=" << in << endl;
 		
-		cout << "Headings           (0=off / 1=on): ";
+		cout << "Passage References (0=off / 1=on): ";
 		cin >> usrIn;
 		in = stoi(usrIn);
-		outFile << "HD=" << in << endl;
-		
-		cout << "Subheadings        (0=off / 1=on): ";
-		cin >> usrIn;
-		in = stoi(usrIn);
-		outFile << "SH=" << in << endl;
+		outFile << "PR=" << in << endl;
 		
 		outFile.close();
 	}

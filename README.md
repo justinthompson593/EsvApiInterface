@@ -14,7 +14,7 @@ If your first argument is not a flag, then it is assumed to be a passage query. 
 ```
 [bookNumber]BookNameChapterRange:verseRange
 ```
-For example, 1st Corinthians chapter 1, verses 1 through 10 would be `1corinthians1:10`. Book abbreviations are also acceptable, so `1cor1:10` will work too. An acceptable passage query for Genesis chapters 1 through 3 is `Gen1-3`.  
+For example, 1st Corinthians chapter 1, verses 1 through 10 would be `1corinthians1:1-10`. Book abbreviations are also acceptable, so `1cor1:10` will work too. An acceptable passage query for Genesis chapters 1 through 3 is `Gen1-3`.  
 
 
 ### Flags
@@ -39,8 +39,8 @@ The flag must be followed by a 0 or a 1. Running `$ EsvApiInterface 1Cor1-2 -sub
 Flag | Setting | Next Value
 ---- | -------- | -----
 -num | Verse Numbers | 0 = off / 1 = on
--hed | Headers | 0 = off / 1 = on
--sub | Subheaders | 0 = off / 1 = on
+-hed | Headings | 0 = off / 1 = on
+-sub | Subheadings | 0 = off / 1 = on
 -foot | Footnotes | 0 = off / 1 = on  
 -flnk | Footnote Links | 0 = off / 1 = on
 -ref | Passage References | 0 = off / 1 = on
