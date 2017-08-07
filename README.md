@@ -21,7 +21,7 @@ For example, 1st Corinthians chapter 1, verses 1 through 10 would be `1corinthia
 
 * **Saving and Output Options** 
 
-These can be used in any order. But because the `-s` flag can be followed by 1 or 2 arguments, it's best to put your searches at the end of your command. 
+These can be used in any order. But because the `-s` flag can be followed by 1 or 2 arguments, it's best to put your searches at the end of your command. Running `$ EsvApiInterface -s "and brought the king"` will open an HTML file with the search results from the entire bible. 
 
 Flag | Function | Notes
 ---- | -------- | -----
