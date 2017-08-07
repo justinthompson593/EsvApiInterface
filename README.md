@@ -34,7 +34,7 @@ Flag | Function | Notes
 
 * **Overriding Default Settings** 
 
-The flag must be followed by a 0 or a 1. Running `$ EsvApiInterface 1Cor1-2 -sub 0 -foot 0 ` would open 1st Corinthians chapters 1 and 2 as an HTML file, and the formatting would not have subheaders or footnotes.
+The flag must be followed by a 0 or a 1. Running `$ EsvApiInterface 1Cor1-2 -sub 0 -foot 0 ` would open 1st Corinthians chapters 1 and 2 as an HTML file, and the formatting would not have subheadings or footnotes.
 
 Flag | Setting | Next Value
 ---- | -------- | -----
