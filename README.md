@@ -26,7 +26,7 @@ These can be used in any order. But because the `-s` flag can be followed by 1 o
 Flag | Function | Notes
 ---- | -------- | -----
 -q | Quiets default openPassage as HTML | Unnecessary to use if 1st arg is a flag
--c | Copies passage to clipboard | Currently only available for OSX
+-c | Copies passage as text to clipboard | Currently only available for OSX
 -rand | Opens random verse as HTML | Returns the daily verse if not followed by a number. Otherwise, the following number is used as a random generator seed. -rnd works too.
 -s | Searches for string | Must be followed by a search query in quotes. If followed by a Book Name, the search scope will be limited to that book.
 -S | Saves all selected output formats |  
@@ -48,4 +48,11 @@ Flag | Setting | Next Value
 -flnk | Footnote Links | 0 = off / 1 = on
 -ref | Passage References | 0 = off / 1 = on
 
+## Examples 
 
+In the following table, we'll use `$ ESV` as a shorthand for `$ EsvApiInterface`. (Note that you don't need to type in the `$` sign; that's just in there to look like it does on the command line.)
+
+Command | Result
+------- | ------
+`$ ESV john3:16 -c` | Opens John chapter 3 verse 16 in html and copies the formatted text to the clipboard
+`$ ESV john3 -q -mp3` | Opens audio link to John chapter 3 without opening the html page 
