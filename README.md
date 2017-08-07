@@ -12,7 +12,7 @@ First open a terminal and `cd` to the directory where you want to install the ex
 curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApiInterface/master/Installer/EsvApiInstaller.cpp && g++ installer.cpp -o installer && ./installer && rm -f installer.cpp && rm -f installer
 `
 
-A quick rundown of the code above: we download [EsvApiInstaller.cpp](https://github.com/justinthompson593/EsvApiInterface/blob/master/Installer/EsvApiInstaller.cpp) file as installer.cpp. If you like, you can follow the link to see that this code downloads [these]() [three]() [files]() to your  
+A quick rundown of the code above: we download [EsvApiInstaller.cpp](https://github.com/justinthompson593/EsvApiInterface/blob/master/Installer/EsvApiInstaller.cpp) file as installer.cpp. If you like, you can follow the link to see that this code downloads [these](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/main.cpp) [three](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/EsvApiInterface.cpp) [files](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/EsvApiInterface.hpp) to your  
 
 ## Command Line Use
 
