@@ -3,11 +3,15 @@
 
 
 ## Install 
-Assuming your terminal has `curl` and `g++` (this should be the case for Linux and OSX), the easiest way to get this command line tool is to copy the following block of code and paste it into your terminal.
+
+* **Command Line Install**
+First `cd` to the directory where you want to install  Assuming your terminal has `curl` and `g++` (this should be the case for Linux and OSX), the easiest way to get this command line tool is to copy the following block of code and paste it into your terminal. 
 
 `
 curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApiInterface/master/Installer/EsvApiInstaller.cpp && g++ installer.cpp -o installer && ./installer && rm -f installer.cpp && rm -f installer
 `
+
+A quick rundown of the code above: we download [EsvApiInstaller.cpp](https://github.com/justinthompson593/EsvApiInterface/blob/master/Installer/EsvApiInstaller.cpp) file as installer.cpp. If you like, you can follow the link to see that this code downloads [these]() [three]() [files]() to your  
 
 ## Command Line Use
 
