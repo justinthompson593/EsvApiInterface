@@ -21,13 +21,14 @@ For example, 1st Corinthians chapter 1, verses 1 through 10 would be `1corinthia
 
 * **Saving and Output Options** 
 
-These can be used in any order.   
+These can be used in any order. But because the `-s` flag can be followed by 1 or 2 arguments, it's best to put your searches at the end of your command. 
 
 Flag | Function | Notes
 ---- | -------- | -----
 -q | Quiets default openPassage as HTML | Unnecessary to use if 1st arg is a flag
 -c | Copies passage to clipboard | Currently only available for OSX
 -rand | Opens random verse as HTML | Returns the daily verse if not followed by a number. Otherwise, the following number is used as a random generator seed. -rnd works too.
+-s | Searches for string | Must be followed by a search query in quotes. If followed by a Book Name, the search scope will be limited to that book.
 -S | Saves all selected output formats |  
 -txt | Selects text  output | 
 -mp3 | Selects mp3  output|
