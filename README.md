@@ -18,6 +18,9 @@ curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApi
 
 A quick rundown of the code above: we download [EsvApiInstaller.cpp](https://github.com/justinthompson593/EsvApiInterface/blob/master/Installer/EsvApiInstaller.cpp) file as installer.cpp. If you like, you can follow the link to see that this code downloads [these](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/main.cpp) [three](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/EsvApiInterface.cpp) [files](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/EsvApiInterface.hpp) to your computer, and then uses `g++` to turn them into the executable `EsvApiInterface`. It will run the executable and ask you to define your [defaults](). Afterwards, it will remove the downloaded .cpp and .hpp files, leaving all .css files and the executable in the new EsvApi directory. Finally, the installer will add the path to the executable to your `PATH` variable in your bash startup file. 
 
+* **Build On Your Own**
+TODO Finish this. 
+
 ## Command Line Use
 
 ### Passage Query
