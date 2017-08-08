@@ -69,6 +69,10 @@ void processDefaultSettings(string line){
 		string val = line.substr(3);
 		ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, stoi(val));
 	}
+	else if( strncmp(line.c_str(), "RL=", 3) == 0 ){
+		string val = line.substr(3);
+		ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_RED_LETTER, stoi(val));
+	}
 }
 
 void initDefaults(){
