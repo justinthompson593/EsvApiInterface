@@ -65,10 +65,10 @@ Flag | Setting | Next Value
 
 ## Examples 
 
-In the following table, we'll use `$ passageQuery flags` as a shorthand for `$ EsvApiInterface passageQuery flags`. So `$ john3 -q -mp3` in the table is short-hand for the `$ EsvApiInterface john3 -q -mp3` you'd have in the command line. (Note that you don't need to type in the `$` sign; that's just in there to look like it does on the command line.)
+In the following table, we'll use `$ passageQuery flags` as a shorthand for `$ EsvApiInterface passageQuery flags`. So `$ john3 -q -mp3` in the table is short-hand for the `$ EsvApiInterface john3 -q -mp3` you'd have in the command line. (Note that you don't need to type in the `$` sign; that's just in there to look like it does on the terminal.)
 
 Command | Result
 ------- | ------
 `$ john3:16 -c` | Opens John chapter 3 verse 16 in html and copies the formatted text to the clipboard
 `$ john3 -q -mp3` | Opens audio link to John chapter 3 without opening the html page
-`$ john3 -S -mp3` | Opens audio link & the HTML (no -q) and saves both john3.html and john3.mp3 to the current directory
+`$ john3 -S -mp3` | Saves and opens both john3.html and john3.mp3
