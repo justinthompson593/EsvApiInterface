@@ -3,6 +3,7 @@
 ## TODO
 
 * red letter flag
+* link to examples
 
 
 ## Install 
@@ -60,6 +61,7 @@ Flag | Setting | Next Value
 -foot | Footnotes | 0 = off / 1 = on  
 -flnk | Footnote Links | 0 = off / 1 = on
 -ref | Passage References | 0 = off / 1 = on
+~~-rl~~ | ~~Red Letter~~ | ~~0 = off / 1 = on~~
 
 ## Examples 
 
