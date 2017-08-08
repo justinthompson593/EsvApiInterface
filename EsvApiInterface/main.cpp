@@ -117,6 +117,11 @@ void initDefaults(){
 		in = stoi(usrIn);
 		outFile << "PR=" << in << endl;
 		
+		cout << "Red Letter (words of Christ) (0=off / 1=on): ";
+		cin >> usrIn;
+		in = stoi(usrIn);
+		outFile << "RL=" << in << endl;
+		
 		outFile.close();
 	}
 	else{
@@ -246,6 +251,13 @@ int main(int argc, const char * argv[]) {
 			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_VERSE_NUMS, stoi(argv[i]));
 		}
+		if( strncmp(argv[i], "-rl", 4) == 0){
+			i++;
+			numFlags++;
+			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_RED_LETTER, stoi(argv[i]));
+		}
+		
+		
 		
 		// randomVerse / dailyVerse
 		if( strncmp(argv[i], "-rnd", 4) == 0 || strncmp(argv[i], "-rand", 5) == 0 ){
