@@ -45,7 +45,7 @@ These can be used in any order. But because the `-s` flag can be followed by 1 o
 Flag | Function | Notes
 ---- | -------- | -----
 -q | Quiets default openPassage as HTML | Unnecessary to use if 1st arg is a flag
--c | Copies passage as text to clipboard | Currently only available for OSX
+-c | Copies passage as text to clipboard | Available for OSX, unix, and linux
 -rand | Opens random verse as HTML | Returns the daily verse if not followed by a number. Otherwise, the following number is used as a random generator seed. -rnd works too.
 -s | Searches for string | Must be followed by a search query in quotes. If followed by a Book Name, the search scope will be limited to that book.
 -S | Saves all selected output formats |  
