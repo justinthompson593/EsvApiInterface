@@ -5,8 +5,6 @@
 //#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
 
 //
-
-//
 //  main.cpp
 //  EsvApiInterface
 //
@@ -255,7 +253,7 @@ int main(int argc, const char * argv[]) {
 			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_VERSE_NUMS, stoi(argv[i]));
 		}
-		if( strncmp(argv[i], "-rl", 4) == 0){
+		if( strncmp(argv[i], "-rl", 3) == 0){
 			i++;
 			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_RED_LETTER, stoi(argv[i]));

@@ -70,4 +70,5 @@ In the following table, we'll use `$ ESV` as a shorthand for `$ EsvApiInterface`
 Command | Result
 ------- | ------
 `$ ESV john3:16 -c` | Opens John chapter 3 verse 16 in html and copies the formatted text to the clipboard
-`$ ESV john3 -q -mp3` | Opens audio link to John chapter 3 without opening the html page 
+`$ ESV john3 -q -mp3` | Opens audio link to John chapter 3 without opening the html page
+`$ ESV john3 -S -mp3` | Opens audio link & the HTML (no -q) and saves both john3.html and john3.mp3 to the current directory
