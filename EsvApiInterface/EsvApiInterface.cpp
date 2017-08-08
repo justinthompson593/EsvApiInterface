@@ -98,6 +98,16 @@ void EsvApiInterface::setHTMLOutputOptions(int ESV_HTML_OPTIONS_ENUM, bool value
 			}
 		}
 			break;
+  case ESV_HTML_OPTIONS_RED_LETTER:
+		{
+			if(value){
+				redLetter = true;
+			}
+			else{
+				redLetter = false;
+			}
+		}
+		break;
 			
   default:
 			break;
