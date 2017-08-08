@@ -8,7 +8,7 @@
 
 ## System Requirements
 
-
+You'll need a terminal which runs bash, `g++`, and `curl`. If you're on OSX, then the terminal will already have these and `pbcopy`, which is used to copy scripture to your clipboard. If you're using linux or in a unix bash shell, you will need `xsel` to make use of this feature. Without it, you'll have access to all the other features, but you'll get errors if you try to use the `-c` flag (see Flags below). 
 
 ## Install 
 
