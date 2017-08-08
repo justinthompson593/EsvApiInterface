@@ -65,7 +65,7 @@ Flag | Setting | Next Value
 
 ## Examples 
 
-In the following table, we'll use `$ passageQuery flags` as a shorthand for `$ EsvApiInterface passageQuery flags`. (Note that you don't need to type in the `$` sign; that's just in there to look like it does on the command line.)
+In the following table, we'll use `$ passageQuery flags` as a shorthand for `$ EsvApiInterface passageQuery flags`. So `$ john3 -q -mp3` in the table is short-hand for the `$ EsvApiInterface john3 -q -mp3` you'd have in the command line. (Note that you don't need to type in the `$` sign; that's just in there to look like it does on the command line.)
 
 Command | Result
 ------- | ------
