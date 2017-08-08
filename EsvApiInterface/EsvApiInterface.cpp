@@ -490,10 +490,11 @@ void EsvApiInterface::copyText(string passage){
 #if defined(__APPLE__) && defined(__MACH__)
 	char buff[ESV_BUFFER_SIZE];
 	sprintf(buff, "echo \"$(curl %spassageQuery%s\\&passage=%s%s%s%s%s%s%s%s\\&output-format=plain-text)\" | pbcopy", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
-	//		sprintf(buff, "echo \"$(<%s.txt)\" | pbcopy", passage.c_str());
 	system(buff);
-#else
-	cout << "Sorry. Only have copy & paste functions for OSX right now." << endl;
+#elif defined(__unix__) || defined(__linux__)
+	char buff[ESV_BUFFER_SIZE];
+	sprintf(buff, "echo \"$(curl -o toClip %spassageQuery%s\\&passage=%s%s%s%s%s%s%s%s\\&output-format=plain-text)\" && xsel --clipboard < toClip && rm toClip", url.c_str(), key.c_str(), passage.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
+	system(buff);
 #endif
 }
 

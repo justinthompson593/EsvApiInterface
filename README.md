@@ -4,6 +4,7 @@
 
 * Make compatible for Linux
 * link to examples
+* Add dependencies list
 
 
 ## Install 
