@@ -44,7 +44,9 @@ int main(int argc, char* argv[]){
 	system("mv EsvApiInterface EsvApi");
 	
 	// Add to path
+#if (defined(__APPLE__) && defined(__MACH__)) || defined(__unix__) || defined(__linux__)
 	system("echo \"export PATH=\\\"$PWD/EsvApi:$PATH\\\"\" >> $HOME/.bash_profile");
+#endif
 	
 	
 	
