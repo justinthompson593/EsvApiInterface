@@ -328,15 +328,21 @@ int main(int argc, const char * argv[]) {
 	
 	
 	// Open media
-	if( strncmp(argv[1], "-", 1) != 0 && !quietAll ){
-		// then argument is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
-		if(psgQuery)
+	if( strncmp(argv[1], "-", 1) != 0 ){ // if the first arg is NOT a flag,
+		// then argv[1] is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
+		if(psgQuery && (quietAll || quietPassage) && saving)
+			ESVinterface.savePassage(argv[1]);
+		else if(psgQuery && !quietAll && !quietPassage)
 			ESVinterface.openPassage(argv[1], saving);
 		
-		if(txtOut)
+		if(txtOut && (quietAll || quietText) && saving)
+			ESVinterface.saveText(argv[1]);
+		else if(txtOut && !quietAll && !quietText)
 			ESVinterface.openText(argv[1], cpyToClip, saving);
 		
-		if(mp3Out)
+		if(mp3Out && (quietAll || quietMp3) && saving)
+			ESVinterface.saveMp3(argv[1]);
+		else if(txtOut && !quietAll && !quietMp3)
 			ESVinterface.openMp3(argv[1], saving);
 
 	}
