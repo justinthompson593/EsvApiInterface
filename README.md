@@ -2,9 +2,7 @@
 
 ## TODO
 
-* Make compatible for Linux
 * link to examples
-* Add dependencies list
 * make quieting easier, etc.
 
 
