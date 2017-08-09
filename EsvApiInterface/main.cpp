@@ -2,7 +2,7 @@
 // If there is nothing above this line, then something went wrong on the install.
 // It should look like the like below, but without the "//" at the begining.
 
-//#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
+#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
 
 //
 //  main.cpp
@@ -171,8 +171,38 @@ int main(int argc, const char * argv[]) {
 	int randType = 0;
 	long seedIn = 0;
 	
+	bool quietAll = false;
+	bool quietPassage = false;
+	bool quietText = false;
+	bool quietMp3 = false;
 	
 	for(int i=1; i<argc; i++){
+		
+		// Quiet outputs
+		if( strncmp(argv[i], "-Q", 2) == 0 ){
+			quietAll = true;
+		}
+		if( strncmp(argv[i], "-qp", 3) == 0 ){
+			quietPassage = true;
+		}
+		if( strncmp(argv[i], "-qt", 3) == 0 ){
+			quietPassage = true;
+		}
+		
+		//	if( strncmp(argv[1], "-", 1) != 0 ){
+		//		if(psgQuery)
+		//			ESVinterface.openPassage(argv[1], saving);
+		//
+		//		if(txtOut)
+		//			ESVinterface.openText(argv[1], cpyToClip, saving);
+		//
+		//		if(mp3Out)
+		//			ESVinterface.openMp3(argv[1], saving);
+		//
+		//		if(cpyToClip && !txtOut)
+		//			ESVinterface.copyText(argv[1]);
+		//	}
+
 		
 		// Copy text to clipboard
 		if( strncmp(argv[i], "-c", 2) == 0 ){
@@ -184,7 +214,7 @@ int main(int argc, const char * argv[]) {
 			initDefaults();
 			ifstream ifs2(fileName);
 			if(ifs2.fail()){
-				// ?
+				// ¿initDefaults must have failed?
 			}
 			else{
 				while( getline(ifs2, line) ){
@@ -217,9 +247,9 @@ int main(int argc, const char * argv[]) {
 		if( strncmp(argv[i], "-mp3", 4) == 0 ){
 			mp3Out = true;
 		}
-		if( strncmp(argv[i],   "-q", 2) == 0 ){		// quiet default openPassage
-			psgQuery = false;
-		}
+//		if( strncmp(argv[i],   "-q", 2) == 0 ){		// quiet default openPassage
+//			psgQuery = false;
+//		}
 		
 		
 		// check for flags to override default settings
@@ -296,7 +326,9 @@ int main(int argc, const char * argv[]) {
 			
 	}
 	
-	if( strncmp(argv[1], "-", 1) != 0 ){
+	
+	// Open media
+	if( strncmp(argv[1], "-", 1) != 0 && !quietAll ){
 		// then argument is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
 		if(psgQuery)
 			ESVinterface.openPassage(argv[1], saving);
@@ -306,13 +338,12 @@ int main(int argc, const char * argv[]) {
 		
 		if(mp3Out)
 			ESVinterface.openMp3(argv[1], saving);
-		
-		if(cpyToClip && !txtOut)
-			ESVinterface.copyText(argv[1]);
+
 	}
 	
 	
-	
+	if(cpyToClip && !txtOut)
+		ESVinterface.copyText(argv[1]);
 	
 	
 	
