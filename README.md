@@ -5,13 +5,14 @@
 * Make compatible for Linux
 * link to examples
 * Add dependencies list
+* make quieting easier, etc.
 
 
 ## Install 
 
 * **System Requirements**
 
-You'll need a terminal which runs bash and has `g++`, and `curl`. If you're on OSX, then the terminal will already have these and `pbcopy`, which is used to copy scripture to your clipboard. If you're using linux or are in a unix bash environment, you will need `xsel` to make use of this feature. Without it, you'll have access to all the other features, but you'll get errors if you try to use the `-c` flag (see Flags below for details). If your system is lacking any of these 3 tools, you can use your package manager to download them directly from the command line. If you're running Ubuntu, for instance, you could run `$ sudo apt-get install xsel` to get the missing software (and similarly with `g++` and `curl`, but I know those are native to Ubuntu). Note that you don't need to type in the `$` sign; that's just in there to look like it does on the terminal.
+You'll need a terminal which runs bash and has `g++`, and `curl`. If you're on OSX, then the terminal will already have these and `pbcopy`, which is used to copy scripture to your clipboard. If you're using Linux or are in a Unix bash environment, you will need `xsel` to make use of this feature. Without it, you'll have access to all the other features, but you'll get errors if you try to use the `-c` flag (see Flags below for details). If your system is lacking any of these 3 tools, you can use your package manager to download them directly from the command line. If you're running Ubuntu, for instance, you could run `$ sudo apt-get install xsel` to get the missing software (and similarly with `g++` and `curl`, but I know those are native to Ubuntu). Note that you don't need to type in the `$` sign; that's just in there to look like it does on the terminal.
 
 * **Command Line Install**
 
@@ -49,7 +50,7 @@ These can be used in any order. But because the `-s` flag can be followed by 1 o
 Flag | Function | Notes
 ---- | -------- | -----
 -q | Quiets default openPassage as HTML | Unnecessary to use if 1st arg is a flag
--c | Copies passage as text to clipboard | Available for OSX, unix, and linux
+-c | Copies passage as text to clipboard | Available for OSX, Unix, and Linux
 -rand | Opens random verse as HTML | Returns the daily verse if not followed by a number. Otherwise, the following number is used as a random generator seed. -rnd works too.
 -s | Searches for string | Must be followed by a search query in quotes. If followed by a Book Name, the search scope will be limited to that book.
 -S | Saves all selected output formats |  
