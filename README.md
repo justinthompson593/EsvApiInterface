@@ -52,8 +52,8 @@ Short Flag | Long Flag | Example Use | Result
 -sp | --save-passage | `$ EAI 1john1 -sp` | Saves first John chapter 1 </br>as 1john1.html in your </br>current directory
 -ot | --open-text | `$ EAI Gen3 -ot` | Opens Genesis chapter 3</br> as a temporary file in your </br>default text editor
 -st | --save-text | `$ EAI Gen3 -st` | Saves Genesis chapter 3 </br>as Gen3.txt in your </br>current directory
--o3 | --open-mp3 | `$ EAI Mat5:3-11 -o3` | Opens the [link](https://audio.esv.org/hw/40005003-40005011.mp3) to Matthew chapter 5 verses 3 through 11 audio (as an mp3) in your default web browser
--s3 | --save-mp3 | `$ EAI Mat5:3-11 -s3` | Saves the [link](https://audio.esv.org/hw/40005003-40005011.mp3) in a file named Mat5:3-11.mp3 in your current directory
+-o3 | --open-mp3 | `$ EAI Mat5:3-11 -o3` | Opens the [link](https://audio.esv.org/hw/40005003-40005011.mp3) to Matthew </br>chapter 5 verses 3 through 11 </br> in your default web browser
+-s3 | --save-mp3 | `$ EAI Mat5:3-11 -s3` | Saves the [link](https://audio.esv.org/hw/40005003-40005011.mp3) in a file </br>named Mat5:3-11.mp3 in your </br>current directory
 
 
 Flag | Function | Notes
