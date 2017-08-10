@@ -331,7 +331,10 @@ int main(int argc, const char * argv[]) {
 	
 	
 	// Check if there's only 1 arg. If so, use user's default settings TODO
-	
+	if( argc == 1 ){
+		
+		return 2;
+	}
 
 	if(searching)
 		ESVinterface.search(searchString, searchScope, saving);
@@ -344,12 +347,36 @@ int main(int argc, const char * argv[]) {
 			
 	}
 	
-	// HTML output from passage
-	if( openPassage && savePassage )
-		ESVinterface.openPassage(argv[1], true);
-	else if( openPassage && !savePassage )
-		ESVinterface.openPassage(argv[1], false);
-	else if( !openPassage && savePassage )
+	if( strncmp(argv[1], "-", 1) != 0 ){// if the first arg is NOT a flag,
+		// then argv[1] is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
+		
+		// HTML output
+		if( openPassage && savePassage )
+			ESVinterface.openPassage(argv[1], true);
+		else if( openPassage && !savePassage )
+			ESVinterface.openPassage(argv[1], false);
+		else if( !openPassage && savePassage )
+			ESVinterface.savePassage(argv[1]);
+	
+		// Text output
+		if( openText && saveText )
+			ESVinterface.openText(argv[1], true);
+		else if( openText && !saveText )
+			ESVinterface.openText(argv[1], false);
+		else if( !openText && saveText )
+			ESVinterface.saveText(argv[1]);
+		
+		// Mp3 output
+		if( openMp3 && saveMp3 )
+			ESVinterface.openMp3(argv[1], true);
+		else if( openMp3 && !saveMp3 )
+			ESVinterface.openMp3(argv[1], false);
+		else if( !openMp3 && saveMp3 )
+			ESVinterface.saveMp3(argv[1]);
+		
+	}
+	
+	
 	
 	
 	
@@ -369,8 +396,8 @@ int main(int argc, const char * argv[]) {
 	//	}
 
 	
-//	if( strncmp(argv[1], "-", 1) != 0 ){ // if the first arg is NOT a flag,
-//		// then argv[1] is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
+//	if( strncmp(argv[1], "-", 1) != 0 ){
+//
 //		if(psgQuery && (quietAll || quietPassage) && saving)
 //			ESVinterface.savePassage(argv[1]);
 //		else if(psgQuery && !quietAll && !quietPassage)
