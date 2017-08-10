@@ -47,12 +47,12 @@ These can be used in any order. But because the `-s` flag can be followed by 1 o
 
 Flag | Example Use | Result 
 ---- | ----------- | ------
--op | `$ EAI 1john1 -op` | Opens first John chapter 1 as an html file in your default web browser
--sp | `$ EAI 1john1 -sp` | Saves first John chapter 1 as 1john1.html in your current directory
--ot | `$ EAI Gen3 -ot` | Opens Genesis chapter 3 as a text file in your default text editor
--st | `$ EAI Gen3 -st` | Saves Genesis chapter 3 as  directory
--o3 | `$ EAI Mat5:3-11 -o3` | Opens the [link](https://audio.esv.org/hw/40005003-40005011.mp3) to Matthew chapter 5 verses 3 through 11 audio (as an mp3) in your default web browser
--s3 | `$ EAI Mat5:3-11 -s3` | Saves the [link](https://audio.esv.org/hw/40005003-40005011.mp3) as a file named Mat5:3-11.mp3 in your current directory
+-op (**o**pen **p**assage)| `$ EAI 1john1 -op` | Opens first John chapter 1 as an html file in your default web browser
+-sp (**s**ave **p**assage)| `$ EAI 1john1 -sp` | Saves first John chapter 1 as 1john1.html in your current directory
+-ot (**o**pen **t**ext)| `$ EAI Gen3 -ot` | Opens Genesis chapter 3 as a text file in your default text editor
+-st (**s**ave **t**ext)| `$ EAI Gen3 -st` | Saves Genesis chapter 3 as  directory
+-o3 (**o**pen mp**3**)| `$ EAI Mat5:3-11 -o3` | Opens the [link](https://audio.esv.org/hw/40005003-40005011.mp3) to Matthew chapter 5 verses 3 through 11 audio (as an mp3) in your default web browser
+-s3 (**s**ave mp**3**)| `$ EAI Mat5:3-11 -s3` | Saves the [link](https://audio.esv.org/hw/40005003-40005011.mp3) as a file named Mat5:3-11.mp3 in your current directory
 
 
 Flag | Function | Notes
