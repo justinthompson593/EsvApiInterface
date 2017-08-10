@@ -157,7 +157,7 @@ int main(int argc, const char * argv[]) {
 	
 	// Command Line Use
 
-	int numFlags = 0;
+//	int numFlags = 0;
 	bool searching = false;
 	string searchString;
 	string searchScope = "";
@@ -275,37 +275,30 @@ int main(int argc, const char * argv[]) {
 		// check for flags to override default settings
 		if( strncmp(argv[i], "-ref", 4) == 0){
 			i++;
-			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_PASSAGE_REFS, stoi(argv[i]));
 		}
 		if( strncmp(argv[i], "-hed", 4) == 0){
 			i++;
-			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_HEADINGS, stoi(argv[i]));
 		}
 		if( strncmp(argv[i], "-sub", 4) == 0){
 			i++;
-			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_SUBHEADINGS, stoi(argv[i]));
 		}
 		if( strncmp(argv[i], "-foot", 5) == 0){
 			i++;
-			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_FOOTNOTES, stoi(argv[i]));
 		}
 		if( strncmp(argv[i], "-flnk", 5) == 0){
 			i++;
-			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_FOOTNOTE_LINKS, stoi(argv[i]));
 		}
 		if( strncmp(argv[i], "-num", 4) == 0){
 			i++;
-			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_VERSE_NUMS, stoi(argv[i]));
 		}
 		if( strncmp(argv[i], "-rl", 3) == 0){
 			i++;
-			numFlags++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_RED_LETTER, stoi(argv[i]));
 		}
 		
@@ -332,7 +325,7 @@ int main(int argc, const char * argv[]) {
 		}
 		
 		
-	}
+	} // for(  argv[i] , i++  )END INPUT PROCESSING
 	
 
 	if(searching)
