@@ -48,9 +48,9 @@ These can be used in any order. But because the `-s` flag can be followed by 1 o
 
 Short Flag | Long Flag | Example Use | Result 
 ---------- | --------- | ----------- | ------
--op | --open-passage | `$ EsvApiInterface 1john1 -op` | Opens first John chapter 1 </br>as an html file in your </br>default web browser
--sp | --save-passage | `$ EAI 1john1 -sp` | Saves first John chapter 1 </br>as 1john1.html in your </br>current directory
--ot | --open-text | `$ EAI Gen3 -ot` | Opens Genesis chapter 3</br> as a temporary file in your </br>default text editor
+-op | --open-passage | `$ EsvApiInterface 1john1 -op` | Opens first John chapter </br>1 as an html file in your </br>default web browser
+-sp | --save-passage | `$ EAI 1john1 -sp` | Saves first John chapter </br>1 as 1john1.html in your </br>current directory
+-ot | --open-text | `$ EAI Gen3 -ot` | Opens Genesis chapter </br>3 as a temporary file in </br>your default text editor
 -st | --save-text | `$ EAI Gen3 -st` | Saves Genesis chapter 3 </br>as Gen3.txt in your </br>current directory
 -o3 | --open-mp3 | `$ EAI Mat5:3-11 -o3` | Opens the [link](https://audio.esv.org/hw/40005003-40005011.mp3) to Matthew </br>chapter 5 verses 3 through 11 </br> in your default web browser
 -s3 | --save-mp3 | `$ EAI Mat5:3-11 -s3` | Saves the [link](https://audio.esv.org/hw/40005003-40005011.mp3) in a file named </br>Mat5:3-11.mp3 in your </br>current directory
