@@ -48,10 +48,7 @@ These can be used in any order. But because the `-s` flag can be followed by 1 o
 
 Short Flag | Long Flag | Example Use | Result 
 ---------- | --------- | ----------- | ------
--op | --open-passage | `$ EAI 1john1 -op` | Opens first John chapter 1 
-as an html file in 
-your default web 
-browser
+-op | --open-passage | `$ EAI 1john1 -op` | Opens first John chapter 1 <br/>as an html file in<br/>your default web </br>browser
 -sp | --save-passage | `$ EAI 1john1 -sp` | Saves first John chapter 1 as 1john1.html in your current directory
 -ot | --open-text | `$ EAI Gen3 -ot` | Opens Genesis chapter 3 as a text file in your default text editor
 -st | --save-text | `$ EAI Gen3 -st` | Saves Genesis chapter 3 as  directory
