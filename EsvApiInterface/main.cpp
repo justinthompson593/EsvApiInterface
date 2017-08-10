@@ -162,19 +162,19 @@ int main(int argc, const char * argv[]) {
 	string searchString;
 	string searchScope = "";
 	bool saving = false;
-	bool psgQuery = true;
-	bool txtOut = false;
-	bool mp3Out = false;
+//	bool psgQuery = true;
+//	bool txtOut = false;
+//	bool mp3Out = false;
 	bool cpyToClip = false;
 	
 	bool randomIn = false;
 	int randType = 0;
 	long seedIn = 0;
 	
-	bool quietAll = false;
-	bool quietPassage = false;
-	bool quietText = false;
-	bool quietMp3 = false;
+//	bool quietAll = false;
+//	bool quietPassage = false;
+//	bool quietText = false;
+//	bool quietMp3 = false;
 	
 	// New idea
 	bool savePassage = false;
@@ -255,11 +255,11 @@ int main(int argc, const char * argv[]) {
 		}
 
 		
-		//		// check to save html / mp3 / txt file
-//		if( strncmp(argv[i], "-S", 2) == 0 || strncmp(argv[i], "-Save", 5) == 0){
-//			saving = true;
-//		}
-//		
+		//	Check for randVerse or whatever else save flag: -S
+		if( strncmp(argv[i], "-S", 2) == 0 || strncmp(argv[i], "-Save", 5) == 0){
+			saving = true;
+		}
+//
 //		// Output Formats
 //		if( strncmp(argv[i], "-txt", 4) == 0 ){
 //			txtOut = true;
@@ -363,29 +363,29 @@ int main(int argc, const char * argv[]) {
 	//	}
 
 	
-	if( strncmp(argv[1], "-", 1) != 0 ){ // if the first arg is NOT a flag,
-		// then argv[1] is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
-		if(psgQuery && (quietAll || quietPassage) && saving)
-			ESVinterface.savePassage(argv[1]);
-		else if(psgQuery && !quietAll && !quietPassage)
-			ESVinterface.openPassage(argv[1], saving);
-		
-		if(txtOut && (quietAll || quietText) && saving)
-			ESVinterface.saveText(argv[1]);
-		else if(txtOut && !quietAll && !quietText)
-			ESVinterface.openText(argv[1], cpyToClip, saving);
-		
-		if(mp3Out && (quietAll || quietMp3) && saving)
-			ESVinterface.saveMp3(argv[1]);
-		else if(txtOut && !quietAll && !quietMp3)
-			ESVinterface.openMp3(argv[1], saving);
-
-	}
-	
-	
-	if(cpyToClip && !txtOut)
-		ESVinterface.copyText(argv[1]);
-	
+//	if( strncmp(argv[1], "-", 1) != 0 ){ // if the first arg is NOT a flag,
+//		// then argv[1] is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
+//		if(psgQuery && (quietAll || quietPassage) && saving)
+//			ESVinterface.savePassage(argv[1]);
+//		else if(psgQuery && !quietAll && !quietPassage)
+//			ESVinterface.openPassage(argv[1], saving);
+//		
+//		if(txtOut && (quietAll || quietText) && saving)
+//			ESVinterface.saveText(argv[1]);
+//		else if(txtOut && !quietAll && !quietText)
+//			ESVinterface.openText(argv[1], cpyToClip, saving);
+//		
+//		if(mp3Out && (quietAll || quietMp3) && saving)
+//			ESVinterface.saveMp3(argv[1]);
+//		else if(txtOut && !quietAll && !quietMp3)
+//			ESVinterface.openMp3(argv[1], saving);
+//
+//	}
+//	
+//	
+//	if(cpyToClip && !txtOut)
+//		ESVinterface.copyText(argv[1]);
+//	
 	
 	
 	return 0;
