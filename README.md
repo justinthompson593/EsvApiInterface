@@ -56,15 +56,15 @@ Short Flag | Long Flag | Example Use | Result
 -s3 | --save-mp3 | `$ EAI Mat5:3-11 -s3` | Saves the [link](https://audio.esv.org/hw/40005003-40005011.mp3) in a file named </br>Mat5:3-11.mp3 in your </br>current directory
 
 
-Flag | Function | Notes
----- | -------- | -----
--q | Quiets default openPassage as html | Unnecessary to use if 1st arg is a flag
--c | Copies passage as text to clipboard | Available for OSX, Unix, and Linux
--rand | Opens random verse as html | Returns the daily verse if not followed by a number. Otherwise, the following number is used as a random generator seed. -rnd works too.
--s | Searches for string | Must be followed by a search query in quotes. If followed by a Book Name, the search scope will be limited to that book.
--S | Saves all selected output formats |  
--txt | Selects text  output | Does not work with -rand
--mp3 | Selects mp3  output| Does not work with -rand
+<!--Flag | Function | Notes-->
+<!------ | -------- | ------->
+<!---q | Quiets default openPassage as html | Unnecessary to use if 1st arg is a flag-->
+<!---c | Copies passage as text to clipboard | Available for OSX, Unix, and Linux-->
+<!---rand | Opens random verse as html | Returns the daily verse if not followed by a number. Otherwise, the following number is used as a random generator seed. -rnd works too.-->
+<!---s | Searches for string | Must be followed by a search query in quotes. If followed by a Book Name, the search scope will be limited to that book.-->
+<!---S | Saves all selected output formats |  -->
+<!---txt | Selects text  output | Does not work with -rand-->
+<!---mp3 | Selects mp3  output| Does not work with -rand-->
 
 A note about `-s`: Running `$ EsvApiInterface -s "brought the king"` will open an html file with search results from the entire bible. `$ EsvApiInterface -s "brought the king" 1Kings` will limit the search results to 1st Kings. See the function processScope in [this file](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/EsvApiInterface.cpp) around line 150. The `bookName` variables show all the acceptable abbreviations. You can also go [here](https://www.esv.org/search/?q=advanced), select the Book dropdown and enter any of the book names (in quotes if more than 1 word like "Song of Solomon" or "2 Samuel"). Note that the formatting for the optional search input is different than for a passage query, which is far more forgiving. The full name of the book will always work. 
 
