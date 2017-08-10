@@ -187,6 +187,7 @@ int main(int argc, const char * argv[]) {
 	bool openMp3 = false;
 	
 	
+	// Process input flags
 	for(int i=1; i<argc; i++){
 		
 //		// Quiet outputs
@@ -327,6 +328,10 @@ int main(int argc, const char * argv[]) {
 		
 	} // for(  argv[i] , i++  )END INPUT PROCESSING
 	
+	
+	
+	// Check if there's only 1 arg. If so, use user's default settings TODO
+	
 
 	if(searching)
 		ESVinterface.search(searchString, searchScope, saving);
@@ -338,6 +343,14 @@ int main(int argc, const char * argv[]) {
 			ESVinterface.openRand(ESV_RAND_TYPE_DAILY, saving);
 			
 	}
+	
+	// HTML output from passage
+	if( openPassage && savePassage )
+		ESVinterface.openPassage(argv[1], true);
+	else if( openPassage && !savePassage )
+		ESVinterface.openPassage(argv[1], false);
+	else if( !openPassage && savePassage )
+	
 	
 	
 	// Open media
