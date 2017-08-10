@@ -176,33 +176,51 @@ int main(int argc, const char * argv[]) {
 	bool quietText = false;
 	bool quietMp3 = false;
 	
+	// New idea
+	bool savePassage = false;
+	bool openPassage = true;
+	
+	bool saveText = false;
+	bool openText = false;
+	
+	bool saveMp3 = false;
+	bool openMp3 = false;
+	
+	
 	for(int i=1; i<argc; i++){
 		
-		// Quiet outputs
-		if( strncmp(argv[i], "-Q", 2) == 0 ){
-			quietAll = true;
+//		// Quiet outputs
+//		if( strncmp(argv[i], "-Q", 2) == 0 ){
+//			quietAll = true;
+//		}
+//		if( strncmp(argv[i], "-qp", 3) == 0 ){
+//			quietPassage = true;
+//		}
+//		if( strncmp(argv[i], "-qt", 3) == 0 ){
+//			quietPassage = true;
+//		}
+		
+		// Check for opening
+		if( strncmp(argv[i], "-op", 3) == 0 ){
+			openPassage = true;
 		}
-		if( strncmp(argv[i], "-qp", 3) == 0 ){
-			quietPassage = true;
+		if( strncmp(argv[i], "-ot", 3) == 0 ){
+			openText = true;
 		}
-		if( strncmp(argv[i], "-qt", 3) == 0 ){
-			quietPassage = true;
+		if( strncmp(argv[i], "-o3", 3) == 0 ){
+			openMp3 = true;
 		}
 		
-		//	if( strncmp(argv[1], "-", 1) != 0 ){
-		//		if(psgQuery)
-		//			ESVinterface.openPassage(argv[1], saving);
-		//
-		//		if(txtOut)
-		//			ESVinterface.openText(argv[1], cpyToClip, saving);
-		//
-		//		if(mp3Out)
-		//			ESVinterface.openMp3(argv[1], saving);
-		//
-		//		if(cpyToClip && !txtOut)
-		//			ESVinterface.copyText(argv[1]);
-		//	}
-
+		// Check for saving
+		if( strncmp(argv[i], "-sp", 3) == 0 ){
+			savePassage = true;
+		}
+		if( strncmp(argv[i], "-st", 3) == 0 ){
+			saveText = true;
+		}
+		if( strncmp(argv[i], "-s3", 3) == 0 ){
+			saveMp3 = true;
+		}
 		
 		// Copy text to clipboard
 		if( strncmp(argv[i], "-c", 2) == 0 ){
@@ -226,7 +244,7 @@ int main(int argc, const char * argv[]) {
 		}
 		
 		// check for search query
-		if( (strncmp(argv[i], "-s", 2) == 0 && strncmp(argv[i], "-sub", 4) != 0) || strncmp(argv[i], "-search", 7) == 0){
+		if( strncmp(argv[i], "-sr", 3) == 0 || strncmp(argv[i], "-search", 7) == 0){
 			searching = true;
 			i++;
 			searchString = (string)argv[i];
@@ -235,18 +253,20 @@ int main(int argc, const char * argv[]) {
 				searchScope = (string)argv[i];
 			}
 		}
-		// check to save html / mp3 / txt file
-		if( strncmp(argv[i], "-S", 2) == 0 || strncmp(argv[i], "-Save", 5) == 0){
-			saving = true;
-		}
+
 		
-		// Output Formats
-		if( strncmp(argv[i], "-txt", 4) == 0 ){
-			txtOut = true;
-		}
-		if( strncmp(argv[i], "-mp3", 4) == 0 ){
-			mp3Out = true;
-		}
+		//		// check to save html / mp3 / txt file
+//		if( strncmp(argv[i], "-S", 2) == 0 || strncmp(argv[i], "-Save", 5) == 0){
+//			saving = true;
+//		}
+//		
+//		// Output Formats
+//		if( strncmp(argv[i], "-txt", 4) == 0 ){
+//			txtOut = true;
+//		}
+//		if( strncmp(argv[i], "-mp3", 4) == 0 ){
+//			mp3Out = true;
+//		}
 //		if( strncmp(argv[i],   "-q", 2) == 0 ){		// quiet default openPassage
 //			psgQuery = false;
 //		}
@@ -328,6 +348,21 @@ int main(int argc, const char * argv[]) {
 	
 	
 	// Open media
+	//	if( strncmp(argv[1], "-", 1) != 0 ){
+	//		if(psgQuery)
+	//			ESVinterface.openPassage(argv[1], saving);
+	//
+	//		if(txtOut)
+	//			ESVinterface.openText(argv[1], cpyToClip, saving);
+	//
+	//		if(mp3Out)
+	//			ESVinterface.openMp3(argv[1], saving);
+	//
+	//		if(cpyToClip && !txtOut)
+	//			ESVinterface.copyText(argv[1]);
+	//	}
+
+	
 	if( strncmp(argv[1], "-", 1) != 0 ){ // if the first arg is NOT a flag,
 		// then argv[1] is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
 		if(psgQuery && (quietAll || quietPassage) && saving)
