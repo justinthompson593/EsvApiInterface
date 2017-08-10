@@ -202,10 +202,10 @@ int main(int argc, const char * argv[]) {
 //		}
 		
 		// Check for opening
-		if( strncmp(argv[i], "-op", 3) == 0 ){
+		if( strncmp(argv[i], "-op", 3) == 0 || strncmp(argv[i], "--open-passage", 14) == 0 ){
 			openPassage = true;
 		}
-		if( strncmp(argv[i], "-ot", 3) == 0 ){
+		if( strncmp(argv[i], "-ot", 3) == 0 || strncmp(argv[i], "--open-text", 11) == 0 ){
 			openText = true;
 		}
 		if( strncmp(argv[i], "-o3", 3) == 0 ){
