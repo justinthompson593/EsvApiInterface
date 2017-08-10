@@ -51,7 +51,7 @@ Flag | Example Use | Result
 -sp | `$ EAI 1john1 -sp` | Saves first John chapter 1 as 1john1.html in your current directory
 -ot | `$ EAI Gen3 -ot` | Opens Genesis chapter 3 as a text file in your default text editor
 -st | `$ EAI Gen3 -st` | Saves Genesis chapter 3 as  directory
--o3 | `$ EAI Mat5:3-11 -o3` | Opens the link to Matthew chapter 5 verses 3 through 11 audio (as an mp3) in your default web browser [listen here]()
+-o3 | `$ EAI Mat5:3-11 -o3` | Opens the link to Matthew chapter 5 verses 3 through 11 audio (as an mp3) in your default web browser [listen here](https://audio.esv.org/hw/40005003-40005011.mp3)
 
 
 Flag | Function | Notes
