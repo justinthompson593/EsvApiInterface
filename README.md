@@ -2,8 +2,9 @@
 
 ## TODO
 
-* link to examples
-* make quieting easier, etc.
+-[] link to examples
+-[] make quieting easier, etc.
+-[] get main running
 
 
 ## Install 
