@@ -47,11 +47,11 @@ These can be used in any order. But because the `-s` flag can be followed by 1 o
 
 Flag | Example Use | Result 
 ---- | ----------- | ------
--op | `$ EAI 1John1 -op` | Opens first John chapter 1 as an html file in your default web browser
--sp | `$ EAI 1John1 -sp` | Saves first John chapter 1 as 1John.html in your current directory
+-op | `$ EAI 1john1 -op` | Opens first John chapter 1 as an html file in your default web browser
+-sp | `$ EAI 1john1 -sp` | Saves first John chapter 1 as 1john1.html in your current directory
 -ot | `$ EAI Gen3 -ot` | Opens Genesis chapter 3 as a text file in your default text editor
--st | `$ EAI 1John1 -sp` | Saves first John chapter 1 as 1John.html in your current directory
--o3 | `$ EAI Mat5:3-11 -o3` | Opens the link to Matthew chapter 5 verses 3 through 11 audio (as an mp3) in your default web browser 
+-st | `$ EAI Gen3 -st` | Saves Genesis chapter 3 as  directory
+-o3 | `$ EAI Mat5:3-11 -o3` | Opens the link to Matthew chapter 5 verses 3 through 11 audio (as an mp3) in your default web browser [listen here]()
 
 
 Flag | Function | Notes
