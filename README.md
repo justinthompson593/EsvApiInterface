@@ -45,9 +45,9 @@ For example, 1st Corinthians chapter 1, verses 1 through 10 would be `1corinthia
 
 These can be used in any order. But because the `-s` flag can be followed by 1 or 2 arguments, it's best to put your searches at the end of your command.  
 
-Flag | Function | Notes | Example Use
----- | -------- | ----- | -----------
--op | Opens passage as html file | Something | `$ EAI yourPassage -op`
+Flag | Function | Example Use
+---- | -------- | -----------
+-op | Opens passage as html file | `$ EAI yourPassage -op`
 
 Flag | Function | Notes
 ---- | -------- | -----
