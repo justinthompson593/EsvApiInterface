@@ -99,7 +99,7 @@ Short Flag | Long Flag | Example Use | Result
 -B | --add-bookmark | `$ EsvApiInterface -B John1:1-5` | Prompts for bookmark name,</br>say `2`, and saves in</br>`bookmarks.dat` 
 -bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>in columns to stdout </br>`\|_Bookmark_\|_Passage_\|`</br>`\|___Name___\|__Query__\|`</br>`\|____1_____\|__eph5___\|`</br>`\|____2_____\|John1:1-5\|`
 -bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5</br>as an html file  in your</br>default browser
--sop | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory<sup>[1](#1-this-is-the-most-squared-away-method)</sup>
+-sop | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory<sup><span title="hoverin' words">hover me</span></sup>
 
 
   
