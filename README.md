@@ -89,9 +89,11 @@ Flag | Setting | Next Value
 
 * **Bookmarks**
 
-We also have bookmarks.
+We also have bookmarks...
+
 Short Flag | Long Flag | Example Use | Result 
 ---------- | --------- | ----------- | ------
+-B | --add-bkmark | `$ EsvApiInterface -B eph5` | Prompts for bookmark name</br>and  
 -bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>to stdout
 
 ## Examples 
