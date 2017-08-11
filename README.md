@@ -97,7 +97,7 @@ Short Flag | Long Flag | Example Use | Result
 ---------- | --------- | ----------- | ------
 -B | --add-bookmark | `$ EsvApiInterface -B eph5 1` | Saves passage `eph5` with</br>bookmark name `1` in</br>`EsvApi/bookmarks.dat`
 -B | --add-bookmark | `$ EsvApiInterface -B John1:1-5` | Prompts you for the</br>bookmark name,say `2`,</br>and saves both in </br>`bookmarks.dat` 
--bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>in columns to stdout </br>`\|_Bookmark_\|__Passage__\|`</br>`\|___Name___\|___Query___\|`</br>`\|____1_____\|___eph5____\|`</br>`\|____2_____\|_John1:1-5_\|`<sup>[\[1\]]()</sup>
+-bm | --bookmarks | `$ EsvApiInterface -bm` | Prints<sup>[\[1\]]()</sup> your bookmarks </br>in columns to stdout </br>`\|_Bookmark_\|__Passage__\|`</br>`\|___Name___\|___Query___\|`</br>`\|____1_____\|___eph5____\|`</br>`\|____2_____\|_John1:1-5_\|`
 -bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5 as a</br>temporary html file in</br>your default browser
 -bsp | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5 as </br>eph5.html in your current</br>directory without opening
 -bot | --bkmk-open-txt | `$ EsvApiInterface -bot 2` | Opens John chapter 1</br>verses 1 through 5 in</br>your default browser
@@ -116,7 +116,8 @@ Short Flag | Long Flag | Example Use | Result
 ## Examples 
 
 
-###### \[1\] The "_"'s are there to easily keep spaces in markdown 
+## Notes
+###### \[1\] Actual stdout printing differs from what is shown in the table. The "_"'s are there to easily keep spaces in markdown. 
 
 
 
