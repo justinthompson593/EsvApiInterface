@@ -58,7 +58,7 @@ Short Flag | Long Flag | Example Use | Result
 -st | --save-text | `$ EsvApiInterface Gen3 -st` | Saves Genesis chapter 3 </br>as Gen3.txt in your </br>current directory
 -o3 | --open-mp3 | `$ EsvApiInterface Mat5:3-11 -o3` | Opens the [link](https://audio.esv.org/hw/40005003-40005011.mp3) to Matthew </br>chapter 5 verses 3 through </br>11  in your web browser
 -s3 | --save-mp3 | `$ EsvApiInterface Mat5:3-11 -s3` | Saves the [link](https://audio.esv.org/hw/40005003-40005011.mp3) in a file named </br>Mat5:3-11.mp3 in your </br>current directory
--bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>to stdout 
+ 
 
 
 <!--Flag | Function | Notes-->
@@ -86,6 +86,13 @@ Flag | Setting | Next Value
 -flnk | Footnote Links | 0 = off / 1 = on
 -ref | Passage References | 0 = off / 1 = on
 -rl | Red Letter | 0 = off / 1 = on
+
+* **Bookmarks**
+
+We also have bookmarks.
+Short Flag | Long Flag | Example Use | Result 
+---------- | --------- | ----------- | ------
+-bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>to stdout
 
 ## Examples 
 
