@@ -208,18 +208,18 @@ int main(int argc, const char * argv[]) {
 		if( strncmp(argv[i], "-ot", 3) == 0 || strncmp(argv[i], "--open-text", 11) == 0 ){
 			openText = true;
 		}
-		if( strncmp(argv[i], "-o3", 3) == 0 ){
+		if( strncmp(argv[i], "-o3", 3) == 0 || strncmp(argv[i], "--open-mp3", 10) == 0){
 			openMp3 = true;
 		}
 		
 		// Check for saving
-		if( strncmp(argv[i], "-sp", 3) == 0 ){
+		if( strncmp(argv[i], "-sp", 3) == 0 || strncmp(argv[i], "--save-passage", 14) == 0){
 			savePassage = true;
 		}
-		if( strncmp(argv[i], "-st", 3) == 0 ){
+		if( strncmp(argv[i], "-st", 3) == 0 || strncmp(argv[i], "--save-text", 11) == 0){
 			saveText = true;
 		}
-		if( strncmp(argv[i], "-s3", 3) == 0 ){
+		if( strncmp(argv[i], "-s3", 3) == 0 || strncmp(argv[i], "--save-mp3", 10) == 0){
 			saveMp3 = true;
 		}
 		

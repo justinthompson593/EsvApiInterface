@@ -2,9 +2,9 @@
 
 ## TODO
 
--[] link to examples
--[] make quieting easier, etc.
--[] get main running
+- [] link to examples
+- [] make quieting easier, etc.
+- [] get main running
 
 
 ## Install 
@@ -42,7 +42,7 @@ For example, 1st Corinthians chapter 1, verses 1 through 10 would be `1corinthia
 
 ### Flags
 
-* **Saving and Output Options** 
+* **Open and Save** 
 
 These can be used in any order. But because the `-s` flag can be followed by 1 or 2 arguments, it's best to put your searches at the end of your command.  
 
