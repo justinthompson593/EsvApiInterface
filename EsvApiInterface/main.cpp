@@ -91,43 +91,43 @@ void initDefaults(string exeName){
 		cout << endl << endl << "Enter a number: ";
 		string usrIn;
 		cin >> usrIn;
-		int in = stoi(usrIn);
-		outFile << "CS=" << in << endl;
+//		int in = stoi(usrIn);
+		outFile << "CS=" << usrIn << endl;
 		
 		cout << "Verse Numbers      (0=off / 1=on): ";
 		cin >> usrIn;
-		in = stoi(usrIn);
-		outFile << "VN=" << in << endl;
+//		in = stoi(usrIn);
+		outFile << "VN=" << usrIn << endl;
 		
 		cout << "Headings           (0=off / 1=on): ";
 		cin >> usrIn;
-		in = stoi(usrIn);
-		outFile << "HD=" << in << endl;
+//		in = stoi(usrIn);
+		outFile << "HD=" << usrIn << endl;
 		
 		cout << "Subheadings        (0=off / 1=on): ";
 		cin >> usrIn;
-		in = stoi(usrIn);
-		outFile << "SH=" << in << endl;
+//		in = stoi(usrIn);
+		outFile << "SH=" << usrIn << endl;
 		
 		cout << "Footnotes          (0=off / 1=on): ";
 		cin >> usrIn;
-		in = stoi(usrIn);
-		outFile << "FN=" << in << endl;
+//		in = stoi(usrIn);
+		outFile << "FN=" << usrIn << endl;
 		
 		cout << "Footnote Links     (0=off / 1=on): ";
 		cin >> usrIn;
-		in = stoi(usrIn);
-		outFile << "FL=" << in << endl;
+//		in = stoi(usrIn);
+		outFile << "FL=" << usrIn << endl;
 		
 		cout << "Passage References (0=off / 1=on): ";
 		cin >> usrIn;
-		in = stoi(usrIn);
-		outFile << "PR=" << in << endl;
+//		in = stoi(usrIn);
+		outFile << "PR=" << usrIn << endl;
 		
 		cout << "Words of Christ in red  ( 0 / 1 ): ";
 		cin >> usrIn;
-		in = stoi(usrIn);
-		outFile << "RL=" << in << endl;
+//		in = stoi(usrIn);
+		outFile << "RL=" << usrIn << endl;
 		
 		cout << endl << "What should happen when you run EsvApiInterface with no input arguments? i.e.\n\t$ ";
 		cout << exeName << endl << endl;
