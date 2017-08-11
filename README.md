@@ -48,7 +48,7 @@ Most calls to `EsvApiInterface` involve a passage query or some reference to one
 
 ### Flags
 
-#### Open and Save _: retrieving scripture_
+#### Open and Save: _How to access scripture_
 
 These can be used in any order. But because the `-s` flag can be followed by 1 or 2 arguments, it's best to put your searches at the end of your command.  
 

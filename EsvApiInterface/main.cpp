@@ -324,7 +324,7 @@ int main(int argc, const char * argv[]) {
 		}
 		
 		// check for search query
-		if( strncmp(argv[i], "-sr", 3) == 0 || strncmp(argv[i], "-search", 7) == 0){
+		if( strncmp(argv[i], "-sr", 3) == 0 || strncmp(argv[i], "--search", 7) == 0){
 			searching = true;
 			i++;
 			searchString = (string)argv[i];
@@ -336,7 +336,7 @@ int main(int argc, const char * argv[]) {
 
 		
 		//	Check for randVerse or whatever else save flag: -S
-		if( strncmp(argv[i], "-S", 2) == 0 || strncmp(argv[i], "-Save", 5) == 0){
+		if( strncmp(argv[i], "-S", 2) == 0 || strncmp(argv[i], "--save", 6) == 0){
 			saving = true;
 		}
 //
@@ -439,11 +439,11 @@ int main(int argc, const char * argv[]) {
 	
 		// Text output
 		if( openText && saveText )
-			ESVinterface.openText(argv[1], true);
+			ESVinterface.openText(argv[1], cpyToClip, true);
 		else if( openText && !saveText )
-			ESVinterface.openText(argv[1], false);
+			ESVinterface.openText(argv[1], cpyToClip, false);
 		else if( !openText && saveText )
-			ESVinterface.saveText(argv[1]);
+			ESVinterface.saveText(argv[1], cpyToClip);
 		
 		// Mp3 output
 		if( openMp3 && saveMp3 )
@@ -453,6 +453,9 @@ int main(int argc, const char * argv[]) {
 		else if( !openMp3 && saveMp3 )
 			ESVinterface.saveMp3(argv[1]);
 		
+		
+		if( cpyToClip && !openText && !saveText )
+			ESVinterface.copyText(argv[1]);
 	}
 	
 	
