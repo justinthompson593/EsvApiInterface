@@ -91,7 +91,7 @@ Flag | Setting | Next Value
 
 #### Bookmarks
 
-We also have bookmarks. In the columns below, we'll assume the Results are what you'd get if you had run each previous Example Use, and in each previous row before. 
+We also have bookmarks. In the columns below, we'll assume the Results are what you'd get if you had run each previous Example Use, and in each previous row before. If you'd like to open and save in a given format, text for instance, then put a `-S` flag before the `-bot` (i.e. `$ EsvApiInterface -S -bot myBookmarkName` will open yourBookmarkPassageQuery.txt in your default text editor and save it to your current directory). 
 
 Short Flag | Long Flag | Example Use | Result 
 ---------- | --------- | ----------- | ------
@@ -101,7 +101,7 @@ Short Flag | Long Flag | Example Use | Result
 -bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5</br>as an html file  in your</br>default browser
 -bsp | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory
 -bot | --bkmk-open-txt | `$ EsvApiInterface -bot 2` | Opens John chapter 1</br>verses 1 through 5</br>default browser
--bst | --bkmk-save-txt | `$ EsvApiInterface -sop 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory
+-bst | --bkmk-save-txt | `$ EsvApiInterface -bst 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory
 
 
 
@@ -122,6 +122,4 @@ Command | Result
 `$ john3 -S -mp3` | Saves and opens both john3.html and john3.mp3
 
 
-
-
-###### \[1\] <font size="6">This is the most squared away method.</font> 
+ 
