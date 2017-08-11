@@ -101,8 +101,9 @@ Short Flag | Long Flag | Example Use | Result
 -bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5</br>as an html file  in your</br>default browser
 -sop | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory<sup>[1](#1)</sup>
 
-###### 1 
-This is the most squared away method.
+###### 1 <font size="6">This is the most squared away method.</font> 
+  
+
 
 ## Examples 
 
