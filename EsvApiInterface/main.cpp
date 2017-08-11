@@ -156,32 +156,6 @@ void initDefaults(string exeName){
 	
 }
 
-// returns passageQuery
-//string processBookmarkLine(string line, string name){
-//	string out = "";
-//	
-//	size_t idx = line.find_last_of("0123456789");
-//	cout << line.substr(0,idx) << endl;
-//	idx = line.find_last_of(" ");
-//	cout << line.substr(idx+1) << endl;
-//	
-//	return line.substr(idx+1);
-//}
-
-//void printBookmarks(){
-//	
-//}
-
-//void setBookmark(string bkmkName, string psgQuery){
-//	
-//}
-
-// Returns passage query
-//string getBookmark(string bkmrk){
-//	
-//	
-//}
-
 
 int main(int argc, const char * argv[]) {
 	
@@ -190,16 +164,16 @@ int main(int argc, const char * argv[]) {
 	
 //	setBookmark("3", "1Cor1");
 //	string bkmk = "lastTuesday";
-	string bkmk = "testin";
-	
-	ESVinterface.setBookmark(bkmk, "heresAnUnreasonablyLongPassageQueryWhichCouldntReferToAnyOneTHing");
-	
-	cout << "Passage for bookmark " << bkmk << ": " << ESVinterface.getBookmark(bkmk) << endl;
-	
-	ESVinterface.printBookmarks();
+//	string bkmk = "testin";
+//	
+//	ESVinterface.setBookmark(bkmk, "heresAnUnreasonablyLongPassageQueryWhichCouldntReferToAnyOneTHing");
+//	
+//	cout << "Passage for bookmark " << bkmk << ": " << ESVinterface.getBookmark(bkmk) << endl;
+//	
+//	ESVinterface.printBookmarks();
 //	processBookmarkLine("1 morning 1Chr5", "");
 //	processBookmarkLine("24352 evening Mat5:", "");
-	return 91;
+//	return 91;
 	// DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG
 	
 	
