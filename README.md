@@ -2,6 +2,9 @@
 
 ## TODO
 
+- [ ] make user defined default outputs for:
+	- [ ] no args
+	- [ ] one arg (passageQuery)
 - [ ] link to examples
 - [ ] make quieting easier, etc.
 - [ ] get main running
