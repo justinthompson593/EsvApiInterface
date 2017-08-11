@@ -235,7 +235,24 @@ int main(int argc, const char * argv[]) {
 		if( strncmp(argv[i], "-bm", 3) == 0 || strncmp(argv[i], "--bookmarks", 11) == 0 ){
 			ESVinterface.printBookmarks();
 		}
-		if( strncmp(argv[i], "-bm", 3) == 0 || strncmp(argv[i], "--bookmarks", 11) == 0 )
+		if( strncmp(argv[i], "-B", 3) == 0 || strncmp(argv[i], "--add-bookmark", 14) == 0 ){
+			if( i+1 >= argc )
+				break;			// break --> go to next arg 
+			
+			string bkMkName = "";
+			string psgQry = argv[i];
+			
+			if( i+1 < argc ){
+				i++;
+				bkMkName = argv[i];
+			}
+			else{
+				cout << "Enter bookmark name (on word): ";
+				cin >> bkMkName;
+			}
+			
+			ESVinterface.setBookmark(bkMkName, psgQry);
+		}
 		
 //		// Quiet outputs
 //		if( strncmp(argv[i], "-Q", 2) == 0 ){
