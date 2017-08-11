@@ -19,7 +19,7 @@ You'll need a terminal which runs bash and has `g++`, and `curl`. If you're on O
 
 * **Command Line Install**
 
-First open a terminal and `cd` to the directory where you want to install the executable `EsvApiInterface` and the supporting .css files (both will show up in a new directory named EsvApi in your chosen install directory).  Assuming you have `curl` and `g++` (this should be the case for Linux and OSX), the easiest way to get this command line tool is to copy the following block of code and paste it into your terminal. 
+First open a terminal and `cd` to the directory where you want to install the executable `EsvApiInterface` and the supporting .css files (both will show up in a new directory named EsvApi in your chosen install directory).  Assuming you have `curl` and `g++` (this should be the case for Linux and OSX), the easiest way to get this command line tool is to copy the following code and paste it into your terminal. 
 
 `
 curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApiInterface/master/Installer/EsvApiInstaller.cpp && g++ installer.cpp -o installer && ./installer && rm -f installer.cpp && rm -f installer
