@@ -98,10 +98,12 @@ Short Flag | Long Flag | Example Use | Result
 -B | --add-bookmark | `$ EsvApiInterface -B eph5 1` | Saves passage `eph5` with</br>bookmark name `1` in</br>`EsvApi/bookmarks.dat`
 -B | --add-bookmark | `$ EsvApiInterface -B John1:1-5` | Prompts for bookmark name,</br>say `2`, and saves in</br>`bookmarks.dat` 
 -bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>in columns to stdout </br>`\|_Bookmark_\|_Passage_\|`</br>`\|___Name___\|__Query__\|`</br>`\|____1_____\|__eph5___\|`</br>`\|____2_____\|John1:1-5\|`
--bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5 as</br>an temporary html file</br>in your default browser
+-bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5 as a</br>temporary html file in</br>your default browser
 -bsp | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5 as </br>eph5.html in your</br>current directory
 -bot | --bkmk-open-txt | `$ EsvApiInterface -bot 2` | Opens John chapter 1</br>verses 1 through 5</br>default browser
 -bst | --bkmk-save-txt | `$ EsvApiInterface -bst 1` | Saves Ephesians 5 as</br>eph5.html in your current</br>directory without opening
+-bo3 | --bkmk-open-mp3 | `$ EsvApiInterface -bot 2` | Opens John chapter 1</br>verses 1 through 5</br>default browser
+-bs3 | --bkmk-save-mp3 | `$ EsvApiInterface -bst 1` | Saves Ephesians 5 as</br>eph5.html in your current</br>directory without opening
 
 
 
