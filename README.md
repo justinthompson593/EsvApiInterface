@@ -95,7 +95,7 @@ Short Flag | Long Flag | Example Use | Result
 ---------- | --------- | ----------- | ------
 -B | --add-bookmark | `$ EsvApiInterface -B eph5 1` | Saves passage `eph5` with</br>bookmark name `1`</br> in `EsvApi/bookmarks.dat`
 -B | | `$ EsvApiInterface -B eph5` | Prompts for bookmark name</br>and
--bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>to stdout in columns</br>`| Bookmark | Passage |`
+-bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>to stdout in columns</br>`Bookmark | Passage`
 
 ## Examples 
 
