@@ -231,6 +231,12 @@ int main(int argc, const char * argv[]) {
 	// Process input flags
 	for(int i=1; i<argc; i++){
 		
+		// Bookmarks
+		if( strncmp(argv[i], "-bm", 3) == 0 || strncmp(argv[i], "--bookmarks", 11) == 0 ){
+			ESVinterface.printBookmarks();
+		}
+		if( strncmp(argv[i], "-bm", 3) == 0 || strncmp(argv[i], "--bookmarks", 11) == 0 )
+		
 //		// Quiet outputs
 //		if( strncmp(argv[i], "-Q", 2) == 0 ){
 //			quietAll = true;
