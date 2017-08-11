@@ -189,9 +189,10 @@ int main(int argc, const char * argv[]) {
 	// DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG
 	
 //	setBookmark("3", "1Cor1");
-	string bkmk = "4";
+//	string bkmk = "lastTuesday";
+	string bkmk = "lastWednesday";
 	
-	ESVinterface.setBookmark(bkmk, "Thessalonians10:10-11");
+//	ESVinterface.setBookmark(bkmk, "1cor3");
 	
 	cout << "Passage for bookmark " << bkmk << ": " << ESVinterface.getBookmark(bkmk) << endl;
 	

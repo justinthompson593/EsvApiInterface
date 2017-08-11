@@ -616,14 +616,14 @@ void EsvApiInterface::saveRand(int ESV_RAND_TYPE, long seed){
 }
 
 string EsvApiInterface::getBookmark(string bookMarkName){
-	string out = "0";
+	string out = "not_found";
 	
 	char fileName[2048];
 	sprintf(fileName, "%sbookmarks.dat", directory.c_str());
 	ifstream inF(fileName);
 	string line;
 	if(inF.fail()){
-		cout << "\n\nERROR main::getBookmark(string): Can not find " << fileName << endl;
+		cout << "\n\nERROR EsvApiInterface::getBookmark(string): Can not find " << fileName << endl;
 	}
 	else{
 		while( getline(inF, line) ){
@@ -650,17 +650,17 @@ void EsvApiInterface::setBookmark(string bookMarkName, string passageQuery){
 	if(outFile.is_open()){
 //		outFile << bookMarkName << " " << passageQuery << endl;
 		string possiblePQ = getBookmark(bookMarkName);
-		if( possiblePQ.compare("0") != 0 ){
+		cout << "Testing " << possiblePQ << endl;
+		if( possiblePQ.compare("not_found") == 0 ){
 			outFile << bookMarkName << " " << passageQuery << endl;
 		}
 		else{
-			cout << bookMarkName<< " is already a bookmark name for " << possiblePQ << ". Overwrite? (y/n): ";
+			cout << bookMarkName<< " is already a bookmark name for " << possiblePQ << ". Overwrite? (y/N): ";
 			string usrIn;
 			cin >> usrIn;
-			if( usrIn.compare("y") ){
+			if( usrIn.compare("y") == 0 ){
 				overwrite = true;
 			}
-			
 		}
 	}
 	else{
@@ -670,41 +670,119 @@ void EsvApiInterface::setBookmark(string bookMarkName, string passageQuery){
 	
 	
 	if(overwrite){
+		char tempFile[2048];
+		sprintf(tempFile, "%stemp", directory.c_str());
+		ofstream newBkmk;
+		newBkmk.open(tempFile, ios::out);
+		if(newBkmk.is_open()){
+			ifstream inF(fileName);
+			string line;
+			if(inF.fail()){
+				cout << "\n\nERROR EsvApiInterface::setBookmark(string, string): Can not find " << fileName << endl;
+			}
+			else{
+				while( getline(inF, line) ){
+					size_t idx = line.find_first_of(" ");
+					
+					if( bookMarkName.compare(line.substr(0,idx)) == 0 ){
+						newBkmk << bookMarkName << " " << passageQuery << endl;
+					}
+					else{
+						newBkmk << line << endl;
+					}
+					
+				}
+			}
+			
+			inF.close();
+		}
+		newBkmk.close();
 		
+		char bashOut[2048];
+		sprintf(bashOut, "mv %stemp %sbookmarks.dat", directory.c_str(), directory.c_str());
+		system(bashOut);
 	}
+	
+	
 	
 }
 
 void EsvApiInterface::printBookmarks(){
 	char fileName[2048];
 	sprintf(fileName, "%sbookmarks.dat", directory.c_str());
-	ifstream inF(fileName);
+	ifstream inF1(fileName);
+	size_t maxLen = 0;
 	string line;
-	if(inF.fail()){
-		cout << "\n\nERROR main::getBookmark(string): Can not find " << fileName << endl;
+	if(inF1.fail()){
+		cout << "\n\nERROR EsvApiInterface::getBookmark(string): Can not find " << fileName << endl;
 	}
 	else{
-		cout << "_____________________________________" << endl;
-		cout << "________Bookmarks____________________" << endl;
-		cout << "____Name____|____Passage" << endl;
+//		cout << "_____________________________________" << endl;
+//		cout << "________Bookmarks____________________" << endl;
+//		cout << "____Name____|____Passage" << endl;
 		
 		
-		while( getline(inF, line) ){
+		while( getline(inF1, line) ){
 			size_t idx = line.find_first_of(" ");
-			
-			
-			cout << "\t" << line.substr(0,idx);
-			if( line.substr(0,idx).length() < 4 ){
-				for(int i=0; i<(4-line.substr(0,idx).length()); i++)
-					cout << " ";
-			}
-			cout  << "\t|\t" << line.substr(idx+1) << endl;
-			
+			if(line.substr(0,idx).length() > maxLen)
+				maxLen = line.substr(0,idx).length();
 		}
 	}
 	
-	inF.close();
 	
+	inF1.close();
+	ifstream inF2(fileName);
+	if(inF2.fail()){
+		cout << "\n\nERROR EsvApiInterface::getBookmark(string): Can not find " << fileName << endl;
+	}
+	else{
+
+		if(maxLen < 12)
+			maxLen = 12;
+		
+		// print "|__Bookmarks__________________________|"
+		cout << "|";
+		for(size_t i=0; i<(maxLen/2)-4; i++)
+			cout << "_";
+		cout << "Bookmark" ; //________________________|" << endl;
+		for(size_t i=0; i<(maxLen/2)-4; i++)
+			cout << "_";
+		cout << "|________________________|" << endl;
+		
+		// print "|____Name____|______________________|"
+		cout << "|";
+		for(size_t i=0; i<(maxLen/2)-2; i++)
+			cout << "_";
+		cout << "Name";
+		for(size_t i=0; i<(maxLen/2)-2; i++)
+			cout << "_";
+		cout << "|________Passage_________|" << endl;
+		
+		
+		// print |  bkmkname  |       passageC:v0-vf
+		
+		while( getline(inF2, line) ){
+			cout << "|";
+			size_t idx = line.find_first_of(" ");
+			size_t lenName = line.substr(0,idx).length();
+			for(size_t i=0; i<maxLen/2 - lenName/2 - lenName%2 ; i++)
+				cout << " ";
+			cout << line.substr(0,idx);
+			for(size_t i=0; i<maxLen/2 - lenName/2; i++)
+				cout << " ";
+			cout << "|";
+			size_t lenPsg = line.substr(idx+1).length();
+			for(size_t i=0; i<12 - lenPsg/2 - lenPsg%2; i++)
+				cout << " ";
+			cout << line.substr(idx+1);
+			for(size_t i=0; i<12 - lenPsg/2; i++)
+				cout << " ";
+			
+			
+			cout << "|" << endl;
+		}
+	}
+	inF2.close();
 }
 
 
