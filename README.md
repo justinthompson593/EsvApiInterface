@@ -13,11 +13,11 @@
 
 ## Install 
 
-* **System Requirements**
+### System Requirements
 
 You'll need a terminal which runs bash and has `g++`, and `curl`. If you're on OSX, then the terminal will already have these and `pbcopy`, which is used to copy scripture to your clipboard. If you're using Linux or are in a Unix bash environment, you will need `xsel` to make use of this feature. Without it, you'll have access to all the other features, but you'll get errors if you try to use the `-c` flag (see Flags below for details). If your system is lacking any of these 3 tools, you can use your package manager to download them directly from the command line. If you're running Ubuntu, for instance, you could run `$ sudo apt-get install xsel` to get the missing software (and similarly with `g++` and `curl`, but I know those are native to Ubuntu). Note that you don't need to type in the `$` sign; that's just in there to look like it does on the terminal.
 
-* **Command Line Install**
+### Command Line Install
 
 First open a terminal and `cd` to the directory where you want to install the executable `EsvApiInterface` and the supporting .css files (both will show up in a new directory named EsvApi in your chosen install directory).  Assuming you have `curl` and `g++` (this should be the case for Linux and OSX), the easiest way to get this command line tool is to copy the following code and paste it into your terminal. 
 
@@ -27,7 +27,7 @@ curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApi
 
 A quick rundown of the code above: we download [EsvApiInstaller.cpp](https://github.com/justinthompson593/EsvApiInterface/blob/master/Installer/EsvApiInstaller.cpp) file as installer.cpp. If you like, you can follow the link to see that this code downloads [these](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/main.cpp) [three](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/EsvApiInterface.cpp) [files](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/EsvApiInterface.hpp) to your computer, and then uses `g++` to turn them into the executable `EsvApiInterface`. It will run the executable and ask you to define your [defaults](). Afterwards, it will remove the downloaded .cpp and .hpp files, leaving all .css files and the executable in the new EsvApi directory. Finally, the installer will add the path to the executable to your `PATH` variable in your bash startup file. 
 
-* **Build On Your Own**
+### Build On Your Own
 
 On [this](https://github.com/justinthompson593/EsvApiInterface) page there is a green button...TODO Finish this. 
 
@@ -58,8 +58,8 @@ Short Flag | Long Flag | Example Use | Result
 -sp | --save-passage | `$ EsvApiInterface 1john1 -sp` | Saves first John chapter </br>1 as 1john1.html in your </br>current directory
 -ot | --open-text | `$ EsvApiInterface Gen3 -ot` | Opens Genesis chapter </br>3 as a temporary file in </br>your default text editor
 -st | --save-text | `$ EsvApiInterface Gen3 -st` | Saves Genesis chapter 3 </br>as Gen3.txt in your </br>current directory
--o3 | --open-mp3 | `$ EsvApiInterface Mat5:3-11 -o3` | Opens the [link](https://audio.esv.org/hw/40005003-40005011.mp3) to Matthew </br>chapter 5 verses 3 through </br>11  in your web browser
--s3 | --save-mp3 | `$ EsvApiInterface Mat5:3-11 -s3` | Saves the [link](https://audio.esv.org/hw/40005003-40005011.mp3) in a file named </br>Mat5:3-11.mp3 in your </br>current directory
+-o3 | --open-mp3 | `$ EsvApiInterface Mat5:3-11 -o3` | Opens this [link](https://audio.esv.org/hw/40005003-40005011.mp3) to Matthew </br>chapter 5 verses 3 through </br>11  in your web browser
+-s3 | --save-mp3 | `$ EsvApiInterface Mat5:3-11 -s3` | Saves this [link](https://audio.esv.org/hw/40005003-40005011.mp3) in a file named </br>Mat5:3-11.mp3 in your </br>current directory
  
 
 
