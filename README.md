@@ -99,7 +99,9 @@ Short Flag | Long Flag | Example Use | Result
 -B | --add-bookmark | `$ EsvApiInterface -B John1:1-5` | Prompts for bookmark name,</br>say `2`, and saves in</br>`bookmarks.dat` 
 -bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>in columns to stdout </br>`\|_Bookmark_\|_Passage_\|`</br>`\|___Name___\|__Query__\|`</br>`\|____1_____\|__eph5___\|`</br>`\|____2_____\|John1:1-5\|`
 -bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5</br>as an html file  in your</br>default browser
--sop<sup>[\[1\]](#1-this-is-the-most-squared-away-method)</sup> | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory<sup></sup>
+-bsp | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory
+-bot | --bkmk-open-txt | `$ EsvApiInterface -bot 2` | Opens John chapter 1</br>verses 1 through 5</br>default browser
+-bst | --bkmk-save-txt | `$ EsvApiInterface -sop 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory
 
 
 
