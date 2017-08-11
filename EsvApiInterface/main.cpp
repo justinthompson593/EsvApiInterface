@@ -73,7 +73,7 @@ void processDefaultSettings(string line){
 	}
 }
 
-void initDefaults(){
+void initDefaults(string exeName){
 	
 	cout << "______________Esv Api Interface______________" << endl << endl;
 	
@@ -83,7 +83,11 @@ void initDefaults(){
 	outFile.open(fileName, ios::out);
 	
 	if(outFile.is_open()){
-		cout << "Choose CSS type\n\n1: Default\n2: Dark\n\nEnter a number: ";
+		cout << "Choose CSS type\n" << endl;
+		cout << "1: Default" << endl;
+		cout << "2: Dark" << endl;
+		cout << "3: Custom" << endl;
+		cout << endl << endl << "Enter a number: ";
 		string usrIn;
 		cin >> usrIn;
 		int in = stoi(usrIn);
@@ -119,10 +123,16 @@ void initDefaults(){
 		in = stoi(usrIn);
 		outFile << "PR=" << in << endl;
 		
-		cout << "Red Letter (words of Christ) (0=off / 1=on): ";
+		cout << "Words of Christ in red  ( 0 / 1 ): ";
 		cin >> usrIn;
 		in = stoi(usrIn);
 		outFile << "RL=" << in << endl;
+		
+		cout << endl << "What should happen when you run EsvApiInterface with no input arguments? i.e.\n\t$ ";
+		cout << exeName << endl << endl;
+		cout << "1: Open and/or save the daily verse" << endl;
+		cout << "2: Open and/or save a random verse" << endl;
+		
 		
 		outFile.close();
 	}
@@ -141,7 +151,7 @@ int main(int argc, const char * argv[]) {
 	ifstream ifs(fileName);
 	string line;
 	if(ifs.fail()){
-		initDefaults();
+		initDefaults(argv[0]);
 	}
 	else{
 		while( getline(ifs, line) ){
@@ -230,7 +240,7 @@ int main(int argc, const char * argv[]) {
 		
 		// check for redefine defaults
 		if( strncmp(argv[i], "-def", 4) == 0){
-			initDefaults();
+			initDefaults(argv[0]);
 			ifstream ifs2(fileName);
 			if(ifs2.fail()){
 				// ¿initDefaults must have failed?

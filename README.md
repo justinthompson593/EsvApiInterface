@@ -2,6 +2,7 @@
 
 ## TODO
 
+- [ ] custom css option
 - [ ] make user defined default outputs for:
 	- [ ] no args
 	- [ ] one arg (passageQuery)
