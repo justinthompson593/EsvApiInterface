@@ -96,7 +96,7 @@ We also have bookmarks. In the columns below, we'll assume the Results are what 
 Short Flag | Long Flag | Example Use | Result 
 ---------- | --------- | ----------- | ------
 -B | --add-bookmark | `$ EsvApiInterface -B eph5 1` | Saves passage `eph5` with</br>bookmark name `1` in</br>`EsvApi/bookmarks.dat`
--B | --add-bookmark | `$ EsvApiInterface -B John1:1-5` | Prompts for bookmark name,</br>say `2`, and saves in</br>`bookmarks.dat` 
+-B | --add-bookmark | `$ EsvApiInterface -B John1:1-5` | Prompts you for the</br>bookmark name,say `2`,</br>and saves both in `bookmarks.dat` 
 -bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>in columns to stdout </br>`\|_Bookmark_\|_Passage_\|`</br>`\|___Name___\|__Query__\|`</br>`\|____1_____\|__eph5___\|`</br>`\|____2_____\|John1:1-5\|`
 -bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5 as a</br>temporary html file in</br>your default browser
 -bsp | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5 as </br>eph5.html in your</br>current directory
