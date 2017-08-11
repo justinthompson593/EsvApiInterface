@@ -98,10 +98,10 @@ Short Flag | Long Flag | Example Use | Result
 -B | --add-bookmark | `$ EsvApiInterface -B eph5 1` | Saves passage `eph5` with</br>bookmark name `1` in</br>`EsvApi/bookmarks.dat`
 -B | --add-bookmark | `$ EsvApiInterface -B John1:1-5` | Prompts for bookmark name,</br>say `2`, and saves in</br>`bookmarks.dat` 
 -bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>in columns to stdout </br>`\|_Bookmark_\|_Passage_\|`</br>`\|___Name___\|__Query__\|`</br>`\|____1_____\|__eph5___\|`</br>`\|____2_____\|John1:1-5\|`
--bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5</br>as an html file  in your</br>default browser
--bsp | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory
+-bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5 as</br>an temporary html file</br>in your default browser
+-bsp | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5 as </br>eph5.html in your</br>current directory
 -bot | --bkmk-open-txt | `$ EsvApiInterface -bot 2` | Opens John chapter 1</br>verses 1 through 5</br>default browser
--bst | --bkmk-save-txt | `$ EsvApiInterface -bst 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory
+-bst | --bkmk-save-txt | `$ EsvApiInterface -bst 1` | Saves Ephesians 5 as</br>eph5.html in your current</br>directory without opening
 
 
 
@@ -113,13 +113,15 @@ Short Flag | Long Flag | Example Use | Result
 
 ## Examples 
 
-In the following table, we'll use `$ passageQuery flags` as a shorthand for `$ EsvApiInterface passageQuery flags`. So `$ john3 -q -mp3` in the table is short-hand for the `$ EsvApiInterface john3 -q -mp3` you'd have in the command line.
 
-Command | Result
-------- | ------
-`$ john3:16 -c` | Opens John chapter 3 verse 16 in html and copies the formatted text to the clipboard
-`$ john3 -q -mp3` | Opens audio link to John chapter 3 without opening the html page
-`$ john3 -S -mp3` | Saves and opens both john3.html and john3.mp3
+
+<!--In the following table, we'll use `$ passageQuery flags` as a shorthand for `$ EsvApiInterface passageQuery flags`. So `$ john3 -q -mp3` in the table is short-hand for the `$ EsvApiInterface john3 -q -mp3` you'd have in the command line.-->
+<!---->
+<!--Command | Result-->
+<!--------- | -------->
+<!--`$ john3:16 -c` | Opens John chapter 3 verse 16 in html and copies the formatted text to the clipboard-->
+<!--`$ john3 -q -mp3` | Opens audio link to John chapter 3 without opening the html page-->
+<!--`$ john3 -S -mp3` | Saves and opens both john3.html and john3.mp3-->
 
 
  
