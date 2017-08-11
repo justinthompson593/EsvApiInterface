@@ -93,7 +93,8 @@ We also have bookmarks...
 
 Short Flag | Long Flag | Example Use | Result 
 ---------- | --------- | ----------- | ------
--B | --add-bkmark | `$ EsvApiInterface -B eph5` | Prompts for bookmark name</br>and  
+-B | --add-bookmark | `$ EsvApiInterface -B eph5` | Prompts for bookmark name</br>and
+ | | `$ EsvApiInterface -B eph5` | Prompts for bookmark name</br>and
 -bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>to stdout
 
 ## Examples 
