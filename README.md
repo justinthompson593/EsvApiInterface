@@ -8,7 +8,6 @@
 	- [ ] no args
 	- [ ] one arg (passageQuery)
 - [ ] link to examples
-- [ ] make quieting easier, etc.
 - [ ] get main running
 
 
