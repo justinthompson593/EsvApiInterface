@@ -99,9 +99,9 @@ Short Flag | Long Flag | Example Use | Result
 -B | --add-bookmark | `$ EsvApiInterface -B John1:1-5` | Prompts for bookmark name,</br>say `2`, and saves in</br>`bookmarks.dat` 
 -bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>in columns to stdout </br>`\|_Bookmark_\|_Passage_\|`</br>`\|___Name___\|__Query__\|`</br>`\|____1_____\|__eph5___\|`</br>`\|____2_____\|John1:1-5\|`
 -bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5</br>as an html file  in your</br>default browser
--sop | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory<sup>[1](#1)</sup>
+-sop | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5</br>as eph5.html in your</br>current directory<sup>[1](#1-this-is-the-most-squared-away-method)</sup>
 
-###### 1 <font size="6">This is the most squared away method.</font> 
+
   
 
 
@@ -114,3 +114,8 @@ Command | Result
 `$ john3:16 -c` | Opens John chapter 3 verse 16 in html and copies the formatted text to the clipboard
 `$ john3 -q -mp3` | Opens audio link to John chapter 3 without opening the html page
 `$ john3 -S -mp3` | Saves and opens both john3.html and john3.mp3
+
+
+
+
+###### 1 <font size="6">This is the most squared away method.</font> 
