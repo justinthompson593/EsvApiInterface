@@ -2,6 +2,7 @@
 
 ## TODO
 
+- [ ] add bookmarks
 - [ ] custom css option
 - [ ] make user defined default outputs for:
 	- [ ] no args

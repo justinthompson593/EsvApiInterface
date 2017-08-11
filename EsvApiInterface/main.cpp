@@ -26,6 +26,12 @@ using namespace std;
 
 EsvApiInterface ESVinterface(ESV_PATH);
 
+ofstream outFile;
+char fileName[2048];
+
+
+
+
 bool is_number(const std::string& s){
 	std::string::const_iterator it = s.begin();
 	while (it != s.end() && std::isdigit(*it)) ++it;
@@ -76,10 +82,9 @@ void processDefaultSettings(string line){
 
 void initDefaults(string exeName){
 	
-	cout << "______________Esv Api Interface______________" << endl << endl;
+	cout << "______________" << exeName << "______________" << endl << endl;
 	
-	ofstream outFile;
-	char fileName[2048];
+	
 	sprintf(fileName, "%sdefaults.dat", ESVinterface.getDirectory().c_str());
 	outFile.open(fileName, ios::out);
 	
@@ -132,22 +137,125 @@ void initDefaults(string exeName){
 		cout << endl << "What should happen when you run EsvApiInterface with no input arguments? i.e.\n\t$ ";
 		cout << exeName << endl << endl;
 		cout << "1: Open and/or save the daily verse" << endl;
-		cout << "2: Open and/or save a random verse" << endl;
+		cout << "2: Open a random verse" << endl;
+		cout << "3: Show bookmarks" << endl;
 		
 		
-		outFile.close();
+		
 	}
 	else{
 		// ?
 	}
+	outFile.close();
 	
+	// Make bookmarks.dat
+	sprintf(fileName, "%sbookmarks.dat", ESVinterface.getDirectory().c_str());
+	outFile.open(fileName, ios::out);
+	outFile.close();
+	
+	
+}
+
+// returns passageQuery
+//string processBookmarkLine(string line, string name){
+//	string out = "";
+//	
+//	size_t idx = line.find_last_of("0123456789");
+//	cout << line.substr(0,idx) << endl;
+//	idx = line.find_last_of(" ");
+//	cout << line.substr(idx+1) << endl;
+//	
+//	return line.substr(idx+1);
+//}
+
+void printBookmarks(){
+	sprintf(fileName, "%sbookmarks.dat", ESVinterface.getDirectory().c_str());
+	ifstream inF(fileName);
+	string line;
+	if(inF.fail()){
+		cout << "\n\nERROR main::getBookmark(string): Can not find " << fileName << endl;
+	}
+	else{
+		cout << "_____________________________________" << endl;
+		cout << "________Bookmarks____________________" << endl;
+		cout << "____Name____|____Passage" << endl;
+		
+		
+		while( getline(inF, line) ){
+			size_t idx = line.find_first_of(" ");
+			
+			
+			cout << "\t" << line.substr(0,idx);
+			if( line.substr(0,idx).length() < 4 ){
+				for(int i=0; i<(4-line.substr(0,idx).length()); i++)
+					cout << " ";
+			}
+			cout  << "\t|\t" << line.substr(idx+1) << endl;
+			
+		}
+	}
+	
+	inF.close();
+	
+}
+
+void setBookmark(string bkmkName, string psgQuery){
+	sprintf(fileName, "%sbookmarks.dat", ESVinterface.getDirectory().c_str());
+	outFile.open(fileName, ios::app);
+	if(outFile.is_open()){
+		outFile << bkmkName << " " << psgQuery << endl;
+	}
+	else{
+		cout << "ERROR: No file named " << fileName << endl;
+	}
+	outFile.close();
+	
+}
+
+// Returns passage query
+string getBookmark(string bkmrk){
+	
+	string out = "";
+	
+	sprintf(fileName, "%sbookmarks.dat", ESVinterface.getDirectory().c_str());
+	ifstream inF(fileName);
+	string line;
+	if(inF.fail()){
+		cout << "\n\nERROR main::getBookmark(string): Can not find " << fileName << endl;
+	}
+	else{
+		while( getline(inF, line) ){
+			size_t idx = line.find_first_of(" ");
+			
+			if( bkmrk.compare(line.substr(0,idx)) == 0 ){
+				out = line.substr(idx+1);
+			}
+			
+		}
+	}
+	
+	inF.close();
+	
+	return out;
 }
 
 
 int main(int argc, const char * argv[]) {
 	
 	
-	char fileName[2048];
+	// DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG
+	
+//	setBookmark("3", "1Cor1");
+	string bkmk = "1";
+	cout << "Passage for bookmark " << bkmk << ": " << getBookmark(bkmk) << endl;
+	printBookmarks();
+//	processBookmarkLine("1 morning 1Chr5", "");
+//	processBookmarkLine("24352 evening Mat5:", "");
+	return 91;
+	// DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG
+	
+	
+	
 	sprintf(fileName, "%sdefaults.dat", ESVinterface.getDirectory().c_str());
 	ifstream ifs(fileName);
 	string line;
