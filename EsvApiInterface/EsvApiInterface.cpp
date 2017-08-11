@@ -718,14 +718,53 @@ void EsvApiInterface::printBookmarks(){
 	}
 	else{
 //		cout << "_____________________________________" << endl;
-//		cout << "________Bookmarks____________________" << endl;
-//		cout << "____Name____|____Passage" << endl;
+		cout << "|__Bookmark__|________________________|" << endl;
+		cout << "|____Name____|________Passage_________|" << endl;
 		
 		
 		while( getline(inF1, line) ){
 			size_t idx = line.find_first_of(" ");
-			if(line.substr(0,idx).length() > maxLen)
-				maxLen = line.substr(0,idx).length();
+			
+			cout << "|";
+			
+			// center and print bookmark name
+			if( idx < 12 ){
+				for(size_t i=0; i<6-idx/2-idx%2; i++)
+					cout << " ";
+				
+				cout << line.substr(0,idx);
+				
+				for(size_t i=0; i<6-idx/2 ; i++)
+					cout << " ";
+				
+				cout << "|";
+			}
+			else{
+				cout << line.substr(0,12) << "|";
+			}
+			
+			// center and print passage
+			size_t L = line.substr(idx+1).length();
+			if( L < 24 ){
+				for(size_t i=0; i<12-L/2-L%2; i++)
+					cout << " ";
+				
+				cout << line.substr(idx+1);
+				
+				for(size_t i=0; i<12-L/2 ; i++)
+					cout << " ";
+				
+				cout << "|" << endl;
+			}
+			else{
+				cout << line.substr(idx+1,24) << "|" << endl;
+			}
+			
+			
+			
+//			cout << line.substr(0,idx) << " is " << idx << " chars long" << endl;
+//			if(line.substr(0,idx).length() > maxLen)
+//				maxLen = line.substr(0,idx).length();
 		}
 	}
 	

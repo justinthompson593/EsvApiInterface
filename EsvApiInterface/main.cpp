@@ -190,9 +190,9 @@ int main(int argc, const char * argv[]) {
 	
 //	setBookmark("3", "1Cor1");
 //	string bkmk = "lastTuesday";
-	string bkmk = "lastWednesday";
+	string bkmk = "testin";
 	
-//	ESVinterface.setBookmark(bkmk, "1cor3");
+	ESVinterface.setBookmark(bkmk, "heresAnUnreasonablyLongPassageQueryWhichCouldntReferToAnyOneTHing");
 	
 	cout << "Passage for bookmark " << bkmk << ": " << ESVinterface.getBookmark(bkmk) << endl;
 	
