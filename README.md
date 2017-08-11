@@ -91,13 +91,14 @@ Flag | Setting | Next Value
 
 #### Bookmarks
 
-We also have bookmarks...
+We also have bookmarks. In the columns below, we'll assume the Results are what you'd get if you had run each previous Example Use, and in each previous row before. 
 
 Short Flag | Long Flag | Example Use | Result 
 ---------- | --------- | ----------- | ------
 -B | --add-bookmark | `$ EsvApiInterface -B eph5 1` | Saves passage `eph5` with</br>bookmark name `1` in</br>`EsvApi/bookmarks.dat`
--B | | `$ EsvApiInterface -B John1:1-5` | Prompts for bookmark name,</br>say `2`, and saves in</br>`bookmarks.dat` 
+-B | --add-bookmark | `$ EsvApiInterface -B John1:1-5` | Prompts for bookmark name,</br>say `2`, and saves in</br>`bookmarks.dat` 
 -bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>in columns to stdout </br>`\|_Bookmark_\|_Passage_\|`</br>`\|___Name___\|__Query__\|`</br>`\|____1_____\|__eph5___\|`</br>`\|____2_____\|John1:1-5\|`
+-bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1`
 
 ## Examples 
 

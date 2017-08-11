@@ -249,7 +249,7 @@ int main(int argc, const char * argv[]) {
 				bkMkName = argv[i];
 			}
 			else{
-				cout << "Enter bookmark name (on word): ";
+				cout << "Enter a one-word bookmark name for " << psgQry << ": ";
 				cin >> bkMkName;
 			}
 			
@@ -258,15 +258,10 @@ int main(int argc, const char * argv[]) {
 		if( strncmp(argv[i], "-bop", 3) == 0 || strncmp(argv[i], "--bkmk-open-psg", 15) == 0 ){
 			if( i+1 >= argc )	// no following argument?
 				break;			// break --> go to next arg
-			
 			i++;
-			
 			string bkMkName = argv[i];
-			
 			string psg = ESVinterface.getBookmark(bkMkName);
 			ESVinterface.openPassage(psg, saving);
-			
-//			ESVinterface.setBookmark(bkMkName, psgQry);
 		}
 		
 //		// Quiet outputs
