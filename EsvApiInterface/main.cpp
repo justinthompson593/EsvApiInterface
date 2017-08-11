@@ -235,9 +235,11 @@ int main(int argc, const char * argv[]) {
 		if( strncmp(argv[i], "-bm", 3) == 0 || strncmp(argv[i], "--bookmarks", 11) == 0 ){
 			ESVinterface.printBookmarks();
 		}
-		if( strncmp(argv[i], "-B", 3) == 0 || strncmp(argv[i], "--add-bookmark", 14) == 0 ){
+		if( strncmp(argv[i], "-B", 2) == 0 || strncmp(argv[i], "--add-bookmark", 14) == 0 ){
 			if( i+1 >= argc )
-				break;			// break --> go to next arg 
+				break;			// break --> go to next arg
+			
+			i++;
 			
 			string bkMkName = "";
 			string psgQry = argv[i];
@@ -252,6 +254,19 @@ int main(int argc, const char * argv[]) {
 			}
 			
 			ESVinterface.setBookmark(bkMkName, psgQry);
+		}
+		if( strncmp(argv[i], "-bop", 3) == 0 || strncmp(argv[i], "--bkmk-open-psg", 15) == 0 ){
+			if( i+1 >= argc )	// no following argument?
+				break;			// break --> go to next arg
+			
+			i++;
+			
+			string bkMkName = argv[i];
+			
+			string psg = ESVinterface.getBookmark(bkMkName);
+			ESVinterface.openPassage(psg, saving);
+			
+//			ESVinterface.setBookmark(bkMkName, psgQry);
 		}
 		
 //		// Quiet outputs
@@ -362,7 +377,7 @@ int main(int argc, const char * argv[]) {
 			i++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_VERSE_NUMS, stoi(argv[i]));
 		}
-		if( strncmp(argv[i], "-rl", 3) == 0){
+		if( strncmp(argv[i], "-red", 4) == 0){
 			i++;
 			ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_RED_LETTER, stoi(argv[i]));
 		}

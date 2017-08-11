@@ -43,6 +43,8 @@ If your first argument is not a flag, then it is assumed to be a passage query. 
 
 For example, 1st Corinthians chapter 1, verses 1 through 10 would be `1corinthians1:1-10`. Book abbreviations are also acceptable, so `1cor1:10` will work too. An acceptable passage query for Genesis chapters 1 through 3 is `Gen1-3`.  
 
+Most calls to `EsvApiInterface` involve a passage query or some reference to one. 
+
 
 ### Flags
 
@@ -85,7 +87,7 @@ Flag | Setting | Next Value
 -foot | Footnotes | 0 = off / 1 = on  
 -flnk | Footnote Links | 0 = off / 1 = on
 -ref | Passage References | 0 = off / 1 = on
--rl | Red Letter | 0 = off / 1 = on
+-red | Red Letter | 0 = off / 1 = on
 
 #### Bookmarks
 
