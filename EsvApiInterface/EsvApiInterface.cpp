@@ -615,6 +615,98 @@ void EsvApiInterface::saveRand(int ESV_RAND_TYPE, long seed){
 	
 }
 
+string EsvApiInterface::getBookmark(string bookMarkName){
+	string out = "0";
+	
+	char fileName[2048];
+	sprintf(fileName, "%sbookmarks.dat", directory.c_str());
+	ifstream inF(fileName);
+	string line;
+	if(inF.fail()){
+		cout << "\n\nERROR main::getBookmark(string): Can not find " << fileName << endl;
+	}
+	else{
+		while( getline(inF, line) ){
+			size_t idx = line.find_first_of(" ");
+			
+			if( bookMarkName.compare(line.substr(0,idx)) == 0 ){
+				out = line.substr(idx+1);
+			}
+			
+		}
+	}
+	
+	inF.close();
+	
+	return out;
+}
+
+void EsvApiInterface::setBookmark(string bookMarkName, string passageQuery){
+	char fileName[2048];
+	sprintf(fileName, "%sbookmarks.dat", directory.c_str());
+	ofstream outFile;
+	outFile.open(fileName, ios::app);
+	bool overwrite = false;
+	if(outFile.is_open()){
+//		outFile << bookMarkName << " " << passageQuery << endl;
+		string possiblePQ = getBookmark(bookMarkName);
+		if( possiblePQ.compare("0") != 0 ){
+			outFile << bookMarkName << " " << passageQuery << endl;
+		}
+		else{
+			cout << bookMarkName<< " is already a bookmark name for " << possiblePQ << ". Overwrite? (y/n): ";
+			string usrIn;
+			cin >> usrIn;
+			if( usrIn.compare("y") ){
+				overwrite = true;
+			}
+			
+		}
+	}
+	else{
+		cout << "ERROR: No file named " << fileName << endl;
+	}
+	outFile.close();
+	
+	
+	if(overwrite){
+		
+	}
+	
+}
+
+void EsvApiInterface::printBookmarks(){
+	char fileName[2048];
+	sprintf(fileName, "%sbookmarks.dat", directory.c_str());
+	ifstream inF(fileName);
+	string line;
+	if(inF.fail()){
+		cout << "\n\nERROR main::getBookmark(string): Can not find " << fileName << endl;
+	}
+	else{
+		cout << "_____________________________________" << endl;
+		cout << "________Bookmarks____________________" << endl;
+		cout << "____Name____|____Passage" << endl;
+		
+		
+		while( getline(inF, line) ){
+			size_t idx = line.find_first_of(" ");
+			
+			
+			cout << "\t" << line.substr(0,idx);
+			if( line.substr(0,idx).length() < 4 ){
+				for(int i=0; i<(4-line.substr(0,idx).length()); i++)
+					cout << " ";
+			}
+			cout  << "\t|\t" << line.substr(idx+1) << endl;
+			
+		}
+	}
+	
+	inF.close();
+	
+}
+
 
 void EsvApiInterface::printSettings(){
 	

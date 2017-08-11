@@ -168,76 +168,19 @@ void initDefaults(string exeName){
 //	return line.substr(idx+1);
 //}
 
-void printBookmarks(){
-	sprintf(fileName, "%sbookmarks.dat", ESVinterface.getDirectory().c_str());
-	ifstream inF(fileName);
-	string line;
-	if(inF.fail()){
-		cout << "\n\nERROR main::getBookmark(string): Can not find " << fileName << endl;
-	}
-	else{
-		cout << "_____________________________________" << endl;
-		cout << "________Bookmarks____________________" << endl;
-		cout << "____Name____|____Passage" << endl;
-		
-		
-		while( getline(inF, line) ){
-			size_t idx = line.find_first_of(" ");
-			
-			
-			cout << "\t" << line.substr(0,idx);
-			if( line.substr(0,idx).length() < 4 ){
-				for(int i=0; i<(4-line.substr(0,idx).length()); i++)
-					cout << " ";
-			}
-			cout  << "\t|\t" << line.substr(idx+1) << endl;
-			
-		}
-	}
-	
-	inF.close();
-	
-}
+//void printBookmarks(){
+//	
+//}
 
-void setBookmark(string bkmkName, string psgQuery){
-	sprintf(fileName, "%sbookmarks.dat", ESVinterface.getDirectory().c_str());
-	outFile.open(fileName, ios::app);
-	if(outFile.is_open()){
-		outFile << bkmkName << " " << psgQuery << endl;
-	}
-	else{
-		cout << "ERROR: No file named " << fileName << endl;
-	}
-	outFile.close();
-	
-}
+//void setBookmark(string bkmkName, string psgQuery){
+//	
+//}
 
 // Returns passage query
-string getBookmark(string bkmrk){
-	
-	string out = "";
-	
-	sprintf(fileName, "%sbookmarks.dat", ESVinterface.getDirectory().c_str());
-	ifstream inF(fileName);
-	string line;
-	if(inF.fail()){
-		cout << "\n\nERROR main::getBookmark(string): Can not find " << fileName << endl;
-	}
-	else{
-		while( getline(inF, line) ){
-			size_t idx = line.find_first_of(" ");
-			
-			if( bkmrk.compare(line.substr(0,idx)) == 0 ){
-				out = line.substr(idx+1);
-			}
-			
-		}
-	}
-	
-	inF.close();
-	
-	return out;
-}
+//string getBookmark(string bkmrk){
+//	
+//	
+//}
 
 
 int main(int argc, const char * argv[]) {
@@ -246,9 +189,13 @@ int main(int argc, const char * argv[]) {
 	// DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG
 	
 //	setBookmark("3", "1Cor1");
-	string bkmk = "1";
-	cout << "Passage for bookmark " << bkmk << ": " << getBookmark(bkmk) << endl;
-	printBookmarks();
+	string bkmk = "4";
+	
+	ESVinterface.setBookmark(bkmk, "Thessalonians10:10-11");
+	
+	cout << "Passage for bookmark " << bkmk << ": " << ESVinterface.getBookmark(bkmk) << endl;
+	
+	ESVinterface.printBookmarks();
 //	processBookmarkLine("1 morning 1Chr5", "");
 //	processBookmarkLine("24352 evening Mat5:", "");
 	return 91;

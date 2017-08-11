@@ -10,6 +10,7 @@
 #define EsvApiInterface_hpp
 
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
@@ -99,6 +100,12 @@ public:
 	
 	
 	string getCSS();
+	
+	// Bookmarks
+	void printBookmarks();
+	void setBookmark(string bookMarkName, string passageQuery);
+	string getBookmark(string bookMarkName);
+	
 	
 	void printSettings();
 };
