@@ -95,9 +95,7 @@ Short Flag | Long Flag | Example Use | Result
 ---------- | --------- | ----------- | ------
 -B | --add-bookmark | `$ EsvApiInterface -B eph5 1` | Saves passage `eph5` with</br>bookmark name `1` in</br>`EsvApi/bookmarks.dat`
 -B | | `$ EsvApiInterface -B John1:1-5` | Prompts for bookmark name,</br>say `2`, and saves in</br>`bookmarks.dat` 
--bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>to stdout in columns</br>`\|_Bookmark_\|_Passage_\|`</br>`\|___Name___\|__Query__\|`
-												`\|    1     \|  eph5   \|`
-												`\|    2     \|John1:1-5\|`
+-bm | --bookmarks | `$ EsvApiInterface -bm` | Prints your bookmarks </br>to stdout in columns</br>`\|_Bookmark_\|_Passage_\|`</br>`\|___Name___\|__Query__\|` </br>`\|    1     \|  eph5   \|`</br>`\|    2     \|John1:1-5\|`
 ## Examples 
 
 In the following table, we'll use `$ passageQuery flags` as a shorthand for `$ EsvApiInterface passageQuery flags`. So `$ john3 -q -mp3` in the table is short-hand for the `$ EsvApiInterface john3 -q -mp3` you'd have in the command line.
