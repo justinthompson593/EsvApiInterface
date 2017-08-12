@@ -106,8 +106,8 @@ Short Flag | Long Flag | Example Use | Result
 -bsp | --bkmk-save-psg | `$ EsvApiInterface -bsp 1` | Saves Ephesians 5 as </br>eph5.html in your current</br>directory without opening
 -bot | --bkmk-open-txt | `$ EsvApiInterface -bot 2` | Opens John chapter 1</br>verses 1 through 5 as a</br>temporary html file in</br>your default text editor
 -bst | --bkmk-save-txt | `$ EsvApiInterface -bst 1` | Saves Ephesians 5 as</br>eph5.txt in your current</br>directory without opening
--bo3 | --bkmk-open-mp3 | `$ EsvApiInterface -bot 2` | Opens this [link](https://audio.esv.org/hw/43001001-43001005.mp3) to</br>John chapter 1 verses</br>1 through 5 in your</br>default browser
--bs3 | --bkmk-save-mp3 | `$ EsvApiInterface -bst 1` | Saves this [link](https://audio.esv.org/hw/49005001-49005033.mp3) in a</br>file named eph5.mp3 in</br>your current directory</br>without opening	
+-bo3 | --bkmk-open-mp3 | `$ EsvApiInterface -bo3 2` | Opens this [link](https://audio.esv.org/hw/43001001-43001005.mp3) to</br>John chapter 1 verses</br>1 through 5 in your</br>default browser
+-bs3 | --bkmk-save-mp3 | `$ EsvApiInterface -bs3 1` | Saves this [link](https://audio.esv.org/hw/49005001-49005033.mp3) in a</br>file named eph5.mp3 in</br>your current directory</br>without opening	
 
 
 ## Examples 
