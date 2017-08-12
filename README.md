@@ -92,7 +92,7 @@ Flag | Setting | Next Value
 
 #### Bookmarks
 
-We also have bookmarks. In the columns below, we'll assume the Results are what you'd get if you had run each previous Example Use, and in each previous row before. If you'd like to open and save in a given format, text for instance, then put a `-S` flag before the `-bot` (i.e. `$ EsvApiInterface -S -bot myBookmarkName` will open yourBookmarkPassageQuery.txt in your default text editor and save it to your current directory). **Important** if you use any of the bookmark flags below (_except -bc_) they **must** be followed by  
+We also have bookmarks. In the columns below, we'll assume the Results are what you'd get if you had run each previous Example Use, and in each previous row before. If you'd like to open and save in a given format, text for instance, then put a `-S` flag before the `-bot` (i.e. `$ EsvApiInterface -S -bot myBookmarkName` will open yourBookmarkPassageQuery.txt in your default text editor and save it to your current directory). **Important** if you use any of the bookmark flags below (_except -bc and -bm_) they **must** be followed by eithar a passage query, or a bookmark name depending on if the flag is -B, or -b\*\*, respectively.
 
 Short Flag | Long Flag | Example Use | Result 
 ---------- | --------- | ----------- | ------
