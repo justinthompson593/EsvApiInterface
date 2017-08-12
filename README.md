@@ -96,15 +96,15 @@ We also have bookmarks. In the columns below, we'll assume the Results are what 
 
 Short Flag | Long Flag | Example Use | Result 
 ---------- | --------- | ----------- | ------
--B | --add-bookmark | `$ EsvApiInterface -B eph5 1` | Saves passage `eph5` with</br>bookmark name `1` in</br>`EsvApi/bookmarks.dat`
--B | --add-bookmark | `$ EsvApiInterface -B John1:1-5` | Prompts you for the</br>bookmark name,say `2`,</br>and saves both in </br>`bookmarks.dat` 
+-B | --add-bookmark | `$ EsvApiInterface -B eph5 1` | Saves passage `eph5` with</br>bookmark name `1` in</br>EsvApi/bookmarks.dat
+-B | --add-bookmark | `$ EsvApiInterface -B John1:1-5` | Prompts you for the</br>bookmark name,say `2`,</br>and saves both in </br>bookmarks.dat
 -bm | --bookmarks | `$ EsvApiInterface -bm` | Prints<sup>[\[1\]](https://github.com/justinthompson593/EsvApiInterface/#1-actual-stdout-printing-differs-from-what-is-shown-in-the-table-the-_s-are-there-to-easily-keep-spaces-in-markdown)</sup> your bookmarks </br>in columns to stdout </br>`\|_Bookmark_\|__Passage__\|`</br>`\|___Name___\|___Query___\|`</br>`\|____1_____\|___eph5____\|`</br>`\|____2_____\|_John1:1-5_\|`
 -bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5 as a</br>temporary html file in</br>your default browser
 -bsp | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5 as </br>eph5.html in your current</br>directory without opening
 -bot | --bkmk-open-txt | `$ EsvApiInterface -bot 2` | Opens John chapter 1</br>verses 1 through 5 as a</br>temporary html file in</br>your default text editor
 -bst | --bkmk-save-txt | `$ EsvApiInterface -bst 1` | Saves Ephesians 5 as</br>eph5.txt in your current</br>directory without opening
 -bo3 | --bkmk-open-mp3 | `$ EsvApiInterface -bot 2` | Opens this [link](https://audio.esv.org/hw/43001001-43001005.mp3) to</br>John chapter 1 verses</br>1 through 5 in your</br>default browser
--bs3 | --bkmk-save-mp3 | `$ EsvApiInterface -bst 1` | Saves this [link](https://audio.esv.org/hw/49005001-49005033.mp3) in a</br>file named eph5.mp3 in</br>your current directory</br>without opening
+-bs3 | --bkmk-save-mp3 | `$ EsvApiInterface -bst 1` | Saves this [link](https://audio.esv.org/hw/49005001-49005033.mp3) in a</br>file named eph5.mp3 in</br>your current directory</br>without opening	
 
 
 
