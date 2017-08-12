@@ -34,6 +34,14 @@ using namespace std;
 #define ESV_RAND_TYPE_RAND					0
 #define ESV_RAND_TYPE_DAILY					1
 
+#define ESV_RAND_OUTPUT_HTML				1
+#define ESV_RAND_OUTPUT_TEXT				2
+#define ESV_RAND_OUTPUT_MP3					3
+
+#define ESV_BOOKMARK_OUTPUT_HTML			1
+#define ESV_BOOKMARK_OUTPUT_TEXT			2
+#define ESV_BOOKMARK_OUTPUT_MP3 			3
+
 class EsvApiInterface {
 	
 	string directory = "";
@@ -111,8 +119,8 @@ public:
 	void saveSearch(string stringToFind, string bookToSearch="");
 	
 	// FUNCTION: verse  (using &seed= instead of &passage= for random or daily verse)
-	void openRand(int ESV_RAND_TYPE, bool saving, long seed=0);
-	void saveRand(int ESV_RAND_TYPE, long seed=0);
+	void openRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT , bool saving, long seed=0);
+	void saveRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT, long seed=0);
 	
 	
 	string getCSS();
@@ -121,6 +129,7 @@ public:
 	void printBookmarks();
 	void setBookmark(string bookMarkName, string passageQuery);
 	string getBookmark(string bookMarkName);
+	void retrieveBookmark(int ESV_BOOKMARK_OUTPUT, string bookMarkName, int open1_save2_both3);
 	
 	
 	void printSettings();
