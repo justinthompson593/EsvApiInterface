@@ -100,6 +100,7 @@ Short Flag | Long Flag | Example Use | Result
 ---------- | --------- | ----------- | ------
 -B | --add-bookmark | `$ EsvApiInterface -B eph5 1` | Saves passage `eph5` with</br>bookmark name `1` in</br>EsvApi/bookmarks.dat
 -B | --add-bookmark | `$ EsvApiInterface -B John1:1-5` | Prompts you for the</br>bookmark name,say `2`,</br>and saves both in </br>bookmarks.dat
+-B | --add-bookmark | `$ EsvApiInterface -B Gen1 start` | Saves passage `Gen1` with</br>bookmark name `start` in</br>bookmarks.dat
 -bm | --bookmarks | `$ EsvApiInterface -bm` | Prints<sup>[\[1\]](https://github.com/justinthompson593/EsvApiInterface/#1-actual-stdout-printing-differs-from-what-is-shown-in-the-table-the-_s-are-there-to-easily-keep-spaces-in-markdown)</sup> your bookmarks </br>in columns to stdout </br>`\|_Bookmark_\|__Passage__\|`</br>`\|___Name___\|___Query___\|`</br>`\|____1_____\|___eph5____\|`</br>`\|____2_____\|_John1:1-5_\|`
 -bc | --bkmk-copy-text | `$ EsvApiInterface -bc 2` | Copies the formatted text</br>of John chapter 1 verses</br>1 through 5 to your clipboard
 -bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5 as a</br>temporary html file in</br>your default browser
