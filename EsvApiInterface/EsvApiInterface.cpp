@@ -648,9 +648,7 @@ void EsvApiInterface::setBookmark(string bookMarkName, string passageQuery){
 	outFile.open(fileName, ios::app);
 	bool overwrite = false;
 	if(outFile.is_open()){
-//		outFile << bookMarkName << " " << passageQuery << endl;
 		string possiblePQ = getBookmark(bookMarkName);
-		cout << "Testing " << possiblePQ << endl;
 		if( possiblePQ.compare("not_found") == 0 ){
 			outFile << bookMarkName << " " << passageQuery << endl;
 		}
@@ -667,7 +665,6 @@ void EsvApiInterface::setBookmark(string bookMarkName, string passageQuery){
 		cout << "ERROR: No file named " << fileName << endl;
 	}
 	outFile.close();
-	
 	
 	if(overwrite){
 		char tempFile[ESV_BUFFER_SIZE];
@@ -702,9 +699,6 @@ void EsvApiInterface::setBookmark(string bookMarkName, string passageQuery){
 		sprintf(bashOut, "mv %stemp %sbookmarks.dat", directory.c_str(), directory.c_str());
 		system(bashOut);
 	}
-	
-	
-	
 }
 
 void EsvApiInterface::printBookmarks(){
@@ -713,7 +707,6 @@ void EsvApiInterface::printBookmarks(){
 	char fileName[ESV_BUFFER_SIZE];
 	sprintf(fileName, "%sbookmarks.dat", directory.c_str());
 	ifstream inF1(fileName);
-	size_t maxLen = 0;
 	string line;
 	if(inF1.fail()){
 		cout << "\n\nERROR EsvApiInterface::getBookmark(string): Can not find " << fileName << endl;
@@ -763,13 +756,8 @@ void EsvApiInterface::printBookmarks(){
 			}
 		}
 	}
-	
-	
 	inF1.close();
-
-	
 	cout << "|________________________|________________________________|" << endl;
-
 	cout << endl;
 	
 }
