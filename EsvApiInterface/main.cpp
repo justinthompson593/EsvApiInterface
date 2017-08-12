@@ -339,17 +339,6 @@ int main(int argc, const char * argv[]) {
 		}
 		
 		
-//		// Quiet outputs
-//		if( strncmp(argv[i], "-Q", 2) == 0 ){
-//			quietAll = true;
-//		}
-//		if( strncmp(argv[i], "-qp", 3) == 0 ){
-//			quietPassage = true;
-//		}
-//		if( strncmp(argv[i], "-qt", 3) == 0 ){
-//			quietPassage = true;
-//		}
-		
 		// Check for opening
 		if( strncmp(argv[i], "-op", 3) == 0 || strncmp(argv[i], "--open-passage", 14) == 0 ){
 			openPassage = true;
@@ -409,18 +398,7 @@ int main(int argc, const char * argv[]) {
 		if( strncmp(argv[i], "-S", 2) == 0 || strncmp(argv[i], "--save", 6) == 0){
 			saving = true;
 		}
-//
-//		// Output Formats
-//		if( strncmp(argv[i], "-txt", 4) == 0 ){
-//			txtOut = true;
-//		}
-//		if( strncmp(argv[i], "-mp3", 4) == 0 ){
-//			mp3Out = true;
-//		}
-//		if( strncmp(argv[i],   "-q", 2) == 0 ){		// quiet default openPassage
-//			psgQuery = false;
-//		}
-		
+
 		
 		// check for flags to override default settings
 		if( strncmp(argv[i], "-ref", 4) == 0){
@@ -528,50 +506,6 @@ int main(int argc, const char * argv[]) {
 			ESVinterface.copyText(argv[1]);
 	}
 	
-	
-	
-	
-	
-	// Open media
-	//	if( strncmp(argv[1], "-", 1) != 0 ){
-	//		if(psgQuery)
-	//			ESVinterface.openPassage(argv[1], saving);
-	//
-	//		if(txtOut)
-	//			ESVinterface.openText(argv[1], cpyToClip, saving);
-	//
-	//		if(mp3Out)
-	//			ESVinterface.openMp3(argv[1], saving);
-	//
-	//		if(cpyToClip && !txtOut)
-	//			ESVinterface.copyText(argv[1]);
-	//	}
-
-	
-//	if( strncmp(argv[1], "-", 1) != 0 ){
-//
-//		if(psgQuery && (quietAll || quietPassage) && saving)
-//			ESVinterface.savePassage(argv[1]);
-//		else if(psgQuery && !quietAll && !quietPassage)
-//			ESVinterface.openPassage(argv[1], saving);
-//		
-//		if(txtOut && (quietAll || quietText) && saving)
-//			ESVinterface.saveText(argv[1]);
-//		else if(txtOut && !quietAll && !quietText)
-//			ESVinterface.openText(argv[1], cpyToClip, saving);
-//		
-//		if(mp3Out && (quietAll || quietMp3) && saving)
-//			ESVinterface.saveMp3(argv[1]);
-//		else if(txtOut && !quietAll && !quietMp3)
-//			ESVinterface.openMp3(argv[1], saving);
-//
-//	}
-//	
-//	
-//	if(cpyToClip && !txtOut)
-//		ESVinterface.copyText(argv[1]);
-//	
-	
-	
+		
 	return 0;
 }
