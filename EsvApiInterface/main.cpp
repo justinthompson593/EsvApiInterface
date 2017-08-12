@@ -82,6 +82,22 @@ void processDefaultSettings(string line){
 		string val = line.substr(3);
 		ESVinterface.setDefaultAction(0, 2, stoi(val));
 	}
+	else if( strncmp(line.c_str(), "ZF=", 3) == 0 ){
+		string val = line.substr(3);
+		ESVinterface.setDefaultAction(0, 3, stoi(val));
+	}
+	else if( strncmp(line.c_str(), "O1=", 3) == 0 ){
+		string val = line.substr(3);
+		ESVinterface.setDefaultAction(1, 1, stoi(val));
+	}
+	else if( strncmp(line.c_str(), "O2=", 3) == 0 ){
+		string val = line.substr(3);
+		ESVinterface.setDefaultAction(1, 2, stoi(val));
+	}
+	else if( strncmp(line.c_str(), "OF=", 3) == 0 ){
+		string val = line.substr(3);
+		ESVinterface.setDefaultAction(1, 3, stoi(val));
+	}
 }
 
 void initDefaults(string exeName){
@@ -141,7 +157,7 @@ void initDefaults(string exeName){
 		cin >> usrIn;
 		string zeroArg1 = usrIn;
 		string zeroArg2 = "0";
-		if( zeroArg1.compare("1") == 0 ){
+		if( zeroArg1.compare("1") == 0 || zeroArg1.compare("4") == 0 ){
 			cout << "\t1: Open only" << endl;
 			cout << "\t2: Save only" << endl;
 			cout << "\t3: Open and save" << endl;
@@ -149,14 +165,7 @@ void initDefaults(string exeName){
 			cin >> usrIn;
 			zeroArg2 = usrIn;
 		}
-		if( zeroArg1.compare("4") == 0 ){
-			cout << "\t1: Open only" << endl;
-			cout << "\t2: Save only" << endl;
-			cout << "\t3: Open and save" << endl;
-			cout << endl << "\tEnter a number (1-3): ";
-			cin >> usrIn;
-			zeroArg2 = usrIn;
-		}
+
 		
 		outFile << "Z1=" << zeroArg1 << endl;
 		outFile << "Z2=" << zeroArg2 << endl;
@@ -174,10 +183,29 @@ void initDefaults(string exeName){
 		cout << endl << "What should happen when you run EsvApiInterface with one input argument? i.e.\n\t";
 		cout << exeName << " yourArg" << endl << endl;
 		cout << "1: Assume yourArg is a passage query, open and/or save it" << endl;
-		cout << "2: Assume yourArg is a bookmark name, open and/or save the bookmark" << endl;
-		cout << "3: Show bookmarks" << endl;
-		cout << "4: Open and/or save a specific bookmark" << endl;
+		cout << "2: Assume yourArg is a preexisting bookmark name, open and/or save the bookmark" << endl;
+		cout << "3: Assume yourArg is a new passage query to bookmark; you will be prompted for a bookmark name after running" << endl;
+		cout << endl << "Enter a number (1-3):";
+		cin >> usrIn;
+		outFile << "O1=" << usrIn << endl;
+		string o2 = "0";
+		if( usrIn.compare("1") == 0 || usrIn.compare("2") == 0 ){
+			cout << "\t1: Open only" << endl;
+			cout << "\t2: Save only" << endl;
+			cout << "\t3: Open and save" << endl;
+			cout << endl << "\tEnter a number (1-3): ";
+			cin >> usrIn;
+			o2 = usrIn;
+		}
+		outFile << "O2=" << o2 << endl;
 		
+		cout << "What format should the output be when you run with one input argument?" << endl << endl;
+		cout << "1: html" << endl;
+		cout << "2: text" << endl;
+		cout << "3: mp3 link" << endl;
+		cout << endl << "Enter a number (1-3): ";
+		cin >> usrIn;
+		outFile << "OF=" << usrIn << endl;
 	}
 	else{
 		// ?
