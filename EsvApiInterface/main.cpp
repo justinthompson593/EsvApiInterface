@@ -2,7 +2,7 @@
 // If there is nothing above this line, then something went wrong on the install.
 // It should look like the like below, but without the "//" at the begining.
 
-#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
+//#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
 
 //
 //  main.cpp
@@ -98,6 +98,10 @@ void processDefaultSettings(string line){
 		string val = line.substr(3);
 		ESVinterface.setDefaultAction(1, 3, stoi(val));
 	}
+	else if( strncmp(line.c_str(), "BN=", 3) == 0 ){
+		string val = line.substr(3);
+		ESVinterface.setDefaultBookmarkName(val);
+	}
 }
 
 void initDefaults(string exeName){
@@ -164,6 +168,11 @@ void initDefaults(string exeName){
 			cout << endl << "\tEnter a number (1-3): ";
 			cin >> usrIn;
 			zeroArg2 = usrIn;
+		}
+		if( zeroArg1.compare("4") == 0 ){
+			cout << "\tEnter the bookmark name you would like as your default: ";
+			cin >> usrIn;
+			outFile << "BN=" << usrIn << endl;
 		}
 
 		

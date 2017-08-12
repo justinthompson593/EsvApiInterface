@@ -783,27 +783,32 @@ void EsvApiInterface::setDefaultAction(int numArgs, int arg1or2, int ArgVar){
 	
 }
 
+void EsvApiInterface::setDefaultBookmarkName(string newName){
+	defaultBookmarkName = newName;
+}
+
 void EsvApiInterface::runDefaultAction(int numArgs){
 	
 	if(numArgs == 0){
 		switch (zeroArg1) {
-	case 1:{
-				
+	case 1:{							 
+		cout << "1: Open and/or save the daily verse" << endl;
+
 			}
     break;
 	
 	case 2:{
-				
+				cout << "2: Open a random verse" << endl;
 			}
     break;
 				
 	case 3:{
-				
+				cout << "3: Show bookmarks" << endl;
 			}
     break;
 				
 	case 4:{
-				
+				cout << "4: Open and/or save a specific bookmark" << endl;
 			}
     break;
 				

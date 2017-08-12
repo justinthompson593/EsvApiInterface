@@ -67,6 +67,7 @@ class EsvApiInterface {
 	int zeroArg1 = 0;
 	int zeroArg2 = 0;
 	int zeroArgFormat = 0;
+	string defaultBookmarkName = "";
 	
 	// One input arg default action
 	int oneArg1 = 0;
@@ -89,6 +90,7 @@ public:
 	
 	
 	void setDefaultAction(int numArgs, int ArgVar1, int ArgVar2);
+	void setDefaultBookmarkName(string newName);
 	void runDefaultAction(int numArgs);
 	
 	// FUNCTION: passageQuery (with 3 output types)
