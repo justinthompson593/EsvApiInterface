@@ -203,23 +203,17 @@ int main(int argc, const char * argv[]) {
 	string searchString;
 	string searchScope = "";
 	bool saving = false;
-//	bool psgQuery = true;
-//	bool txtOut = false;
-//	bool mp3Out = false;
+	
 	bool cpyToClip = false;
 	
 	bool randomIn = false;
 	int randType = 0;
 	long seedIn = 0;
 	
-//	bool quietAll = false;
-//	bool quietPassage = false;
-//	bool quietText = false;
-//	bool quietMp3 = false;
 	
 	// New idea
 	bool savePassage = false;
-	bool openPassage = true;
+	bool openPassage = false;
 	
 	bool saveText = false;
 	bool openText = false;
