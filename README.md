@@ -117,14 +117,3 @@ Short Flag | Long Flag | Example Use | Result
 ###### \[1\] Actual stdout printing differs from what is shown in the table. The "_"'s are there to easily keep spaces in markdown. 
 
 
-
-<!--In the following table, we'll use `$ passageQuery flags` as a shorthand for `$ EsvApiInterface passageQuery flags`. So `$ john3 -q -mp3` in the table is short-hand for the `$ EsvApiInterface john3 -q -mp3` you'd have in the command line.-->
-<!---->
-<!--Command | Result-->
-<!--------- | -------->
-<!--`$ john3:16 -c` | Opens John chapter 3 verse 16 in html and copies the formatted text to the clipboard-->
-<!--`$ john3 -q -mp3` | Opens audio link to John chapter 3 without opening the html page-->
-<!--`$ john3 -S -mp3` | Saves and opens both john3.html and john3.mp3-->
-
-
- 
