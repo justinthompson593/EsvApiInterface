@@ -2,7 +2,7 @@
 // If there is nothing above this line, then something went wrong on the install.
 // It should look like the like below, but without the "//" at the begining.
 
-//#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
+#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
 
 //
 //  main.cpp
@@ -541,9 +541,9 @@ int main(int argc, const char * argv[]) {
 	
 	if(randomIn){
 		if(randType == ESV_RAND_TYPE_RAND)
-			ESVinterface.openRand(ESV_RAND_TYPE_RAND, saving, seedIn);
+			ESVinterface.openRand(ESV_RAND_TYPE_RAND, 1, saving, seedIn);
 		else
-			ESVinterface.openRand(ESV_RAND_TYPE_DAILY, saving);
+			ESVinterface.openRand(ESV_RAND_TYPE_DAILY, 1, saving);
 			
 	}
 	
