@@ -249,6 +249,10 @@ int main(int argc, const char * argv[]) {
 			
 			ESVinterface.setBookmark(bkMkName, psgQry);
 		}
+		if( strncmp(argv[i], "-bc", 3) == 0 || strncmp(argv[i], "--bkmk-copy-txt", 15) == 0 ){
+			i++;
+			string psg = ESVinterface.getBookmark(argv[i]);
+		}
 		if( strncmp(argv[i], "-bop", 3) == 0 || strncmp(argv[i], "--bkmk-open-psg", 15) == 0 ){
 			if( i+1 >= argc )	// no following argument?
 				break;			// break --> go to next arg
