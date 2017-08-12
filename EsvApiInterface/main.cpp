@@ -2,7 +2,7 @@
 // If there is nothing above this line, then something went wrong on the install.
 // It should look like the like below, but without the "//" at the begining.
 
-#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
+//#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
 
 //
 //  main.cpp
@@ -30,8 +30,6 @@ ofstream outFile;
 char fileName[2048];
 
 
-
-
 bool is_number(const std::string& s){
 	std::string::const_iterator it = s.begin();
 	while (it != s.end() && std::isdigit(*it)) ++it;
@@ -40,8 +38,6 @@ bool is_number(const std::string& s){
 	
 	// From https://stackoverflow.com/questions/4654636/how-to-determine-if-a-string-is-a-number-with-c
 }
-
-
 
 
 void processDefaultSettings(string line){
@@ -96,42 +92,34 @@ void initDefaults(string exeName){
 		cout << endl << endl << "Enter a number: ";
 		string usrIn;
 		cin >> usrIn;
-//		int in = stoi(usrIn);
 		outFile << "CS=" << usrIn << endl;
 		
 		cout << "Verse Numbers      (0=off / 1=on): ";
 		cin >> usrIn;
-//		in = stoi(usrIn);
 		outFile << "VN=" << usrIn << endl;
 		
 		cout << "Headings           (0=off / 1=on): ";
 		cin >> usrIn;
-//		in = stoi(usrIn);
 		outFile << "HD=" << usrIn << endl;
 		
 		cout << "Subheadings        (0=off / 1=on): ";
 		cin >> usrIn;
-//		in = stoi(usrIn);
 		outFile << "SH=" << usrIn << endl;
 		
 		cout << "Footnotes          (0=off / 1=on): ";
 		cin >> usrIn;
-//		in = stoi(usrIn);
 		outFile << "FN=" << usrIn << endl;
 		
 		cout << "Footnote Links     (0=off / 1=on): ";
 		cin >> usrIn;
-//		in = stoi(usrIn);
 		outFile << "FL=" << usrIn << endl;
 		
 		cout << "Passage References (0=off / 1=on): ";
 		cin >> usrIn;
-//		in = stoi(usrIn);
 		outFile << "PR=" << usrIn << endl;
 		
 		cout << "Words of Christ in red  ( 0 / 1 ): ";
 		cin >> usrIn;
-//		in = stoi(usrIn);
 		outFile << "RL=" << usrIn << endl;
 		
 		cout << endl << "What should happen when you run EsvApiInterface with no input arguments? i.e.\n\t$ ";
