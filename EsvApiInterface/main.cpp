@@ -259,12 +259,12 @@ int main(int argc, const char * argv[]) {
 				ESVinterface.copyText(psg);
 			}
 		}
-		if( strncmp(argv[i], "-bop", 3) == 0 || strncmp(argv[i], "--bkmk-open-psg", 15) == 0 ){
+		if( strncmp(argv[i], "-bop", 4) == 0 || strncmp(argv[i], "--bkmk-open-psg", 15) == 0 ){
 			if( i+1 >= argc )	// no following argument?
 				break;			// break --> go to next arg
 			i++;
 			string bkMkName = argv[i];
-			string psg = ESVinterface.getBookmark(bkMkName);
+			string psg = ESVinterface.getBookmark(argv[i]);
 			if( psg.compare("not_found") == 0 ){
 				cout << endl << "Cannot find bookmark name " << argv[i] << endl << endl;
 			}
@@ -272,12 +272,12 @@ int main(int argc, const char * argv[]) {
 				ESVinterface.openPassage(psg, saving);
 			}
 		}
-		if( strncmp(argv[i], "-bsp", 3) == 0 || strncmp(argv[i], "--bkmk-save-psg", 15) == 0 ){
+		if( strncmp(argv[i], "-bsp", 4) == 0 || strncmp(argv[i], "--bkmk-save-psg", 15) == 0 ){
 			if( i+1 >= argc )	// no following argument?
 				break;			// break --> go to next arg
 			i++;
 			string bkMkName = argv[i];
-			string psg = ESVinterface.getBookmark(bkMkName);
+			string psg = ESVinterface.getBookmark(argv[i]);
 			if( psg.compare("not_found") == 0 ){
 				cout << endl << "Cannot find bookmark name " << argv[i] << endl << endl;
 			}
@@ -285,12 +285,12 @@ int main(int argc, const char * argv[]) {
 				ESVinterface.savePassage(psg);
 			}
 		}
-		if( strncmp(argv[i], "-bot", 3) == 0 || strncmp(argv[i], "--bkmk-open-txt", 15) == 0 ){
+		if( strncmp(argv[i], "-bot", 4) == 0 || strncmp(argv[i], "--bkmk-open-txt", 15) == 0 ){
 			if( i+1 >= argc )	// no following argument?
 				break;			// break --> go to next arg
 			i++;
 			string bkMkName = argv[i];
-			string psg = ESVinterface.getBookmark(bkMkName);
+			string psg = ESVinterface.getBookmark(argv[i]);
 			if( psg.compare("not_found") == 0 ){
 				cout << endl << "Cannot find bookmark name " << argv[i] << endl << endl;
 			}
@@ -298,12 +298,12 @@ int main(int argc, const char * argv[]) {
 				ESVinterface.openText(psg, cpyToClip, saving);
 			}
 		}
-		if( strncmp(argv[i], "-bst", 3) == 0 || strncmp(argv[i], "--bkmk-save-txt", 15) == 0 ){
+		if( strncmp(argv[i], "-bst", 4) == 0 || strncmp(argv[i], "--bkmk-save-txt", 15) == 0 ){
 			if( i+1 >= argc )	// no following argument?
 				break;			// break --> go to next arg
 			i++;
 			string bkMkName = argv[i];
-			string psg = ESVinterface.getBookmark(bkMkName);
+			string psg = ESVinterface.getBookmark(argv[i]);
 			if( psg.compare("not_found") == 0 ){
 				cout << endl << "Cannot find bookmark name " << argv[i] << endl << endl;
 			}
@@ -311,12 +311,12 @@ int main(int argc, const char * argv[]) {
 				ESVinterface.saveText(psg, cpyToClip);
 			}
 		}
-		if( strncmp(argv[i], "-bo3", 3) == 0 || strncmp(argv[i], "--bkmk-open-mp3", 15) == 0 ){
+		if( strncmp(argv[i], "-bo3", 4) == 0 || strncmp(argv[i], "--bkmk-open-mp3", 15) == 0 ){
 			if( i+1 >= argc )	// no following argument?
 				break;			// break --> go to next arg
 			i++;
 			string bkMkName = argv[i];
-			string psg = ESVinterface.getBookmark(bkMkName);
+			string psg = ESVinterface.getBookmark(argv[i]);
 			if( psg.compare("not_found") == 0 ){
 				cout << endl << "Cannot find bookmark name " << argv[i] << endl << endl;
 			}
@@ -324,12 +324,12 @@ int main(int argc, const char * argv[]) {
 				ESVinterface.openMp3(psg, saving);
 			}
 		}
-		if( strncmp(argv[i], "-bs3", 3) == 0 || strncmp(argv[i], "--bkmk-save-mp3", 15) == 0 ){
+		if( strncmp(argv[i], "-bs3", 4) == 0 || strncmp(argv[i], "--bkmk-save-mp3", 15) == 0 ){
 			if( i+1 >= argc )	// no following argument?
 				break;			// break --> go to next arg
 			i++;
 			string bkMkName = argv[i];
-			string psg = ESVinterface.getBookmark(bkMkName);
+			string psg = ESVinterface.getBookmark(argv[i]);
 			if( psg.compare("not_found") == 0 ){
 				cout << endl << "Cannot find bookmark name " << argv[i] << endl << endl;
 			}
