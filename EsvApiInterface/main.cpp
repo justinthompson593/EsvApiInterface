@@ -2,7 +2,7 @@
 // If there is nothing above this line, then something went wrong on the install.
 // It should look like the like below, but without the "//" at the begining.
 
-//#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
+#define ESV_PATH "/Users/justinthompson/Cpp/EsvApi/"
 
 //
 //  main.cpp
@@ -74,6 +74,14 @@ void processDefaultSettings(string line){
 		string val = line.substr(3);
 		ESVinterface.setHTMLOutputOptions(ESV_HTML_OPTIONS_RED_LETTER, stoi(val));
 	}
+	else if( strncmp(line.c_str(), "Z1=", 3) == 0 ){
+		string val = line.substr(3);
+		ESVinterface.setDefaultAction(0, 1, stoi(val));
+	}
+	else if( strncmp(line.c_str(), "Z2=", 3) == 0 ){
+		string val = line.substr(3);
+		ESVinterface.setDefaultAction(0, 2, stoi(val));
+	}
 }
 
 void initDefaults(string exeName){
@@ -89,7 +97,7 @@ void initDefaults(string exeName){
 		cout << "1: Default" << endl;
 		cout << "2: Dark" << endl;
 		cout << "3: Custom" << endl;
-		cout << endl << endl << "Enter a number: ";
+		cout << endl << endl << "Enter a number (1-3): ";
 		string usrIn;
 		cin >> usrIn;
 		outFile << "CS=" << usrIn << endl;
@@ -122,13 +130,53 @@ void initDefaults(string exeName){
 		cin >> usrIn;
 		outFile << "RL=" << usrIn << endl;
 		
-		cout << endl << "What should happen when you run EsvApiInterface with no input arguments? i.e.\n\t$ ";
+		cout << endl << "What should happen when you run EsvApiInterface with no input arguments? i.e.\n\t";
 		cout << exeName << endl << endl;
 		cout << "1: Open and/or save the daily verse" << endl;
 		cout << "2: Open a random verse" << endl;
 		cout << "3: Show bookmarks" << endl;
+		cout << "4: Open and/or save a specific bookmark" << endl;
+		
+		cout << endl << "Enter a number (1-4): ";
+		cin >> usrIn;
+		string zeroArg1 = usrIn;
+		string zeroArg2 = "0";
+		if( zeroArg1.compare("1") == 0 ){
+			cout << "\t1: Open only" << endl;
+			cout << "\t2: Save only" << endl;
+			cout << "\t3: Open and save" << endl;
+			cout << endl << "\tEnter a number (1-3): ";
+			cin >> usrIn;
+			zeroArg2 = usrIn;
+		}
+		if( zeroArg1.compare("4") == 0 ){
+			cout << "\t1: Open only" << endl;
+			cout << "\t2: Save only" << endl;
+			cout << "\t3: Open and save" << endl;
+			cout << endl << "\tEnter a number (1-3): ";
+			cin >> usrIn;
+			zeroArg2 = usrIn;
+		}
+		
+		outFile << "Z1=" << zeroArg1 << endl;
+		outFile << "Z2=" << zeroArg2 << endl;
+		cout << "What format should the output be when you run with no input arguments?" << endl << endl;
+		cout << "1: html" << endl;
+		cout << "2: text" << endl;
+		cout << "3: mp3 link" << endl;
+		cout << endl << "Enter a number (1-3): ";
+		cin >> usrIn;
+		outFile << "ZF=" << usrIn << endl;
 		
 		
+		
+		
+		cout << endl << "What should happen when you run EsvApiInterface with one input argument? i.e.\n\t";
+		cout << exeName << " yourArg" << endl << endl;
+		cout << "1: Assume yourArg is a passage query, open and/or save it" << endl;
+		cout << "2: Assume yourArg is a bookmark name, open and/or save the bookmark" << endl;
+		cout << "3: Show bookmarks" << endl;
+		cout << "4: Open and/or save a specific bookmark" << endl;
 		
 	}
 	else{

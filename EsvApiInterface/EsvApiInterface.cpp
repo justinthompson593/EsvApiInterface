@@ -762,6 +762,61 @@ void EsvApiInterface::printBookmarks(){
 	
 }
 
+void EsvApiInterface::setDefaultAction(int numArgs, int arg1or2, int ArgVar){
+	
+	if(numArgs == 0){
+		if( arg1or2 == 1 )
+			zeroArg1 = ArgVar;
+		else if( arg1or2 == 2 )
+			zeroArg2 = ArgVar;
+		else if( arg1or2 == 3 )
+			zeroArgFormat = ArgVar;
+	}
+	else if(numArgs == 1){
+		if( arg1or2 == 1 )
+			oneArg1 = ArgVar;
+		else if( arg1or2 == 2 )
+			oneArg2 = ArgVar;
+		else if( arg1or2 == 3 )
+			oneArgFormat = ArgVar;
+	}
+	
+}
+
+void EsvApiInterface::runDefaultAction(int numArgs){
+	
+	if(numArgs == 0){
+		switch (zeroArg1) {
+	case 1:{
+				
+			}
+    break;
+	
+	case 2:{
+				
+			}
+    break;
+				
+	case 3:{
+				
+			}
+    break;
+				
+	case 4:{
+				
+			}
+    break;
+				
+			default:{}
+    break;
+		}
+	}
+	else if(numArgs == 1){
+		
+	}
+	
+	
+}
 
 void EsvApiInterface::printSettings(){
 	

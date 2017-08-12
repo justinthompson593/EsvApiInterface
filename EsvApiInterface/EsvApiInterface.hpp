@@ -63,6 +63,16 @@ class EsvApiInterface {
 	string audioFormat = "\\&audio-format=mp3";
 	
 	
+	// Zero input arg default action
+	int zeroArg1 = 0;
+	int zeroArg2 = 0;
+	int zeroArgFormat = 0;
+	
+	// One input arg default action
+	int oneArg1 = 0;
+	int oneArg2 = 0;
+	int oneArgFormat = 0;
+	
 	
 public:
 	EsvApiInterface();
@@ -77,6 +87,9 @@ public:
 	void setCssType(int ESV_CSS_OPTIONS_ENUM);
 	void setRedLetter(bool true_false);
 	
+	
+	void setDefaultAction(int numArgs, int ArgVar1, int ArgVar2);
+	void runDefaultAction(int numArgs);
 	
 	// FUNCTION: passageQuery (with 3 output types)
 	void openMp3(string passage, bool save=0);		// output type mp3

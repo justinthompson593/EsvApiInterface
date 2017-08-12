@@ -2,7 +2,7 @@
 
 ## TODO
 
-- [ ] check links to mp3 verses
+- [x] check links to mp3 verses
 - [x] add bookmarks
 - [ ] custom css option
 - [ ] make user defined default outputs for:
