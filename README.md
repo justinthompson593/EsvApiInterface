@@ -2,13 +2,14 @@
 
 ## TODO
 
+- [ ] check links to mp3 verses
 - [ ] add bookmarks
 - [ ] custom css option
 - [ ] make user defined default outputs for:
 	- [ ] no args
 	- [ ] one arg (passageQuery)
 - [ ] link to examples
-- [ ] get main running
+- [x] get main running
 
 
 ## Install 
@@ -100,9 +101,9 @@ Short Flag | Long Flag | Example Use | Result
 -bm | --bookmarks | `$ EsvApiInterface -bm` | Prints<sup>[\[1\]](https://github.com/justinthompson593/EsvApiInterface/#1-actual-stdout-printing-differs-from-what-is-shown-in-the-table-the-_s-are-there-to-easily-keep-spaces-in-markdown)</sup> your bookmarks </br>in columns to stdout </br>`\|_Bookmark_\|__Passage__\|`</br>`\|___Name___\|___Query___\|`</br>`\|____1_____\|___eph5____\|`</br>`\|____2_____\|_John1:1-5_\|`
 -bop | --bkmk-open-psg | `$ EsvApiInterface -bop 1` | Opens Ephesians 5 as a</br>temporary html file in</br>your default browser
 -bsp | --bkmk-save-psg | `$ EsvApiInterface -sop 1` | Saves Ephesians 5 as </br>eph5.html in your current</br>directory without opening
--bot | --bkmk-open-txt | `$ EsvApiInterface -bot 2` | Opens John chapter 1</br>verses 1 through 5 as a</br>temporary html file in</br>your default text</br>editor
+-bot | --bkmk-open-txt | `$ EsvApiInterface -bot 2` | Opens John chapter 1</br>verses 1 through 5 as a</br>temporary html file in</br>your default text editor
 -bst | --bkmk-save-txt | `$ EsvApiInterface -bst 1` | Saves Ephesians 5 as</br>eph5.txt in your current</br>directory without opening
--bo3 | --bkmk-open-mp3 | `$ EsvApiInterface -bot 2` | Opens John chapter 1</br>verses 1 through 5</br>default browser
+-bo3 | --bkmk-open-mp3 | `$ EsvApiInterface -bot 2` | Opens this [link](https://audio.esv.org/hw/43001001-43001005.mp3) to</br>John chapter 1 verses</br>1 through 5</br>default browser
 -bs3 | --bkmk-save-mp3 | `$ EsvApiInterface -bst 1` | Saves Ephesians 5 as</br>eph5.html in your current</br>directory without opening
 
 
