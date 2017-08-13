@@ -34,13 +34,9 @@ using namespace std;
 #define ESV_RAND_TYPE_RAND					0
 #define ESV_RAND_TYPE_DAILY					1
 
-#define ESV_RAND_OUTPUT_HTML				1
-#define ESV_RAND_OUTPUT_TEXT				2
-#define ESV_RAND_OUTPUT_MP3					3
-
-#define ESV_BOOKMARK_OUTPUT_HTML			1
-#define ESV_BOOKMARK_OUTPUT_TEXT			2
-#define ESV_BOOKMARK_OUTPUT_MP3 			3
+#define ESV_OUTPUT_TYPE_HTML				1
+#define ESV_OUTPUT_TYPE_TEXT				2
+#define ESV_OUTPUT_TYPE_MP3					3
 
 class EsvApiInterface {
 	
@@ -99,7 +95,10 @@ public:
 	
 	void setDefaultAction(int numArgs, int ArgVar1, int ArgVar2);
 	void setDefaultBookmarkName(string newName);
-	void runDefaultAction(int numArgs);
+	void runDefaultAction(int numArgs, string firstArg = "");
+	
+	void retrievePassage(int ESV_OUTPUT_TYPE, string passage);
+	
 	
 	// FUNCTION: passageQuery (with 3 output types)
 	void openMp3(string passage, bool save=0);		// output type mp3
@@ -119,8 +118,8 @@ public:
 	void saveSearch(string stringToFind, string bookToSearch="");
 	
 	// FUNCTION: verse  (using &seed= instead of &passage= for random or daily verse)
-	void openRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT , bool saving, long seed=0);
-	void saveRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT, long seed=0);
+	void openRand(int ESV_RAND_TYPE, int ESV_OUTPUT_TYPE , bool saving, long seed=0);
+	void saveRand(int ESV_RAND_TYPE, int ESV_OUTPUT_TYPE, long seed=0);
 	
 	
 	string getCSS();

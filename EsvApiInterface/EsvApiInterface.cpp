@@ -574,11 +574,11 @@ void EsvApiInterface::saveRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT, long seed
 					default:{sprintf(bashOut, "echo \"<LINK REL=StyleSheet HREF=\"http://static.esvmedia.org/legacy/css/text.css\" TYPE=\"text/css\" MEDIA=all>\" > dailyVerse.html && ");}break;}
 			}
 			
-			if( ESV_RAND_OUTPUT == ESV_RAND_OUTPUT_HTML )
+			if( ESV_RAND_OUTPUT == ESV_OUTPUT_TYPE_HTML )
 				sprintf(bashOut, "%secho \"$(curl %sdailyVerse%s%s%s%s%s%s%s%s)\" >> dailyVerse.html", bashOut, url.c_str(), key.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
-			else if( ESV_RAND_OUTPUT == ESV_RAND_OUTPUT_TEXT )
+			else if( ESV_RAND_OUTPUT == ESV_OUTPUT_TYPE_TEXT )
 				sprintf(bashOut, "%secho \"$(curl %sdailyVerse%s%s%s%s%s%s%s%s\\&output-format=plain-text)\" > dailyVerse.txt && rm dailyVerse.html", bashOut, url.c_str(), key.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
-			else if( ESV_RAND_OUTPUT == ESV_RAND_OUTPUT_MP3 )
+			else if( ESV_RAND_OUTPUT == ESV_OUTPUT_TYPE_MP3 )
 				sprintf(bashOut, "%secho \"$(curl %sdailyVerse%s%s%s%s%s%s%s%s\\&output-format=mp3)\" > dailyVerse.mp3 && rm dailyVerse.html", bashOut, url.c_str(), key.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
 			else
 				sprintf(bashOut, "%secho \"$(curl %sdailyVerse%s%s%s%s%s%s%s%s)\" >> dailyVerse.html", bashOut, url.c_str(), key.c_str(), passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
@@ -614,11 +614,11 @@ void EsvApiInterface::saveRand(int ESV_RAND_TYPE, int ESV_RAND_OUTPUT, long seed
 			
 			
 			
-			if( ESV_RAND_OUTPUT == ESV_RAND_OUTPUT_HTML )
+			if( ESV_RAND_OUTPUT == ESV_OUTPUT_TYPE_HTML )
 				sprintf(bashOut, "%secho \"$(curl %sverse%s\\&seed=%ld%s%s%s%s%s%s%s)\" >> randVerse.html", bashOut, url.c_str(), key.c_str(), seed, passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
-			else if( ESV_RAND_OUTPUT == ESV_RAND_OUTPUT_TEXT )
+			else if( ESV_RAND_OUTPUT == ESV_OUTPUT_TYPE_TEXT )
 				sprintf(bashOut, "%secho \"$(curl %sverse%s\\&seed=%ld%s%s%s%s%s%s%s\\&output-format=plain-text)\" > randVerse.txt && rm randVerse.html", bashOut, url.c_str(), key.c_str(), seed, passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
-			else if( ESV_RAND_OUTPUT == ESV_RAND_OUTPUT_MP3 )
+			else if( ESV_RAND_OUTPUT == ESV_OUTPUT_TYPE_MP3 )
 				sprintf(bashOut, "%secho \"$(curl %sverse%s\\&seed=%ld%s%s%s%s%s%s%s\\&output-format=mp3)\" > randVerse.mp3 && rm randVerse.html", bashOut, url.c_str(), key.c_str(), seed, passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
 			else
 				sprintf(bashOut, "%secho \"$(curl %sverse%s\\&seed=%ld%s%s%s%s%s%s%s)\" >> randVerse.html", bashOut, url.c_str(), key.c_str(), seed, passageRefs.c_str(), verseNums.c_str(), footnotes.c_str(), footnoteLinks.c_str(), headings.c_str(), subHeadings.c_str(), audioFormat.c_str());
@@ -731,7 +731,7 @@ void EsvApiInterface::retrieveBookmark(int ESV_BOOKMARK_OUTPUT, string bookMarkN
 	}
 	
 	switch (ESV_BOOKMARK_OUTPUT) {
-  case ESV_BOOKMARK_OUTPUT_HTML:
+  case ESV_OUTPUT_TYPE_HTML:
 		{
 			if( open_save_both == 1 ){
 				openPassage(bkmk, false);
@@ -744,7 +744,7 @@ void EsvApiInterface::retrieveBookmark(int ESV_BOOKMARK_OUTPUT, string bookMarkN
 			}
 		}
 			break;
-  case ESV_BOOKMARK_OUTPUT_TEXT:
+  case ESV_OUTPUT_TYPE_TEXT:
 		{
 			if( open_save_both == 1 ){
 				openText(bkmk, true, false);
@@ -759,7 +759,7 @@ void EsvApiInterface::retrieveBookmark(int ESV_BOOKMARK_OUTPUT, string bookMarkN
 		
 		}
 			break;
-  case ESV_BOOKMARK_OUTPUT_MP3:
+  case ESV_OUTPUT_TYPE_MP3:
 		{
 			if( open_save_both == 1 ){
 				openMp3(bkmk, false);
@@ -869,7 +869,7 @@ void EsvApiInterface::setDefaultBookmarkName(string newName){
 	defaultBookmarkName = newName;
 }
 
-void EsvApiInterface::runDefaultAction(int numArgs){
+void EsvApiInterface::runDefaultAction(int numArgs, string firstArg){
 
 	// No input arguments
 	if( numArgs == 0 ){
@@ -894,17 +894,36 @@ void EsvApiInterface::runDefaultAction(int numArgs){
 		
 		else if( zeroArg1 == 4 ){					// Open and/or save a specific bookmark
 			if( zeroArgFormat == 1 )
-				retrieveBookmark(ESV_BOOKMARK_OUTPUT_HTML, defaultBookmarkName, zeroArg2);
+				retrieveBookmark(ESV_OUTPUT_TYPE_HTML, defaultBookmarkName, zeroArg2);
 			else if( zeroArgFormat == 2 )
-				retrieveBookmark(ESV_BOOKMARK_OUTPUT_TEXT, defaultBookmarkName, zeroArg2);
+				retrieveBookmark(ESV_OUTPUT_TYPE_TEXT, defaultBookmarkName, zeroArg2);
 			else if( zeroArgFormat == 3 )
-				retrieveBookmark(ESV_BOOKMARK_OUTPUT_MP3, defaultBookmarkName, zeroArg2);
+				retrieveBookmark(ESV_OUTPUT_TYPE_MP3, defaultBookmarkName, zeroArg2);
 			
 		}
 	}
 	
 	// One input argument
 	else if( numArgs == 1 ){
+		
+		if( oneArg1 == 1 ){							// firstArg is passage query
+			
+			if( oneArg2 == 1 ){						// open only
+				
+			}
+			else if( oneArg2 == 2 ){				// save only
+				
+			}
+			else if( oneArg2 == 3){					// open and save
+				
+			}
+		}
+		else if( oneArg1 == 2 ){
+			
+		}
+		else if( oneArg1 == 3 ){
+			
+		}
 		
 	}
 }
