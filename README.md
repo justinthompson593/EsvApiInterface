@@ -6,7 +6,7 @@
 - [x] add bookmarks
 - [ ] custom css option
 - [ ] make user defined default outputs for:
-	- [ ] no args
+	- [x] no args
 	- [ ] one arg (passageQuery)
 - [ ] link to examples
 - [x] get main running

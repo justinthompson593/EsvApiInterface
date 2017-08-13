@@ -535,11 +535,11 @@ int main(int argc, const char * argv[]) {
 	
 	
 	
-	if( argc == 1 ){								// no args. Use user's default settings
+	if( argc == 1 ){										// no args. Use user's default settings
 		ESVinterface.runDefaultAction(0);
 		return 2;
 	}
-	else if( argc == 2 ){							// only 1 arg. Use user's default settings
+	else if( argc == 2 && strncmp(argv[1], "-", 1) != 0){	// only 1 nonflag arg. Use user's default settings
 		ESVinterface.runDefaultAction(1, argv[1]);
 		return 3;
 	}
@@ -549,11 +549,11 @@ int main(int argc, const char * argv[]) {
 			ESVinterface.search(searchString, searchScope, saving);
 		
 		if(randomIn){
-			if(randType == ESV_RAND_TYPE_RAND)
-				ESVinterface.openRand(ESV_RAND_TYPE_RAND, 1, saving, seedIn);
-			else
-				ESVinterface.openRand(ESV_RAND_TYPE_DAILY, 1, saving);
-			
+			ESVinterface.openRand(randType, 1, saving, seedIn);
+//			if(randType == ESV_RAND_TYPE_RAND)
+//				ESVinterface.openRand(ESV_RAND_TYPE_RAND, 1, saving, seedIn);
+//			else
+//				ESVinterface.openRand(ESV_RAND_TYPE_DAILY, 1, saving);
 		}
 		
 		if( strncmp(argv[1], "-", 1) != 0 ){// if the first arg is NOT a flag,
