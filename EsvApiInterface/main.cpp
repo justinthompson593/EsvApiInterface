@@ -194,7 +194,7 @@ void initDefaults(string exeName){
 		cout << "1: Assume yourArg is a passage query, open and/or save it" << endl;
 		cout << "2: Assume yourArg is a preexisting bookmark name, open and/or save the bookmark" << endl;
 		cout << "3: Assume yourArg is a new passage query to bookmark; you will be prompted for a bookmark name after running" << endl;
-		cout << endl << "Enter a number (1-3):";
+		cout << endl << "Enter a number (1-3): ";
 		cin >> usrIn;
 		outFile << "O1=" << usrIn << endl;
 		string o2 = "0";
@@ -265,9 +265,13 @@ int main(int argc, const char * argv[]) {
 	}
 	
 	// Check first argument
-	if( strncmp(argv[1], "-init", 5) == 0 ){				// -init flag used in installer
-		return 1;
+	if( argc > 1 ){
+		if( strncmp(argv[1], "-init", 5) == 0 ){				// -init flag used in installer
+			return 1;
+		}
 	}
+	
+	
 	
 	// Command Line Use
 
@@ -530,54 +534,64 @@ int main(int argc, const char * argv[]) {
 	
 	
 	
-	// Check if there's only 1 arg. If so, use user's default settings TODO
-	if( argc == 1 ){
-		
+	
+	if( argc == 1 ){								// no args. Use user's default settings
+		ESVinterface.runDefaultAction(0);
 		return 2;
 	}
-
-	if(searching)
-		ESVinterface.search(searchString, searchScope, saving);
-	
-	if(randomIn){
-		if(randType == ESV_RAND_TYPE_RAND)
-			ESVinterface.openRand(ESV_RAND_TYPE_RAND, 1, saving, seedIn);
-		else
-			ESVinterface.openRand(ESV_RAND_TYPE_DAILY, 1, saving);
+	else if( argc == 2 ){							// only 1 arg. Use user's default settings
+		ESVinterface.runDefaultAction(1, argv[1]);
+		return 3;
+	}
+	else{
+		
+		if(searching)
+			ESVinterface.search(searchString, searchScope, saving);
+		
+		if(randomIn){
+			if(randType == ESV_RAND_TYPE_RAND)
+				ESVinterface.openRand(ESV_RAND_TYPE_RAND, 1, saving, seedIn);
+			else
+				ESVinterface.openRand(ESV_RAND_TYPE_DAILY, 1, saving);
 			
+		}
+		
+		if( strncmp(argv[1], "-", 1) != 0 ){// if the first arg is NOT a flag,
+			// then argv[1] is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
+			
+			// HTML output
+			if( openPassage && savePassage )
+				ESVinterface.openPassage(argv[1], true);
+			else if( openPassage && !savePassage )
+				ESVinterface.openPassage(argv[1], false);
+			else if( !openPassage && savePassage )
+				ESVinterface.savePassage(argv[1]);
+			
+			// Text output
+			if( openText && saveText )
+				ESVinterface.openText(argv[1], cpyToClip, true);
+			else if( openText && !saveText )
+				ESVinterface.openText(argv[1], cpyToClip, false);
+			else if( !openText && saveText )
+				ESVinterface.saveText(argv[1], cpyToClip);
+			
+			// Mp3 output
+			if( openMp3 && saveMp3 )
+				ESVinterface.openMp3(argv[1], true);
+			else if( openMp3 && !saveMp3 )
+				ESVinterface.openMp3(argv[1], false);
+			else if( !openMp3 && saveMp3 )
+				ESVinterface.saveMp3(argv[1]);
+			
+			
+			if( cpyToClip && !openText && !saveText )
+				ESVinterface.copyText(argv[1]);
+		}
 	}
+
 	
-	if( strncmp(argv[1], "-", 1) != 0 ){// if the first arg is NOT a flag,
-		// then argv[1] is the passage query (in format [Num]BookChp:Vrs i.e. 1cor2:3-5)
-		
-		// HTML output
-		if( openPassage && savePassage )
-			ESVinterface.openPassage(argv[1], true);
-		else if( openPassage && !savePassage )
-			ESVinterface.openPassage(argv[1], false);
-		else if( !openPassage && savePassage )
-			ESVinterface.savePassage(argv[1]);
 	
-		// Text output
-		if( openText && saveText )
-			ESVinterface.openText(argv[1], cpyToClip, true);
-		else if( openText && !saveText )
-			ESVinterface.openText(argv[1], cpyToClip, false);
-		else if( !openText && saveText )
-			ESVinterface.saveText(argv[1], cpyToClip);
-		
-		// Mp3 output
-		if( openMp3 && saveMp3 )
-			ESVinterface.openMp3(argv[1], true);
-		else if( openMp3 && !saveMp3 )
-			ESVinterface.openMp3(argv[1], false);
-		else if( !openMp3 && saveMp3 )
-			ESVinterface.saveMp3(argv[1]);
-		
-		
-		if( cpyToClip && !openText && !saveText )
-			ESVinterface.copyText(argv[1]);
-	}
+	
 	
 		
 	return 0;
