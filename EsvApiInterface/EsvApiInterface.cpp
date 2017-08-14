@@ -923,7 +923,10 @@ void EsvApiInterface::runDefaultAction(int numArgs, string firstArg){
 			retrieveBookmark(oneArgFormat, firstArg, oneArg2);
 		}
 		else if( oneArg1 == 3 ){
-			
+			cout << endl << "Enter a bookmark name for " << firstArg << ": ";
+			string uIn;
+			cin >> uIn;
+			setBookmark(uIn, firstArg);
 		}
 		
 	}
