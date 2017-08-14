@@ -2,12 +2,13 @@
 
 ## TODO
 
+- [ ] add search to default one arg options
 - [x] check links to mp3 verses
 - [x] add bookmarks
 - [ ] custom css option
-- [ ] make user defined default outputs for:
+- [x] make user defined default outputs for:
 	- [x] no args
-	- [ ] one arg (passageQuery)
+	- [x] one arg (passageQuery)
 - [ ] link to examples
 - [x] get main running
 
@@ -26,7 +27,7 @@ First open a terminal and `cd` to the directory where you want to install the ex
 curl -o installer.cpp https://raw.githubusercontent.com/justinthompson593/EsvApiInterface/master/Installer/EsvApiInstaller.cpp && g++ installer.cpp -o installer && ./installer && rm -f installer.cpp && rm -f installer
 `
 
-A quick rundown of the code above: we download [EsvApiInstaller.cpp](https://github.com/justinthompson593/EsvApiInterface/blob/master/Installer/EsvApiInstaller.cpp) file as installer.cpp. If you like, you can follow the link to see that this code downloads [these](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/main.cpp) [three](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/EsvApiInterface.cpp) [files](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/EsvApiInterface.hpp) to your computer, and then uses `g++` to turn them into the executable `EsvApiInterface`. It will run the executable and ask you to define your [defaults](). Afterwards, it will remove the downloaded .cpp and .hpp files, leaving all .css files and the executable in the new EsvApi directory. Finally, the installer will add the path to the executable to your `PATH` variable in your bash startup file. 
+A quick rundown of the code above: we download [EsvApiInstaller.cpp](https://github.com/justinthompson593/EsvApiInterface/blob/master/Installer/EsvApiInstaller.cpp) file as installer.cpp. If you like, you can follow the link to see that this code downloads [these](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/main.cpp) [three](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/EsvApiInterface.cpp) [files](https://github.com/justinthompson593/EsvApiInterface/blob/master/EsvApiInterface/EsvApiInterface.hpp) to your computer, and then uses `g++` to turn them into the executable `EsvApiInterface`. It will run the executable and ask you to define your [defaults](https://github.com/justinthompson593/justinthompson593.github.io/blob/master/EsvApiDefaults/defaults.md). Afterwards, it will remove the downloaded .cpp and .hpp files, leaving all .css files and the executable in the new EsvApi directory. Finally, the installer will add the path to the executable to your `PATH` variable in your bash startup file. 
 
 ### Build On Your Own
 
