@@ -893,12 +893,13 @@ void EsvApiInterface::runDefaultAction(int numArgs, string firstArg){
 		}
 		
 		else if( zeroArg1 == 4 ){					// Open and/or save a specific bookmark
-			if( zeroArgFormat == 1 )
-				retrieveBookmark(ESV_OUTPUT_TYPE_HTML, defaultBookmarkName, zeroArg2);
-			else if( zeroArgFormat == 2 )
-				retrieveBookmark(ESV_OUTPUT_TYPE_TEXT, defaultBookmarkName, zeroArg2);
-			else if( zeroArgFormat == 3 )
-				retrieveBookmark(ESV_OUTPUT_TYPE_MP3, defaultBookmarkName, zeroArg2);
+			retrieveBookmark(zeroArgFormat, defaultBookmarkName, zeroArg2);
+//			if( zeroArgFormat == 1 )
+//				retrieveBookmark(ESV_OUTPUT_TYPE_HTML, defaultBookmarkName, zeroArg2);
+//			else if( zeroArgFormat == 2 )
+//				retrieveBookmark(ESV_OUTPUT_TYPE_TEXT, defaultBookmarkName, zeroArg2);
+//			else if( zeroArgFormat == 3 )
+//				retrieveBookmark(ESV_OUTPUT_TYPE_MP3, defaultBookmarkName, zeroArg2);
 			
 		}
 	}
@@ -909,17 +910,17 @@ void EsvApiInterface::runDefaultAction(int numArgs, string firstArg){
 		if( oneArg1 == 1 ){							// firstArg is passage query
 			
 			if( oneArg2 == 1 ){						// open only
-				
+				openPassage(firstArg, false);
 			}
 			else if( oneArg2 == 2 ){				// save only
-				
+				savePassage(firstArg);
 			}
 			else if( oneArg2 == 3){					// open and save
-				
+				openPassage(firstArg, true);
 			}
 		}
 		else if( oneArg1 == 2 ){
-			
+			retrieveBookmark(oneArgFormat, firstArg, oneArg2);
 		}
 		else if( oneArg1 == 3 ){
 			
